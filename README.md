@@ -13,15 +13,17 @@ open the tracker.
 | Section | Contents |
 |---|---|
 | 1–4. Bass, Articulation, Textures, Timbre | Core pattern-writing techniques: octave pumps, ostinatos, chirps, portamento, arps, pseudo-echo, PWM |
-| 5. Modern & Retro Tricks | Supersaw stacks, fake sidechain ducking, growl/hard-sync leads, Reese bass, legato runs, lo-fi beds |
-| 6. Furnace Macro Recipes | How the macro editor really behaves — loop/release points as ADSR, relative vs fixed arps, pitch vs arp macros, wave morphing, macro speed/delay, reusable instrument banks |
-| 7. Percussion & Noise | One-channel noise kits, tonal-channel kicks, periodic vs white noise, fills and risers, sample-layering discipline |
-| 8. Classic Game OST Audits | Technical breakdowns of iconic 8-bit soundtracks |
-| 9. Effect Command Reference | Expanded tracker effect table with practical usage notes |
-| 10. Chip Channel Cheat Sheet | Voices, timbre palette and composing consequences for 2A03, VRC6, FDS, DMG, SN76489, AY, SID, HuC6280, YM2612, YM2151, SCC, Paula |
-| 11. Composition Playbook | Channel budgeting, loop-friendly form, melody writing, harmony under constraint, groove, mixing, tension, workflow, pre-release checklist |
-| 12. Macro Generator | Builds arp/duty macro strings from a chord type and attack transient |
-| 13. Tempo, Tick & Groove Calculator | Converts tick rate / speed / rows-per-beat to BPM, and derives matching `ECxx`, `EDxx`, echo-delay and swing values |
+| 5. Tight-Constraint Craft | Getting a full arrangement out of 3–4 voice chips: compound melody, channel sharing, colour without duty control, Game Boy sweep and wave-channel work, hocket |
+| 6. FM Synthesis | Algorithms, Genesis bass, brass bloom, feedback percussion, operator detune (OPN/OPM/OPL) |
+| 7. Modern & Retro Tricks | Supersaw stacks, fake sidechain ducking, growl/hard-sync leads, Reese bass, legato runs, lo-fi beds |
+| 8. Furnace Macro Recipes | How the macro editor really behaves — loop/release points as ADSR, relative vs fixed arps, pitch vs arp macros, wave morphing, macro speed/delay, reusable instrument banks |
+| 9. Percussion & Noise | One-channel noise kits, tonal-channel kicks, periodic vs white noise, fills and risers, sample-layering discipline |
+| 10. Classic Game OST Audits | 14 composer/game breakdowns — Follin, Kondo, Tanaka, Hubbard, Uematsu, Tel, Yamagishi, Huelsbeck, Sunsoft, González, Wise, Konami, Koshiro |
+| 11. Effect Command Reference | Expanded tracker effect table with practical usage notes |
+| 12. Chip Channel Cheat Sheet | Voices, timbre palette and composing consequences for 2A03, VRC6, FDS, DMG, SN76489, AY, SID, HuC6280, YM2612, YM2151, SCC, Paula |
+| 13. Composition Playbook | Channel budgeting, loop-friendly form, melody writing, harmony under constraint, groove, mixing, tension, workflow, pre-release checklist |
+| 14. Macro Generator | Builds arp/duty macro strings from a chord type and attack transient |
+| 15. Tempo, Tick & Groove Calculator | Converts tick rate / speed / rows-per-beat to BPM, and derives matching `ECxx`, `EDxx`, echo-delay and swing values |
 
 Search and the chip-tag filters work across every card; sections with no
 matching content collapse automatically.

@@ -116,6 +116,11 @@
                 <span>Timbral &amp; PWM Motion</span>
             </a>
 
+            <a href="#cat-minimal" onclick="setActiveNav(this)" class="nav-link flex items-center space-x-3 px-3 py-2.5 rounded-lg text-sm font-medium transition text-gray-400 hover:text-white hover:bg-furnace-700/40">
+                <i class="fa-solid fa-compress text-base w-5 text-center text-teal-400"></i>
+                <span>Tight-Constraint Craft</span>
+            </a>
+
             <a href="#cat-fm" onclick="setActiveNav(this)" class="nav-link flex items-center space-x-3 px-3 py-2.5 rounded-lg text-sm font-medium transition text-gray-400 hover:text-white hover:bg-furnace-700/40">
                 <i class="fa-solid fa-diagram-project text-base w-5 text-center text-yellow-400"></i>
                 <span>FM Synthesis</span>
@@ -202,6 +207,7 @@
                 <button onclick="setFilter('all', this)" class="filter-btn active px-3 py-1.5 rounded-full bg-cyan-500/20 text-cyan-300 border border-cyan-500/40 font-medium hover:bg-cyan-500/30 transition">All</button>
                 <button onclick="setFilter('pulse', this)" class="filter-btn px-3 py-1.5 rounded-full bg-furnace-700 text-gray-300 border border-furnace-600 hover:bg-furnace-600 transition">Pulse / Square</button>
                 <button onclick="setFilter('wave', this)" class="filter-btn px-3 py-1.5 rounded-full bg-furnace-700 text-gray-300 border border-furnace-600 hover:bg-furnace-600 transition">Wave Channel</button>
+                <button onclick="setFilter('minimal', this)" class="filter-btn px-3 py-1.5 rounded-full bg-furnace-700 text-gray-300 border border-furnace-600 hover:bg-furnace-600 transition">3–4 Voice Chips</button>
                 <button onclick="setFilter('fm', this)" class="filter-btn px-3 py-1.5 rounded-full bg-furnace-700 text-gray-300 border border-furnace-600 hover:bg-furnace-600 transition">FM Synth</button>
                 <button onclick="setFilter('noise', this)" class="filter-btn px-3 py-1.5 rounded-full bg-furnace-700 text-gray-300 border border-furnace-600 hover:bg-furnace-600 transition">Noise / Perc</button>
                 <button onclick="setFilter('macro', this)" class="filter-btn px-3 py-1.5 rounded-full bg-furnace-700 text-gray-300 border border-furnace-600 hover:bg-furnace-600 transition">Furnace Macro</button>
@@ -941,6 +947,305 @@ Row | Buzz bass ch | Ch2 lead | Ch3 arp
 
                 </div>
             </section>
+            <!-- CATEGORY: TIGHT-CONSTRAINT CRAFT -->
+            <section id="cat-minimal" class="category-section space-y-6 pt-4">
+                <div class="border-b border-furnace-700 pb-3 flex flex-wrap items-center justify-between gap-3">
+                    <div class="flex items-center space-x-3">
+                        <div class="p-2 bg-teal-500/10 rounded-lg text-teal-400">
+                            <i class="fa-solid fa-compress text-xl"></i>
+                        </div>
+                        <div>
+                            <h2 class="text-xl font-bold text-white">5. Tight-Constraint Craft (3–4 Voices)</h2>
+                            <p class="text-xs text-gray-400">Getting a full arrangement out of NES, Game Boy, SN76489 and AY — where you have fewer channels than parts and no timbre to hide behind.</p>
+                        </div>
+                    </div>
+                    <span class="text-xs font-mono px-2.5 py-1 bg-teal-500/10 text-teal-300 rounded border border-teal-500/30">6 Techniques</span>
+                </div>
+
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+
+                    <div class="pattern-card bg-furnace-800 border border-furnace-700 rounded-xl p-5 hover:border-teal-500/50 transition duration-200" data-tags="minimal pulse compound melody counterpoint register two voices nes composition">
+                        <div class="flex items-start justify-between mb-3">
+                            <div>
+                                <span class="text-xs font-mono text-teal-400 bg-teal-950/60 px-2 py-0.5 rounded border border-teal-800">CONSTRAINT / MELODY</span>
+                                <h3 class="text-lg font-bold text-white mt-1">Compound Melody: Two Voices from One Channel</h3>
+                            </div>
+                            <button onclick="playPattern('compoundMelody')" class="px-3 py-1.5 bg-teal-500/20 text-teal-300 hover:bg-teal-500 hover:text-black rounded-lg text-xs font-semibold flex items-center gap-1.5 transition">
+                                <i class="fa-solid fa-play"></i> Play Sound
+                            </button>
+                        </div>
+                        <p class="text-sm text-gray-300 mb-4">
+                            The Baroque solution, and still the best one: alternate between a high register and a low register within a single line. The ear separates them into two independent voices — a melody and its own bass — because register, not timbre, is what it uses to group notes. One channel, two parts, no tricks.
+                        </p>
+                        <div class="border-b border-furnace-700 flex space-x-4 text-xs font-mono mb-3 overflow-x-auto whitespace-nowrap">
+                            <button onclick="switchCardTab(this, 'concept')" class="tab-btn active text-cyan-400 border-b-2 border-cyan-400 pb-1 font-semibold flex-shrink-0">Concept &amp; Theory</button>
+                            <button onclick="switchCardTab(this, 'pattern')" class="tab-btn text-gray-400 hover:text-white pb-1 flex-shrink-0">Furnace Pattern Snippet</button>
+                            <button onclick="switchCardTab(this, 'recipe')" class="tab-btn text-gray-400 hover:text-white pb-1 flex-shrink-0">Inst Settings</button>
+                        </div>
+                        <div class="tab-content concept-tab text-xs text-gray-300 space-y-2">
+                            <p><strong class="text-teal-300">Gap size:</strong> keep the two registers at least a 6th apart — closer than that and the ear hears one jumpy line instead of two calm ones.</p>
+                            <p><strong class="text-teal-300">Rhythm split:</strong> give the low notes the downbeats and the high notes the offbeats; each "voice" then has its own consistent rhythm.</p>
+                            <p><strong class="text-teal-300">Move slowly below:</strong> the implied bass should change once or twice a bar. It is doing harmonic work, not melodic work.</p>
+                            <p><strong class="text-teal-300">Where it shines:</strong> intros, breakdowns, and any section where you want to drop to one channel and still sound complete.</p>
+                        </div>
+                        <div class="tab-content pattern-tab hidden">
+                            <div class="relative bg-furnace-900 rounded-lg p-3 border border-furnace-700 code-font text-xs text-green-400">
+                                <button onclick="copySnippet(this)" class="absolute top-2 right-2 px-2 py-1 bg-furnace-800 text-gray-400 hover:text-white rounded text-[10px]"><i class="fa-regular fa-copy"></i> Copy</button>
+                                <pre>
+Row | Note | implied voice
+00  | A-2  | bass
+01  | E-4  | melody
+02  | A-2  | bass
+03  | F-4  | melody
+04  | A-2  | bass
+05  | E-4  | melody
+08  | F-2  | bass moves
+09  | D-4  | melody
+10  | F-2  | bass
+11  | C-4  | melody
+   one channel, heard as two parts</pre>
+                            </div>
+                        </div>
+                        <div class="tab-content recipe-tab hidden text-xs text-gray-300 space-y-2">
+                            <p><strong class="text-teal-300">Inst:</strong> short decay so notes do not blur across registers; 25% duty reads clearly in both octaves.</p>
+                            <p><strong class="text-teal-300">Volume:</strong> drop the low notes 2–3 steps. Bass notes want to be felt, not heard as melody.</p>
+                        </div>
+                    </div>
+
+                    <div class="pattern-card bg-furnace-800 border border-furnace-700 rounded-xl p-5 hover:border-teal-500/50 transition duration-200" data-tags="minimal pulse noise channel sharing scheduling bass drums arrangement nes">
+                        <div class="flex items-start justify-between mb-3">
+                            <div>
+                                <span class="text-xs font-mono text-teal-400 bg-teal-950/60 px-2 py-0.5 rounded border border-teal-800">CONSTRAINT / SCHEDULING</span>
+                                <h3 class="text-lg font-bold text-white mt-1">Channel Sharing: One Voice, Two Jobs</h3>
+                            </div>
+                            <button onclick="playPattern('channelShare')" class="px-3 py-1.5 bg-teal-500/20 text-teal-300 hover:bg-teal-500 hover:text-black rounded-lg text-xs font-semibold flex items-center gap-1.5 transition">
+                                <i class="fa-solid fa-play"></i> Play Sound
+                            </button>
+                        </div>
+                        <p class="text-sm text-gray-300 mb-4">
+                            On a 3-voice chip you do not assign channels to parts — you schedule them row by row. The bass channel plays a kick on beat 1, resumes the bass line on the "and", takes a chord stab on beat 3, and returns. The trick is choosing moments where the abandoned part will not be missed.
+                        </p>
+                        <div class="border-b border-furnace-700 flex space-x-4 text-xs font-mono mb-3 overflow-x-auto whitespace-nowrap">
+                            <button onclick="switchCardTab(this, 'concept')" class="tab-btn active text-cyan-400 border-b-2 border-cyan-400 pb-1 font-semibold flex-shrink-0">Concept &amp; Theory</button>
+                            <button onclick="switchCardTab(this, 'pattern')" class="tab-btn text-gray-400 hover:text-white pb-1 flex-shrink-0">Furnace Pattern Snippet</button>
+                            <button onclick="switchCardTab(this, 'recipe')" class="tab-btn text-gray-400 hover:text-white pb-1 flex-shrink-0">Inst Settings</button>
+                        </div>
+                        <div class="tab-content concept-tab text-xs text-gray-300 space-y-2">
+                            <p><strong class="text-teal-300">Safe theft windows:</strong> a bass note is least missed on the beat where the kick lands anyway, because the kick covers the same frequency and moment.</p>
+                            <p><strong class="text-teal-300">Return fast:</strong> steal 1–2 rows, never a whole beat. The ear reconstructs a continuous bass line from surprisingly little.</p>
+                            <p><strong class="text-teal-300">Instrument switching:</strong> each stolen row uses a different instrument number — write the drum instrument to be short enough that it never overruns.</p>
+                            <p><strong class="text-teal-300">C64 heritage:</strong> this is exactly how three SID voices carry a whole band.</p>
+                        </div>
+                        <div class="tab-content pattern-tab hidden">
+                            <div class="relative bg-furnace-900 rounded-lg p-3 border border-furnace-700 code-font text-xs text-green-400">
+                                <button onclick="copySnippet(this)" class="absolute top-2 right-2 px-2 py-1 bg-furnace-800 text-gray-400 hover:text-white rounded text-[10px]"><i class="fa-regular fa-copy"></i> Copy</button>
+                                <pre>
+Row | Ch3 (bass + drums)   | job
+00  | C-4 09 F0 EC2        | kick (drum inst)
+02  | C-2 01 F0 ---        | bass
+03  | C-2 01 D0 ---        | bass
+04  | E-3 0A E0 EC2        | snare
+06  | G-2 01 F0 ---        | bass
+07  | C-2 01 D0 ---        | bass
+08  | C-4 09 F0 EC2        | kick</pre>
+                            </div>
+                        </div>
+                        <div class="tab-content recipe-tab hidden text-xs text-gray-300 space-y-2">
+                            <p><strong class="text-teal-300">Drum insts:</strong> 3–5 ticks long, hard cut. Anything longer eats the next bass note.</p>
+                            <p><strong class="text-teal-300">Write drums last:</strong> lay the bass line down complete, then overwrite the rows you can afford to lose.</p>
+                        </div>
+                    </div>
+
+                    <div class="pattern-card bg-furnace-800 border border-furnace-700 rounded-xl p-5 hover:border-teal-500/50 transition duration-200" data-tags="minimal pulse sn76489 ay master system spectrum timbre vibrato arp volume no duty">
+                        <div class="flex items-start justify-between mb-3">
+                            <div>
+                                <span class="text-xs font-mono text-teal-400 bg-teal-950/60 px-2 py-0.5 rounded border border-teal-800">CONSTRAINT / TIMBRE</span>
+                                <h3 class="text-lg font-bold text-white mt-1">Colour Without Duty Control (SN76489 / AY)</h3>
+                            </div>
+                            <button onclick="playPattern('timbreFromNothing')" class="px-3 py-1.5 bg-teal-500/20 text-teal-300 hover:bg-teal-500 hover:text-black rounded-lg text-xs font-semibold flex items-center gap-1.5 transition">
+                                <i class="fa-solid fa-play"></i> Play Sound
+                            </button>
+                        </div>
+                        <p class="text-sm text-gray-300 mb-4">
+                            The SN76489 gives you one waveform: a 50% square, at 16 volume levels. Every bit of character has to come from what you do to it over time — volume shape, vibrato, arpeggio and note length. This constraint is a good teacher: techniques that survive here work everywhere.
+                        </p>
+                        <div class="border-b border-furnace-700 flex space-x-4 text-xs font-mono mb-3 overflow-x-auto whitespace-nowrap">
+                            <button onclick="switchCardTab(this, 'concept')" class="tab-btn active text-cyan-400 border-b-2 border-cyan-400 pb-1 font-semibold flex-shrink-0">Concept &amp; Theory</button>
+                            <button onclick="switchCardTab(this, 'pattern')" class="tab-btn text-gray-400 hover:text-white pb-1 flex-shrink-0">Furnace Pattern Snippet</button>
+                            <button onclick="switchCardTab(this, 'recipe')" class="tab-btn text-gray-400 hover:text-white pb-1 flex-shrink-0">Inst Settings</button>
+                        </div>
+                        <div class="tab-content concept-tab text-xs text-gray-300 space-y-2">
+                            <p><strong class="text-teal-300">Four knobs only:</strong> volume envelope, vibrato, arpeggio, note length. Every "instrument" you build is a different combination of those four.</p>
+                            <p><strong class="text-teal-300">Envelope is identity:</strong> a 3-step decay reads as a pluck, a flat sustain as an organ, a slow ramp as a pad — same waveform, three instruments.</p>
+                            <p><strong class="text-teal-300">Arp as timbre:</strong> a fast two-note arp a semitone or octave apart is a timbre, not a chord — it thickens a thin square.</p>
+                            <p><strong class="text-teal-300">Vibrato discipline:</strong> delay it. Immediate vibrato on every note is the most common giveaway of an inexperienced chip track.</p>
+                        </div>
+                        <div class="tab-content pattern-tab hidden">
+                            <div class="relative bg-furnace-900 rounded-lg p-3 border border-furnace-700 code-font text-xs text-green-400">
+                                <button onclick="copySnippet(this)" class="absolute top-2 right-2 px-2 py-1 bg-furnace-800 text-gray-400 hover:text-white rounded text-[10px]"><i class="fa-regular fa-copy"></i> Copy</button>
+                                <pre>
+Same 3 notes, three "instruments"
+
+PLUCK    | vol macro F C 8 4 0, no vibrato
+00 | A-4 F0 ---
+04 | C-5 F0 ---
+
+ORGAN    | vol macro F F (loop), EC on release
+08 | A-4 F0 ---
+12 | C-5 F0 ---
+
+SHIMMER  | arp 0 12 (loop), delayed vibrato
+16 | A-4 F0 0C0
+20 | C-5 F0 442</pre>
+                            </div>
+                        </div>
+                        <div class="tab-content recipe-tab hidden text-xs text-gray-300 space-y-2">
+                            <p><strong class="text-teal-300">Volume resolution:</strong> 16 steps is enough for real dynamics — use the volume column on every note, not just accents.</p>
+                            <p><strong class="text-teal-300">Thin is fine:</strong> do not fight the chip's brightness; arrange around it by keeping bass simple and the mix sparse.</p>
+                        </div>
+                    </div>
+
+                    <div class="pattern-card bg-furnace-800 border border-furnace-700 rounded-xl p-5 hover:border-teal-500/50 transition duration-200" data-tags="minimal pulse gameboy hardware sweep pitch kick laser dmg">
+                        <div class="flex items-start justify-between mb-3">
+                            <div>
+                                <span class="text-xs font-mono text-teal-400 bg-teal-950/60 px-2 py-0.5 rounded border border-teal-800">CONSTRAINT / GAME BOY</span>
+                                <h3 class="text-lg font-bold text-white mt-1">The Free Channel: Game Boy Hardware Sweep</h3>
+                            </div>
+                            <button onclick="playPattern('gbSweep')" class="px-3 py-1.5 bg-teal-500/20 text-teal-300 hover:bg-teal-500 hover:text-black rounded-lg text-xs font-semibold flex items-center gap-1.5 transition">
+                                <i class="fa-solid fa-play"></i> Play Sound
+                            </button>
+                        </div>
+                        <p class="text-sm text-gray-300 mb-4">
+                            Game Boy pulse channel 1 has a hardware frequency sweep that channel 2 does not. It runs on its own, costing no macro and no effect column — so it is the natural home for kicks, laser zaps and rising transitions, freeing your macros for actual instruments.
+                        </p>
+                        <div class="border-b border-furnace-700 flex space-x-4 text-xs font-mono mb-3 overflow-x-auto whitespace-nowrap">
+                            <button onclick="switchCardTab(this, 'concept')" class="tab-btn active text-cyan-400 border-b-2 border-cyan-400 pb-1 font-semibold flex-shrink-0">Concept &amp; Theory</button>
+                            <button onclick="switchCardTab(this, 'pattern')" class="tab-btn text-gray-400 hover:text-white pb-1 flex-shrink-0">Furnace Pattern Snippet</button>
+                            <button onclick="switchCardTab(this, 'recipe')" class="tab-btn text-gray-400 hover:text-white pb-1 flex-shrink-0">Inst Settings</button>
+                        </div>
+                        <div class="tab-content concept-tab text-xs text-gray-300 space-y-2">
+                            <p><strong class="text-teal-300">Asymmetric channels:</strong> plan the arrangement around it — put the part that needs sweeps on channel 1 and the steady harmony on channel 2.</p>
+                            <p><strong class="text-teal-300">Kick:</strong> steep downward sweep + short envelope. It is punchier than the noise channel and leaves noise free for hats.</p>
+                            <p><strong class="text-teal-300">Direction matters:</strong> upward sweeps read as risers and power-ups; downward as impacts and drops.</p>
+                            <p><strong class="text-teal-300">Also on GB:</strong> the pulse channels have a hardware volume envelope, so simple decays cost no macro either.</p>
+                        </div>
+                        <div class="tab-content pattern-tab hidden">
+                            <div class="relative bg-furnace-900 rounded-lg p-3 border border-furnace-700 code-font text-xs text-green-400">
+                                <button onclick="copySnippet(this)" class="absolute top-2 right-2 px-2 py-1 bg-furnace-800 text-gray-400 hover:text-white rounded text-[10px]"><i class="fa-regular fa-copy"></i> Copy</button>
+                                <pre>
+Ch1 = sweep channel        Ch4 = noise
+Row | Ch1 (kick inst)  | Ch4 (hats)
+00  | C-4 F0 ---       | C-6 60
+02  | ---              | C-6 40
+04  | ---              | C-6 60
+08  | C-4 F0 ---       | C-6 40
+
+Riser into the chorus (Ch1)
+60  | C-3 A0 ---   (upward sweep inst)
+64  | CHORUS</pre>
+                            </div>
+                        </div>
+                        <div class="tab-content recipe-tab hidden text-xs text-gray-300 space-y-2">
+                            <p><strong class="text-teal-300">Two sweep instruments:</strong> one steep/short (kick), one shallow/long (riser). That covers most needs.</p>
+                            <p><strong class="text-teal-300">Watch the tail:</strong> a sweep that runs to the bottom of the range can silence the channel — cut the note before it gets there.</p>
+                        </div>
+                    </div>
+
+                    <div class="pattern-card bg-furnace-800 border border-furnace-700 rounded-xl p-5 hover:border-teal-500/50 transition duration-200" data-tags="minimal wave gameboy wavetable bass percussion coarse volume dmg">
+                        <div class="flex items-start justify-between mb-3">
+                            <div>
+                                <span class="text-xs font-mono text-teal-400 bg-teal-950/60 px-2 py-0.5 rounded border border-teal-800">CONSTRAINT / WAVE</span>
+                                <h3 class="text-lg font-bold text-white mt-1">Working the 4-Bit Wave Channel</h3>
+                            </div>
+                            <button onclick="playPattern('gbWave')" class="px-3 py-1.5 bg-teal-500/20 text-teal-300 hover:bg-teal-500 hover:text-black rounded-lg text-xs font-semibold flex items-center gap-1.5 transition">
+                                <i class="fa-solid fa-play"></i> Play Sound
+                            </button>
+                        </div>
+                        <p class="text-sm text-gray-300 mb-4">
+                            The Game Boy's wave channel has only four volume settings — off, 25%, 50%, 100% — so you cannot shape it with a smooth envelope. You shape it by editing the wavetable's amplitude instead: quieter tables <em>are</em> your intermediate volumes, and swapping tables is how the channel gets an envelope at all.
+                        </p>
+                        <div class="border-b border-furnace-700 flex space-x-4 text-xs font-mono mb-3 overflow-x-auto whitespace-nowrap">
+                            <button onclick="switchCardTab(this, 'concept')" class="tab-btn active text-cyan-400 border-b-2 border-cyan-400 pb-1 font-semibold flex-shrink-0">Concept &amp; Theory</button>
+                            <button onclick="switchCardTab(this, 'pattern')" class="tab-btn text-gray-400 hover:text-white pb-1 flex-shrink-0">Furnace Pattern Snippet</button>
+                            <button onclick="switchCardTab(this, 'recipe')" class="tab-btn text-gray-400 hover:text-white pb-1 flex-shrink-0">Inst Settings</button>
+                        </div>
+                        <div class="tab-content concept-tab text-xs text-gray-300 space-y-2">
+                            <p><strong class="text-teal-300">Amplitude-scaled bank:</strong> build the same waveform at 5–6 amplitudes and step through them with a wave macro — that is your volume envelope.</p>
+                            <p><strong class="text-teal-300">Bass duty:</strong> the wave channel is the only voice with real low-end weight on a DMG, so it usually plays bass, not lead.</p>
+                            <p><strong class="text-teal-300">Percussion:</strong> a very short wave note with a steep pitch drop makes a kick, letting the noise channel keep the hats.</p>
+                            <p><strong class="text-teal-300">Reload clicks:</strong> changing tables mid-note can pop on hardware — either embrace it as an attack transient or keep swaps on note boundaries.</p>
+                        </div>
+                        <div class="tab-content pattern-tab hidden">
+                            <div class="relative bg-furnace-900 rounded-lg p-3 border border-furnace-700 code-font text-xs text-green-400">
+                                <button onclick="copySnippet(this)" class="absolute top-2 right-2 px-2 py-1 bg-furnace-800 text-gray-400 hover:text-white rounded text-[10px]"><i class="fa-regular fa-copy"></i> Copy</button>
+                                <pre>
+Wavetable bank (same shape, falling amplitude)
+  00 full   01 3/4   02 1/2   03 1/4   04 tiny
+
+Bass inst wave macro: 00 00 01 02 02 03 (loop 03)
+  = a decay envelope the hardware cannot do
+
+Row | Wave ch
+00  | C-2 F0 ---     bass
+04  | C-2 F0 ---
+06  | D#2 F0 ---
+08  | C-3 F0 1004    kick: tiny table + pitch drop</pre>
+                            </div>
+                        </div>
+                        <div class="tab-content recipe-tab hidden text-xs text-gray-300 space-y-2">
+                            <p><strong class="text-teal-300">Keep tables smooth:</strong> 4-bit steps alias badly on bright shapes in high octaves — save the sawtooth-like tables for bass.</p>
+                            <p><strong class="text-teal-300">One bank, whole song:</strong> wave RAM is small; design a bank that serves bass, lead and drums together.</p>
+                        </div>
+                    </div>
+
+                    <div class="pattern-card bg-furnace-800 border border-furnace-700 rounded-xl p-5 hover:border-teal-500/50 transition duration-200" data-tags="minimal pulse hocket interlocking two channel runs arrangement nes gameboy">
+                        <div class="flex items-start justify-between mb-3">
+                            <div>
+                                <span class="text-xs font-mono text-teal-400 bg-teal-950/60 px-2 py-0.5 rounded border border-teal-800">CONSTRAINT / ENSEMBLE</span>
+                                <h3 class="text-lg font-bold text-white mt-1">Hocket: Splitting One Line Across Two Channels</h3>
+                            </div>
+                            <button onclick="playPattern('hocket')" class="px-3 py-1.5 bg-teal-500/20 text-teal-300 hover:bg-teal-500 hover:text-black rounded-lg text-xs font-semibold flex items-center gap-1.5 transition">
+                                <i class="fa-solid fa-play"></i> Play Sound
+                            </button>
+                        </div>
+                        <p class="text-sm text-gray-300 mb-4">
+                            Alternate consecutive notes of a fast run between two channels. Each channel only plays every other note, so each note gets a full envelope and a full release — the run sounds faster and cleaner than one channel could articulate, and you can pan or detune the two halves for width.
+                        </p>
+                        <div class="border-b border-furnace-700 flex space-x-4 text-xs font-mono mb-3 overflow-x-auto whitespace-nowrap">
+                            <button onclick="switchCardTab(this, 'concept')" class="tab-btn active text-cyan-400 border-b-2 border-cyan-400 pb-1 font-semibold flex-shrink-0">Concept &amp; Theory</button>
+                            <button onclick="switchCardTab(this, 'pattern')" class="tab-btn text-gray-400 hover:text-white pb-1 flex-shrink-0">Furnace Pattern Snippet</button>
+                            <button onclick="switchCardTab(this, 'recipe')" class="tab-btn text-gray-400 hover:text-white pb-1 flex-shrink-0">Inst Settings</button>
+                        </div>
+                        <div class="tab-content concept-tab text-xs text-gray-300 space-y-2">
+                            <p><strong class="text-teal-300">Why it sounds better:</strong> notes can overlap slightly, so the line is legato even at 32nd-note speed — impossible on one mono voice.</p>
+                            <p><strong class="text-teal-300">Cost:</strong> two channels for one part, so it belongs in a climax or a fill, not the whole song.</p>
+                            <p><strong class="text-teal-300">Variation:</strong> give the two channels different duties for a "two guitarists" effect, or detune them slightly for chorus.</p>
+                            <p><strong class="text-teal-300">Also useful for:</strong> holding a pad on one channel while the other retriggers — the sustained half covers the gaps in the moving half.</p>
+                        </div>
+                        <div class="tab-content pattern-tab hidden">
+                            <div class="relative bg-furnace-900 rounded-lg p-3 border border-furnace-700 code-font text-xs text-green-400">
+                                <button onclick="copySnippet(this)" class="absolute top-2 right-2 px-2 py-1 bg-furnace-800 text-gray-400 hover:text-white rounded text-[10px]"><i class="fa-regular fa-copy"></i> Copy</button>
+                                <pre>
+Row | Pulse 1 | Pulse 2
+00  | C-5     | ---
+01  | ---     | D-5
+02  | E-5     | ---
+03  | ---     | F-5
+04  | G-5     | ---
+05  | ---     | A-5
+06  | B-5     | ---
+07  | ---     | C-6
+   one run, alternating channels</pre>
+                            </div>
+                        </div>
+                        <div class="tab-content recipe-tab hidden text-xs text-gray-300 space-y-2">
+                            <p><strong class="text-teal-300">Matched instruments:</strong> use the same envelope on both channels or the run will sound uneven.</p>
+                            <p><strong class="text-teal-300">No note cuts:</strong> let each note ring past its row — the overlap is the point.</p>
+                        </div>
+                    </div>
+
+                </div>
+            </section>
             <!-- CATEGORY: FM SYNTHESIS -->
             <section id="cat-fm" class="category-section space-y-6 pt-4">
                 <div class="border-b border-furnace-700 pb-3 flex flex-wrap items-center justify-between gap-3">
@@ -949,7 +1254,7 @@ Row | Buzz bass ch | Ch2 lead | Ch3 arp
                             <i class="fa-solid fa-diagram-project text-xl"></i>
                         </div>
                         <div>
-                            <h2 class="text-xl font-bold text-white">5. FM Synthesis (OPN / OPM / OPL)</h2>
+                            <h2 class="text-xl font-bold text-white">6. FM Synthesis (OPN / OPM / OPL)</h2>
                             <p class="text-xs text-gray-400">Genesis, arcade and MSX FM patch design — algorithms, operator ratios, feedback and the envelopes that make FM sound like an instrument.</p>
                         </div>
                     </div>
@@ -1197,7 +1502,7 @@ Row | Pad
                             <i class="fa-solid fa-wand-magic-sparkles text-xl"></i>
                         </div>
                         <div>
-                            <h2 class="text-xl font-bold text-white">6. Modern &amp; Classic Retro Tricks</h2>
+                            <h2 class="text-xl font-bold text-white">7. Modern &amp; Classic Retro Tricks</h2>
                             <p class="text-xs text-gray-400">Borrowing EDM, synthwave and rock production moves and re-implementing them inside chip constraints.</p>
                         </div>
                     </div>
@@ -1431,7 +1736,7 @@ Row | Noise ch     | Pad ch
                             <i class="fa-solid fa-microchip text-xl"></i>
                         </div>
                         <div>
-                            <h2 class="text-xl font-bold text-white">7. Furnace Macro Recipes</h2>
+                            <h2 class="text-xl font-bold text-white">8. Furnace Macro Recipes</h2>
                             <p class="text-xs text-gray-400">How the instrument macro editor actually behaves — loop/release points, relative vs absolute, macro speed, and ready-made envelopes.</p>
                         </div>
                     </div>
@@ -1703,7 +2008,7 @@ arp   : off</pre>
                             <i class="fa-solid fa-drumstick-bite text-xl"></i>
                         </div>
                         <div>
-                            <h2 class="text-xl font-bold text-white">8. Percussion &amp; Noise Engineering</h2>
+                            <h2 class="text-xl font-bold text-white">9. Percussion &amp; Noise Engineering</h2>
                             <p class="text-xs text-gray-400">Building a convincing drum kit out of one noise channel — plus tonal-channel drums when noise is busy.</p>
                         </div>
                     </div>
@@ -1996,7 +2301,7 @@ Row | Note FX
                             <i class="fa-solid fa-gamepad text-xl"></i>
                         </div>
                         <div>
-                            <h2 class="text-xl font-bold text-white">9. Classic Game OST Audits &amp; Composer Signatures</h2>
+                            <h2 class="text-xl font-bold text-white">10. Classic Game OST Audits &amp; Composer Signatures</h2>
                             <p class="text-xs text-gray-400">Deep-dive technical audits of iconic OSTs — Tim Follin, Koji Kondo, Hirokazu Tanaka, Rob Hubbard, Nobuo Uematsu, Jeroen Tel, Keiji Yamagishi, Chris Huelsbeck, Sunsoft, Alberto González, David Wise, Konami, Yuzo Koshiro.</p>
                         </div>
                     </div>
@@ -2604,7 +2909,7 @@ Row | Ch1 lead | Ch2 echo   | Ch3 bass | Ch4 shared
                             <i class="fa-solid fa-code text-xl"></i>
                         </div>
                         <div>
-                            <h2 class="text-xl font-bold text-white">10. Tracker Command &amp; Effect Reference</h2>
+                            <h2 class="text-xl font-bold text-white">11. Tracker Command &amp; Effect Reference</h2>
                             <p class="text-xs text-gray-400">Standard effect column syntax used in Furnace, DefleMask, FamiTracker, and 0CC.</p>
                         </div>
                     </div>
@@ -2771,7 +3076,7 @@ Row | Ch1 lead | Ch2 echo   | Ch3 bass | Ch4 shared
                             <i class="fa-solid fa-memory text-xl"></i>
                         </div>
                         <div>
-                            <h2 class="text-xl font-bold text-white">11. Chip Channel Cheat Sheet</h2>
+                            <h2 class="text-xl font-bold text-white">12. Chip Channel Cheat Sheet</h2>
                             <p class="text-xs text-gray-400">What you actually get to write with on each system Furnace emulates, and the composing consequence of each limit.</p>
                         </div>
                     </div>
@@ -2878,7 +3183,7 @@ Row | Ch1 lead | Ch2 echo   | Ch3 bass | Ch4 shared
                             <i class="fa-solid fa-feather-pointed text-xl"></i>
                         </div>
                         <div>
-                            <h2 class="text-xl font-bold text-white">12. Composition Playbook</h2>
+                            <h2 class="text-xl font-bold text-white">13. Composition Playbook</h2>
                             <p class="text-xs text-gray-400">Writing the music, not just the sound: channel budgeting, form, melody, harmony, groove and mixing under hard chip limits.</p>
                         </div>
                     </div>
@@ -3062,7 +3367,7 @@ Row | Ch1 lead | Ch2 echo   | Ch3 bass | Ch4 shared
                             <i class="fa-solid fa-calculator text-xl"></i>
                         </div>
                         <div>
-                            <h2 class="text-xl font-bold text-white">13. Interactive Furnace Macro Recipe Calculator</h2>
+                            <h2 class="text-xl font-bold text-white">14. Interactive Furnace Macro Recipe Calculator</h2>
                             <p class="text-xs text-gray-400">Select chord qualities and attack envelopes to generate instant copyable Furnace macro strings.</p>
                         </div>
                     </div>
@@ -3127,7 +3432,7 @@ Row | Ch1 lead | Ch2 echo   | Ch3 bass | Ch4 shared
                             <i class="fa-solid fa-stopwatch-20 text-xl"></i>
                         </div>
                         <div>
-                            <h2 class="text-xl font-bold text-white">14. Tempo, Tick &amp; Groove Calculator</h2>
+                            <h2 class="text-xl font-bold text-white">15. Tempo, Tick &amp; Groove Calculator</h2>
                             <p class="text-xs text-gray-400">Convert between tick rate, speed, rows-per-beat and BPM — then read off the note-cut, delay and echo values that match your grid.</p>
                         </div>
                     </div>
@@ -4349,6 +4654,76 @@ Row | Ch1 lead | Ch2 echo   | Ch3 bass | Ch4 shared
             },
 
             /* --- FM voice: modulator -> carrier frequency, both enveloped --- */
+            compoundMelody: function (now) {
+                // low notes on the beat, high notes off it: the ear splits them into two voices
+                const line = [['A2', 0], ['E4', 1], ['A2', 2], ['F4', 3], ['A2', 4], ['E4', 5],
+                              ['F2', 8], ['D4', 9], ['F2', 10], ['C4', 11], ['F2', 12], ['D4', 13],
+                              ['G2', 16], ['D4', 17], ['G2', 18], ['B3', 19]];
+                line.forEach(([n, row]) => {
+                    const low = nf(n) < nf('C3');
+                    chipNote({ freq: nf(n), start: now + row * 0.115, dur: 0.1,
+                               vol: low ? 0.17 : 0.24, duty: 0.25 });
+                });
+            },
+
+            channelShare: function (now) {
+                // one channel alternating between drum duty and bass duty
+                const row = 0.115;
+                const bass = { 2: 'C2', 3: 'C2', 6: 'G2', 7: 'C2', 10: 'C2', 11: 'C2', 14: 'G2', 15: 'A#1' };
+                [0, 8].forEach(r => {
+                    chipNote({ freq: nf('C4'), start: now + r * row, dur: 0.11, vol: 0.32, duty: 0.5, slideTo: nf('C1') });
+                    chipNoise({ start: now + r * row, dur: 0.09, vol: 0.22, filter: 'lowpass', cutoff: 170, q: 2 });
+                });
+                [4, 12].forEach(r => chipNoise({ start: now + r * row, dur: 0.14, vol: 0.26, filter: 'bandpass', cutoff: 1400, q: 0.8 }));
+                Object.keys(bass).forEach(r => chipNote({ freq: nf(bass[r]), start: now + r * row, dur: 0.09,
+                                                          vol: 0.24, duty: 0.25 }));
+            },
+
+            timbreFromNothing: function (now) {
+                // identical notes, 50% square only - pluck, organ, then arp+vibrato shimmer
+                const mel = ['A4', 'C5', 'E5'];
+                mel.forEach((n, i) => chipNote({ freq: nf(n), start: now + i * 0.2, dur: 0.18, vol: 0.26, duty: 0.5 }));
+                mel.forEach((n, i) => chipNote({ freq: nf(n), start: now + 0.8 + i * 0.2, dur: 0.19,
+                                                 vol: 0.22, duty: 0.5, decay: 'sustain' }));
+                mel.forEach((n, i) => {
+                    const t0 = now + 1.6 + i * 0.3;
+                    for (let k = 0; k < 8; k++) {   // 0/+12 arp = a timbre, not a chord
+                        chipNote({ freq: nf(n) * (k % 2 ? 2 : 1), start: t0 + k * 0.035, dur: 0.033,
+                                   vol: 0.2, duty: 0.5 });
+                    }
+                });
+            },
+
+            gbSweep: function (now) {
+                // hardware sweep channel: kicks, then a riser into the downbeat
+                [0, 0.4, 0.8].forEach(off =>
+                    chipNote({ freq: nf('C4'), start: now + off, dur: 0.15, vol: 0.32, duty: 0.5, slideTo: nf('C1') }));
+                [0.2, 0.6, 1.0].forEach(off => chipNoise({ start: now + off, dur: 0.04, vol: 0.08, filter: 'highpass', cutoff: 7000 }));
+                chipNote({ freq: nf('C3'), start: now + 1.3, dur: 0.55, vol: 0.22, duty: 0.25, slideTo: nf('C5') });
+                chipNote({ freq: nf('C4'), start: now + 1.95, dur: 0.3, vol: 0.3, duty: 0.5, decay: 'sustain' });
+            },
+
+            gbWave: function (now) {
+                // amplitude-scaled "wavetable bank" standing in for a volume envelope
+                const steps = [0.26, 0.26, 0.2, 0.14, 0.14, 0.09];
+                [['C2', 0], ['C2', 0.45], ['D#2', 0.7], ['G2', 0.95]].forEach(([n, off]) => {
+                    steps.forEach((v, i) => chipNote({ freq: nf(n), start: now + off + i * 0.035, dur: 0.04,
+                                                       vol: v, wave: 'triangle' }));
+                });
+                // short wave note + steep drop = kick, leaving noise free for hats
+                [1.35, 1.75].forEach(off =>
+                    chipNote({ freq: nf('C3'), start: now + off, dur: 0.12, vol: 0.3, wave: 'triangle', slideTo: nf('C1') }));
+            },
+
+            hocket: function (now) {
+                const run = ['C5', 'D5', 'E5', 'F5', 'G5', 'A5', 'B5', 'C6', 'B5', 'A5', 'G5', 'F5'];
+                run.forEach((n, i) => {
+                    // alternating channels, notes overlap so the line stays legato
+                    chipNote({ freq: nf(n), start: now + i * 0.075, dur: 0.14, vol: 0.22,
+                               duty: i % 2 ? 0.125 : 0.25, pan: i % 2 ? 0.5 : -0.5, decay: 'sustain' });
+                });
+            },
+
             fmAlgorithms: function (now) {
                 // serial (bright/metallic) -> two stacks -> parallel (organ)
                 fmNote({ freq: nf('C4'), start: now, dur: 0.7, vol: 0.22, ratio: 3.0, index: 700, modDecay: 0.7 });
