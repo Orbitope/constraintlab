@@ -70,10 +70,10 @@
         }
     </style>
 </head>
-<body class="min-h-screen flex flex-col md:flex-row bg-furnace-900 text-gray-200">
+<body class="min-h-screen flex flex-col md:flex-row md:h-screen bg-furnace-900 text-gray-200">
 
     <!-- Sidebar Navigation -->
-    <aside class="w-full md:w-72 bg-furnace-800 border-r border-furnace-700 flex flex-col flex-shrink-0">
+    <aside class="w-full md:w-72 bg-furnace-800 border-b md:border-b-0 border-r border-furnace-700 flex flex-col flex-shrink-0 md:h-screen">
         <!-- Logo Header -->
         <div class="p-5 border-b border-furnace-700 flex items-center justify-between">
             <div class="flex items-center space-x-3">
@@ -85,10 +85,15 @@
                     <p class="text-xs text-cyan-400 font-mono">8-Bit Tracking Bible</p>
                 </div>
             </div>
+            <button id="nav-toggle" onclick="toggleNav()" aria-expanded="false" aria-controls="sidebar-nav"
+                    class="md:hidden px-3 py-2 rounded-lg bg-furnace-700 text-cyan-300 border border-furnace-600 hover:bg-furnace-600 transition"
+                    aria-label="Toggle navigation">
+                <i id="nav-toggle-icon" class="fa-solid fa-bars"></i>
+            </button>
         </div>
 
         <!-- Category Nav Links -->
-        <nav class="flex-1 overflow-y-auto p-4 space-y-1">
+        <nav id="sidebar-nav" class="hidden md:block flex-1 overflow-y-auto p-4 space-y-1 max-h-[60vh] md:max-h-none">
             <div class="text-xs font-semibold text-gray-500 uppercase tracking-wider px-3 mb-2">Categories</div>
 
             <a href="#cat-bass" onclick="setActiveNav(this)" class="nav-link flex items-center space-x-3 px-3 py-2.5 rounded-lg text-sm font-medium transition text-cyan-400 bg-furnace-700/60 border-l-4 border-cyan-400">
@@ -175,10 +180,10 @@
     </aside>
 
     <!-- Main Content Area -->
-    <main class="flex-1 flex flex-col h-screen overflow-hidden bg-furnace-900">
+    <main class="flex-1 flex flex-col md:h-screen md:overflow-hidden bg-furnace-900">
         
         <!-- Top Control Bar -->
-        <header class="p-4 bg-furnace-800 border-b border-furnace-700 flex flex-col sm:flex-row items-center justify-between gap-4 flex-shrink-0">
+        <header class="p-4 bg-furnace-800 border-b border-furnace-700 flex flex-col sm:flex-row items-center justify-between gap-4 flex-shrink-0 sticky top-0 md:static z-20">
             <!-- Search Box -->
             <div class="relative w-full sm:w-96">
                 <i class="fa-solid fa-magnifying-glass absolute left-3.5 top-1/2 -translate-y-1/2 text-gray-400 text-sm"></i>
@@ -199,11 +204,11 @@
         </header>
 
         <!-- Main Scrollable Section Container -->
-        <div id="content-area" class="flex-1 overflow-y-auto p-4 sm:p-6 space-y-10">
+        <div id="content-area" class="flex-1 md:overflow-y-auto p-4 sm:p-6 space-y-10">
 
             <!-- CATEGORY 1: BASSLINES & HARMONY -->
             <section id="cat-bass" class="category-section space-y-6">
-                <div class="border-b border-furnace-700 pb-3 flex items-center justify-between">
+                <div class="border-b border-furnace-700 pb-3 flex flex-wrap items-center justify-between gap-3">
                     <div class="flex items-center space-x-3">
                         <div class="p-2 bg-cyan-500/10 rounded-lg text-cyan-400">
                             <i class="fa-solid fa-drum text-xl"></i>
@@ -234,10 +239,10 @@
                             Root note triggers on the downbeat, jumping up one octave on the offbeat. The upper octave note is hit at slightly reduced volume to maintain driving momentum without overwhelming the mix.
                         </p>
 
-                        <div class="border-b border-furnace-700 flex space-x-4 text-xs font-mono mb-3">
-                            <button onclick="switchCardTab(this, 'concept')" class="tab-btn active text-cyan-400 border-b-2 border-cyan-400 pb-1 font-semibold">Concept & Theory</button>
-                            <button onclick="switchCardTab(this, 'pattern')" class="tab-btn text-gray-400 hover:text-white pb-1">Furnace Pattern Snippet</button>
-                            <button onclick="switchCardTab(this, 'recipe')" class="tab-btn text-gray-400 hover:text-white pb-1">Inst Settings</button>
+                        <div class="border-b border-furnace-700 flex space-x-4 text-xs font-mono mb-3 overflow-x-auto whitespace-nowrap">
+                            <button onclick="switchCardTab(this, 'concept')" class="tab-btn active text-cyan-400 border-b-2 border-cyan-400 pb-1 font-semibold flex-shrink-0">Concept & Theory</button>
+                            <button onclick="switchCardTab(this, 'pattern')" class="tab-btn text-gray-400 hover:text-white pb-1 flex-shrink-0">Furnace Pattern Snippet</button>
+                            <button onclick="switchCardTab(this, 'recipe')" class="tab-btn text-gray-400 hover:text-white pb-1 flex-shrink-0">Inst Settings</button>
                         </div>
 
                         <div class="tab-content concept-tab text-xs text-gray-300 space-y-2">
@@ -285,10 +290,10 @@ Row | Note | Vol | FX
                             Punches the low root note on Beat 1, then bounces onto intermediate chord degrees (minor or major 3rd/5th) in staccato bursts. Highly effective for gothic or high-tension action tracks.
                         </p>
 
-                        <div class="border-b border-furnace-700 flex space-x-4 text-xs font-mono mb-3">
-                            <button onclick="switchCardTab(this, 'concept')" class="tab-btn active text-cyan-400 border-b-2 border-cyan-400 pb-1 font-semibold">Concept & Theory</button>
-                            <button onclick="switchCardTab(this, 'pattern')" class="tab-btn text-gray-400 hover:text-white pb-1">Furnace Pattern Snippet</button>
-                            <button onclick="switchCardTab(this, 'recipe')" class="tab-btn text-gray-400 hover:text-white pb-1">Inst Settings</button>
+                        <div class="border-b border-furnace-700 flex space-x-4 text-xs font-mono mb-3 overflow-x-auto whitespace-nowrap">
+                            <button onclick="switchCardTab(this, 'concept')" class="tab-btn active text-cyan-400 border-b-2 border-cyan-400 pb-1 font-semibold flex-shrink-0">Concept & Theory</button>
+                            <button onclick="switchCardTab(this, 'pattern')" class="tab-btn text-gray-400 hover:text-white pb-1 flex-shrink-0">Furnace Pattern Snippet</button>
+                            <button onclick="switchCardTab(this, 'recipe')" class="tab-btn text-gray-400 hover:text-white pb-1 flex-shrink-0">Inst Settings</button>
                         </div>
 
                         <div class="tab-content concept-tab text-xs text-gray-300 space-y-2">
@@ -332,10 +337,10 @@ Row | Note | Vol | FX
                             Encodes a fast 3-step cyclic arpeggio directly inside the instrument's macro sequence. When you press a single note in the tracker pattern, it outputs a rapid walking triad bassline automatically.
                         </p>
 
-                        <div class="border-b border-furnace-700 flex space-x-4 text-xs font-mono mb-3">
-                            <button onclick="switchCardTab(this, 'concept')" class="tab-btn active text-cyan-400 border-b-2 border-cyan-400 pb-1 font-semibold">Concept & Theory</button>
-                            <button onclick="switchCardTab(this, 'pattern')" class="tab-btn text-gray-400 hover:text-white pb-1">Furnace Pattern Snippet</button>
-                            <button onclick="switchCardTab(this, 'recipe')" class="tab-btn text-gray-400 hover:text-white pb-1">Inst Settings</button>
+                        <div class="border-b border-furnace-700 flex space-x-4 text-xs font-mono mb-3 overflow-x-auto whitespace-nowrap">
+                            <button onclick="switchCardTab(this, 'concept')" class="tab-btn active text-cyan-400 border-b-2 border-cyan-400 pb-1 font-semibold flex-shrink-0">Concept & Theory</button>
+                            <button onclick="switchCardTab(this, 'pattern')" class="tab-btn text-gray-400 hover:text-white pb-1 flex-shrink-0">Furnace Pattern Snippet</button>
+                            <button onclick="switchCardTab(this, 'recipe')" class="tab-btn text-gray-400 hover:text-white pb-1 flex-shrink-0">Inst Settings</button>
                         </div>
 
                         <div class="tab-content concept-tab text-xs text-gray-300 space-y-2">
@@ -377,9 +382,9 @@ Row | Note | Inst | Vol
                             Heavy metal 16th-note triple drive adapted to 8-bit tracking. The first note sustains slightly while trailing notes are choked with note cuts (`ECx`).
                         </p>
 
-                        <div class="border-b border-furnace-700 flex space-x-4 text-xs font-mono mb-3">
-                            <button onclick="switchCardTab(this, 'concept')" class="tab-btn active text-cyan-400 border-b-2 border-cyan-400 pb-1 font-semibold">Concept & Theory</button>
-                            <button onclick="switchCardTab(this, 'pattern')" class="tab-btn text-gray-400 hover:text-white pb-1">Furnace Pattern Snippet</button>
+                        <div class="border-b border-furnace-700 flex space-x-4 text-xs font-mono mb-3 overflow-x-auto whitespace-nowrap">
+                            <button onclick="switchCardTab(this, 'concept')" class="tab-btn active text-cyan-400 border-b-2 border-cyan-400 pb-1 font-semibold flex-shrink-0">Concept & Theory</button>
+                            <button onclick="switchCardTab(this, 'pattern')" class="tab-btn text-gray-400 hover:text-white pb-1 flex-shrink-0">Furnace Pattern Snippet</button>
                         </div>
 
                         <div class="tab-content concept-tab text-xs text-gray-300 space-y-2">
@@ -407,7 +412,7 @@ Row | Note | Vol | FX
 
             <!-- CATEGORY 2: NOTE ARTICULATIONS & TRANSIENTS -->
             <section id="cat-articulation" class="category-section space-y-6 pt-4">
-                <div class="border-b border-furnace-700 pb-3 flex items-center justify-between">
+                <div class="border-b border-furnace-700 pb-3 flex flex-wrap items-center justify-between gap-3">
                     <div class="flex items-center space-x-3">
                         <div class="p-2 bg-yellow-500/10 rounded-lg text-yellow-400">
                             <i class="fa-solid fa-bolt text-xl"></i>
@@ -438,9 +443,9 @@ Row | Note | Vol | FX
                             Emulates physical instrument pick/hammer transients. The pitch starts 12–24 semitones higher for 1–2 ticks before snapping down to the target pitch, paired with a thin duty cycle on tick 0.
                         </p>
 
-                        <div class="border-b border-furnace-700 flex space-x-4 text-xs font-mono mb-3">
+                        <div class="border-b border-furnace-700 flex space-x-4 text-xs font-mono mb-3 overflow-x-auto whitespace-nowrap">
                             <button onclick="switchCardTab(this, 'concept')" class="tab-btn active text-yellow-400 border-b-2 border-yellow-400 pb-1 font-semibold">Concept & Theory</button>
-                            <button onclick="switchCardTab(this, 'recipe')" class="tab-btn text-gray-400 hover:text-white pb-1">Furnace Macro Recipe</button>
+                            <button onclick="switchCardTab(this, 'recipe')" class="tab-btn text-gray-400 hover:text-white pb-1 flex-shrink-0">Furnace Macro Recipe</button>
                         </div>
 
                         <div class="tab-content concept-tab text-xs text-gray-300 space-y-2">
@@ -473,7 +478,7 @@ Row | Note | Vol | FX
                             Glides pitch smoothly to target notes without resetting the volume envelope or phase. Essential for vocal-style leads, flute emulation, and bluesy pitch bends.
                         </p>
 
-                        <div class="border-b border-furnace-700 flex space-x-4 text-xs font-mono mb-3">
+                        <div class="border-b border-furnace-700 flex space-x-4 text-xs font-mono mb-3 overflow-x-auto whitespace-nowrap">
                             <button onclick="switchCardTab(this, 'pattern')" class="tab-btn active text-yellow-400 border-b-2 border-yellow-400 pb-1 font-semibold">Furnace Pattern Snippet</button>
                         </div>
 
@@ -506,7 +511,7 @@ Row | Note | Vol | FX
                             Starts 1–2 semitones flat and snaps rapidly into the true pitch within 20–40 milliseconds. Adds human warmth and expressive soul to melody notes.
                         </p>
 
-                        <div class="border-b border-furnace-700 flex space-x-4 text-xs font-mono mb-3">
+                        <div class="border-b border-furnace-700 flex space-x-4 text-xs font-mono mb-3 overflow-x-auto whitespace-nowrap">
                             <button onclick="switchCardTab(this, 'recipe')" class="tab-btn active text-yellow-400 border-b-2 border-yellow-400 pb-1 font-semibold">Macro Settings</button>
                         </div>
 
@@ -523,7 +528,7 @@ Row | Note | Vol | FX
 
             <!-- CATEGORY 3: MELODIC TEXTURES & PSEUDO-POLYPHONY -->
             <section id="cat-texture" class="category-section space-y-6 pt-4">
-                <div class="border-b border-furnace-700 pb-3 flex items-center justify-between">
+                <div class="border-b border-furnace-700 pb-3 flex flex-wrap items-center justify-between gap-3">
                     <div class="flex items-center space-x-3">
                         <div class="p-2 bg-purple-500/10 rounded-lg text-purple-400">
                             <i class="fa-solid fa-layer-group text-xl"></i>
@@ -554,9 +559,9 @@ Row | Note | Vol | FX
                             Cycles pitch rapidly between 3 or 4 notes every tick (60 Hz). Due to human ear perception thresholds, this sounds like a shimmering, fully voiced harmonic chord on a single monophonic channel.
                         </p>
 
-                        <div class="border-b border-furnace-700 flex space-x-4 text-xs font-mono mb-3">
+                        <div class="border-b border-furnace-700 flex space-x-4 text-xs font-mono mb-3 overflow-x-auto whitespace-nowrap">
                             <button onclick="switchCardTab(this, 'concept')" class="tab-btn active text-purple-400 border-b-2 border-purple-400 pb-1 font-semibold">Common Chord Intervals</button>
-                            <button onclick="switchCardTab(this, 'pattern')" class="tab-btn text-gray-400 hover:text-white pb-1">Furnace Command (`0xy`)</button>
+                            <button onclick="switchCardTab(this, 'pattern')" class="tab-btn text-gray-400 hover:text-white pb-1 flex-shrink-0">Furnace Command (`0xy`)</button>
                         </div>
 
                         <div class="tab-content concept-tab text-xs text-gray-300 space-y-2">
@@ -595,7 +600,7 @@ Row | Note | Vol | FX
                             Simulates delay/reverb on a single channel by placing quieter "ghost notes" 2–3 rows after the main melody note, trimming long notes short to prevent overlap.
                         </p>
 
-                        <div class="border-b border-furnace-700 flex space-x-4 text-xs font-mono mb-3">
+                        <div class="border-b border-furnace-700 flex space-x-4 text-xs font-mono mb-3 overflow-x-auto whitespace-nowrap">
                             <button onclick="switchCardTab(this, 'pattern')" class="tab-btn active text-purple-400 border-b-2 border-purple-400 pb-1 font-semibold">Furnace Pattern Snippet</button>
                         </div>
 
@@ -629,7 +634,7 @@ Row | Note | Vol | FX
                             Routes the melody identically to Pulse 1 and Pulse 2, but applies micro detuning (`E5x` or fine-tune) and opposing duty cycles (25% vs 50%) to produce a lush, warm, phase-shifting chorus.
                         </p>
 
-                        <div class="border-b border-furnace-700 flex space-x-4 text-xs font-mono mb-3">
+                        <div class="border-b border-furnace-700 flex space-x-4 text-xs font-mono mb-3 overflow-x-auto whitespace-nowrap">
                             <button onclick="switchCardTab(this, 'concept')" class="tab-btn active text-purple-400 border-b-2 border-purple-400 pb-1 font-semibold">Channel Setup</button>
                         </div>
 
@@ -644,7 +649,7 @@ Row | Note | Vol | FX
 
             <!-- CATEGORY 4: TIMBRAL MODULATION & HARDWARE QUIRKS -->
             <section id="cat-timbre" class="category-section space-y-6 pt-4">
-                <div class="border-b border-furnace-700 pb-3 flex items-center justify-between">
+                <div class="border-b border-furnace-700 pb-3 flex flex-wrap items-center justify-between gap-3">
                     <div class="flex items-center space-x-3">
                         <div class="p-2 bg-emerald-500/10 rounded-lg text-emerald-400">
                             <i class="fa-solid fa-sliders text-xl"></i>
@@ -675,7 +680,7 @@ Row | Note | Vol | FX
                             Cycles duty cycles dynamically in an automated sequence to produce an organic acoustic "phasing" or "flanging" effect over sustained notes.
                         </p>
 
-                        <div class="border-b border-furnace-700 flex space-x-4 text-xs font-mono mb-3">
+                        <div class="border-b border-furnace-700 flex space-x-4 text-xs font-mono mb-3 overflow-x-auto whitespace-nowrap">
                             <button onclick="switchCardTab(this, 'recipe')" class="tab-btn active text-emerald-400 border-b-2 border-emerald-400 pb-1 font-semibold">Duty Macro Recipe</button>
                         </div>
 
@@ -704,7 +709,7 @@ Row | Note | Vol | FX
                             Rapidly alternates volume levels (`F` vs `B`) and pitch micro-offsets every 60 Hz frame. Gives square-wave lead lines aggressive overdrive and grit.
                         </p>
 
-                        <div class="border-b border-furnace-700 flex space-x-4 text-xs font-mono mb-3">
+                        <div class="border-b border-furnace-700 flex space-x-4 text-xs font-mono mb-3 overflow-x-auto whitespace-nowrap">
                             <button onclick="switchCardTab(this, 'recipe')" class="tab-btn active text-emerald-400 border-b-2 border-emerald-400 pb-1 font-semibold">Macro Settings</button>
                         </div>
 
@@ -720,7 +725,7 @@ Row | Note | Vol | FX
             </section>
             <!-- CATEGORY 5: MODERN & CLASSIC RETRO TRICKS -->
             <section id="cat-modern-retro" class="category-section space-y-6 pt-4">
-                <div class="border-b border-furnace-700 pb-3 flex items-center justify-between">
+                <div class="border-b border-furnace-700 pb-3 flex flex-wrap items-center justify-between gap-3">
                     <div class="flex items-center space-x-3">
                         <div class="p-2 bg-red-500/10 rounded-lg text-red-400">
                             <i class="fa-solid fa-wand-magic-sparkles text-xl"></i>
@@ -749,10 +754,10 @@ Row | Note | Vol | FX
                         <p class="text-sm text-gray-300 mb-4">
                             Three or more channels play the same line, each detuned by a few cents in opposite directions. The slow phase drift between them produces the wide, shimmering trance lead that a single chip voice physically cannot make.
                         </p>
-                        <div class="border-b border-furnace-700 flex space-x-4 text-xs font-mono mb-3">
-                            <button onclick="switchCardTab(this, 'concept')" class="tab-btn active text-cyan-400 border-b-2 border-cyan-400 pb-1 font-semibold">Concept &amp; Theory</button>
-                            <button onclick="switchCardTab(this, 'pattern')" class="tab-btn text-gray-400 hover:text-white pb-1">Furnace Pattern Snippet</button>
-                            <button onclick="switchCardTab(this, 'recipe')" class="tab-btn text-gray-400 hover:text-white pb-1">Inst Settings</button>
+                        <div class="border-b border-furnace-700 flex space-x-4 text-xs font-mono mb-3 overflow-x-auto whitespace-nowrap">
+                            <button onclick="switchCardTab(this, 'concept')" class="tab-btn active text-cyan-400 border-b-2 border-cyan-400 pb-1 font-semibold flex-shrink-0">Concept &amp; Theory</button>
+                            <button onclick="switchCardTab(this, 'pattern')" class="tab-btn text-gray-400 hover:text-white pb-1 flex-shrink-0">Furnace Pattern Snippet</button>
+                            <button onclick="switchCardTab(this, 'recipe')" class="tab-btn text-gray-400 hover:text-white pb-1 flex-shrink-0">Inst Settings</button>
                         </div>
                         <div class="tab-content concept-tab text-xs text-gray-300 space-y-2">
                             <p><strong class="text-red-300">Detune spread:</strong> keep it small — <code class="bg-furnace-900 px-1.5 py-0.5 rounded text-amber-300 code-font">E5 80</code> is centre, so try 7C / 80 / 84. Wider than ±8 and it reads as "out of tune" rather than "wide".</p>
@@ -792,10 +797,10 @@ Row | Ch1        | Ch2        | Ch3
                         <p class="text-sm text-gray-300 mb-4">
                             There is no compressor on a chip, so you write the ducking by hand: on every kick row, drop the pad/bass volume to near zero and ramp it back over the next 4–6 rows. The result is the classic four-on-the-floor breathing motion.
                         </p>
-                        <div class="border-b border-furnace-700 flex space-x-4 text-xs font-mono mb-3">
-                            <button onclick="switchCardTab(this, 'concept')" class="tab-btn active text-cyan-400 border-b-2 border-cyan-400 pb-1 font-semibold">Concept &amp; Theory</button>
-                            <button onclick="switchCardTab(this, 'pattern')" class="tab-btn text-gray-400 hover:text-white pb-1">Furnace Pattern Snippet</button>
-                            <button onclick="switchCardTab(this, 'recipe')" class="tab-btn text-gray-400 hover:text-white pb-1">Inst Settings</button>
+                        <div class="border-b border-furnace-700 flex space-x-4 text-xs font-mono mb-3 overflow-x-auto whitespace-nowrap">
+                            <button onclick="switchCardTab(this, 'concept')" class="tab-btn active text-cyan-400 border-b-2 border-cyan-400 pb-1 font-semibold flex-shrink-0">Concept &amp; Theory</button>
+                            <button onclick="switchCardTab(this, 'pattern')" class="tab-btn text-gray-400 hover:text-white pb-1 flex-shrink-0">Furnace Pattern Snippet</button>
+                            <button onclick="switchCardTab(this, 'recipe')" class="tab-btn text-gray-400 hover:text-white pb-1 flex-shrink-0">Inst Settings</button>
                         </div>
                         <div class="tab-content concept-tab text-xs text-gray-300 space-y-2">
                             <p><strong class="text-red-300">Two ways to write it:</strong> volume column steps per row (explicit, editable), or a volume macro on the pad instrument with a loop the length of one beat (automatic, but locked to note retriggers).</p>
@@ -838,10 +843,10 @@ Row | Pad ch      | Noise ch (kick)
                         <p class="text-sm text-gray-300 mb-4">
                             A fast, deep pitch macro (or a tight <code class="text-amber-300 code-font">4xy</code> vibrato at high speed) modulates the note faster than the ear tracks pitch, so it hears timbre instead — a metallic, aggressive growl close to oscillator hard-sync.
                         </p>
-                        <div class="border-b border-furnace-700 flex space-x-4 text-xs font-mono mb-3">
-                            <button onclick="switchCardTab(this, 'concept')" class="tab-btn active text-cyan-400 border-b-2 border-cyan-400 pb-1 font-semibold">Concept &amp; Theory</button>
-                            <button onclick="switchCardTab(this, 'pattern')" class="tab-btn text-gray-400 hover:text-white pb-1">Furnace Pattern Snippet</button>
-                            <button onclick="switchCardTab(this, 'recipe')" class="tab-btn text-gray-400 hover:text-white pb-1">Inst Settings</button>
+                        <div class="border-b border-furnace-700 flex space-x-4 text-xs font-mono mb-3 overflow-x-auto whitespace-nowrap">
+                            <button onclick="switchCardTab(this, 'concept')" class="tab-btn active text-cyan-400 border-b-2 border-cyan-400 pb-1 font-semibold flex-shrink-0">Concept &amp; Theory</button>
+                            <button onclick="switchCardTab(this, 'pattern')" class="tab-btn text-gray-400 hover:text-white pb-1 flex-shrink-0">Furnace Pattern Snippet</button>
+                            <button onclick="switchCardTab(this, 'recipe')" class="tab-btn text-gray-400 hover:text-white pb-1 flex-shrink-0">Inst Settings</button>
                         </div>
                         <div class="tab-content concept-tab text-xs text-gray-300 space-y-2">
                             <p><strong class="text-red-300">Rule of thumb:</strong> modulation above ~20&nbsp;Hz stops sounding like vibrato and starts sounding like tone. At 60&nbsp;Hz tick rate that means alternating every 1 tick.</p>
@@ -880,10 +885,10 @@ Row | Note | Vol | FX
                         <p class="text-sm text-gray-300 mb-4">
                             Two low voices a hair apart beat against each other at a few hertz. The beating <em>is</em> the sound. Keep both above the chip's low-frequency floor or the interference turns into a rattle instead of a growl.
                         </p>
-                        <div class="border-b border-furnace-700 flex space-x-4 text-xs font-mono mb-3">
-                            <button onclick="switchCardTab(this, 'concept')" class="tab-btn active text-cyan-400 border-b-2 border-cyan-400 pb-1 font-semibold">Concept &amp; Theory</button>
-                            <button onclick="switchCardTab(this, 'pattern')" class="tab-btn text-gray-400 hover:text-white pb-1">Furnace Pattern Snippet</button>
-                            <button onclick="switchCardTab(this, 'recipe')" class="tab-btn text-gray-400 hover:text-white pb-1">Inst Settings</button>
+                        <div class="border-b border-furnace-700 flex space-x-4 text-xs font-mono mb-3 overflow-x-auto whitespace-nowrap">
+                            <button onclick="switchCardTab(this, 'concept')" class="tab-btn active text-cyan-400 border-b-2 border-cyan-400 pb-1 font-semibold flex-shrink-0">Concept &amp; Theory</button>
+                            <button onclick="switchCardTab(this, 'pattern')" class="tab-btn text-gray-400 hover:text-white pb-1 flex-shrink-0">Furnace Pattern Snippet</button>
+                            <button onclick="switchCardTab(this, 'recipe')" class="tab-btn text-gray-400 hover:text-white pb-1 flex-shrink-0">Inst Settings</button>
                         </div>
                         <div class="tab-content concept-tab text-xs text-gray-300 space-y-2">
                             <p><strong class="text-red-300">Beat rate:</strong> the two detunes differ by roughly 2–6&nbsp;Hz. Deeper detune = faster wobble.</p>
@@ -921,10 +926,10 @@ Row | Ch1          | Ch2
                         <p class="text-sm text-gray-300 mb-4">
                             A run where only the first note re-triggers the envelope. Every subsequent note uses tone portamento with a high speed, so pitch snaps but the attack transient never repeats — the phrase reads as one long gesture, like a synth lead in mono/legato mode.
                         </p>
-                        <div class="border-b border-furnace-700 flex space-x-4 text-xs font-mono mb-3">
-                            <button onclick="switchCardTab(this, 'concept')" class="tab-btn active text-cyan-400 border-b-2 border-cyan-400 pb-1 font-semibold">Concept &amp; Theory</button>
-                            <button onclick="switchCardTab(this, 'pattern')" class="tab-btn text-gray-400 hover:text-white pb-1">Furnace Pattern Snippet</button>
-                            <button onclick="switchCardTab(this, 'recipe')" class="tab-btn text-gray-400 hover:text-white pb-1">Inst Settings</button>
+                        <div class="border-b border-furnace-700 flex space-x-4 text-xs font-mono mb-3 overflow-x-auto whitespace-nowrap">
+                            <button onclick="switchCardTab(this, 'concept')" class="tab-btn active text-cyan-400 border-b-2 border-cyan-400 pb-1 font-semibold flex-shrink-0">Concept &amp; Theory</button>
+                            <button onclick="switchCardTab(this, 'pattern')" class="tab-btn text-gray-400 hover:text-white pb-1 flex-shrink-0">Furnace Pattern Snippet</button>
+                            <button onclick="switchCardTab(this, 'recipe')" class="tab-btn text-gray-400 hover:text-white pb-1 flex-shrink-0">Inst Settings</button>
                         </div>
                         <div class="tab-content concept-tab text-xs text-gray-300 space-y-2">
                             <p><strong class="text-red-300">Speed choice:</strong> <code class="bg-furnace-900 px-1.5 py-0.5 rounded text-amber-300 code-font">3FF</code> is effectively instant (snap), <code class="bg-furnace-900 px-1.5 py-0.5 rounded text-amber-300 code-font">308</code> audibly glides. Mix both inside a phrase for expression.</p>
@@ -965,10 +970,10 @@ Row | Note | Vol | FX
                         <p class="text-sm text-gray-300 mb-4">
                             A very quiet noise channel held under the whole track reads as tape hiss and glues the mix. Add a slow, shallow vibrato on the pad — one cycle every two bars — and the track acquires tape wow without any effect processor.
                         </p>
-                        <div class="border-b border-furnace-700 flex space-x-4 text-xs font-mono mb-3">
-                            <button onclick="switchCardTab(this, 'concept')" class="tab-btn active text-cyan-400 border-b-2 border-cyan-400 pb-1 font-semibold">Concept &amp; Theory</button>
-                            <button onclick="switchCardTab(this, 'pattern')" class="tab-btn text-gray-400 hover:text-white pb-1">Furnace Pattern Snippet</button>
-                            <button onclick="switchCardTab(this, 'recipe')" class="tab-btn text-gray-400 hover:text-white pb-1">Inst Settings</button>
+                        <div class="border-b border-furnace-700 flex space-x-4 text-xs font-mono mb-3 overflow-x-auto whitespace-nowrap">
+                            <button onclick="switchCardTab(this, 'concept')" class="tab-btn active text-cyan-400 border-b-2 border-cyan-400 pb-1 font-semibold flex-shrink-0">Concept &amp; Theory</button>
+                            <button onclick="switchCardTab(this, 'pattern')" class="tab-btn text-gray-400 hover:text-white pb-1 flex-shrink-0">Furnace Pattern Snippet</button>
+                            <button onclick="switchCardTab(this, 'recipe')" class="tab-btn text-gray-400 hover:text-white pb-1 flex-shrink-0">Inst Settings</button>
                         </div>
                         <div class="tab-content concept-tab text-xs text-gray-300 space-y-2">
                             <p><strong class="text-red-300">Level:</strong> volume 1–3 out of F. If you can clearly hear it as a separate element, it is too loud.</p>
@@ -997,7 +1002,7 @@ Row | Noise ch     | Pad ch
 
             <!-- CATEGORY 6: FURNACE MACRO RECIPES -->
             <section id="cat-recipes" class="category-section space-y-6 pt-4">
-                <div class="border-b border-furnace-700 pb-3 flex items-center justify-between">
+                <div class="border-b border-furnace-700 pb-3 flex flex-wrap items-center justify-between gap-3">
                     <div class="flex items-center space-x-3">
                         <div class="p-2 bg-pink-500/10 rounded-lg text-pink-500">
                             <i class="fa-solid fa-microchip text-xl"></i>
@@ -1026,10 +1031,10 @@ Row | Noise ch     | Pad ch
                         <p class="text-sm text-gray-300 mb-4">
                             A Furnace macro plays left to right, one step per tick (or per macro-speed ticks). The <strong>loop point</strong> makes everything from there repeat forever = sustain. The <strong>release point</strong> is where playback jumps when the note is released = the release stage. Set both and you have a full ADSR out of a step sequence.
                         </p>
-                        <div class="border-b border-furnace-700 flex space-x-4 text-xs font-mono mb-3">
-                            <button onclick="switchCardTab(this, 'concept')" class="tab-btn active text-cyan-400 border-b-2 border-cyan-400 pb-1 font-semibold">Concept &amp; Theory</button>
-                            <button onclick="switchCardTab(this, 'pattern')" class="tab-btn text-gray-400 hover:text-white pb-1">Macro Layout</button>
-                            <button onclick="switchCardTab(this, 'recipe')" class="tab-btn text-gray-400 hover:text-white pb-1">Inst Settings</button>
+                        <div class="border-b border-furnace-700 flex space-x-4 text-xs font-mono mb-3 overflow-x-auto whitespace-nowrap">
+                            <button onclick="switchCardTab(this, 'concept')" class="tab-btn active text-cyan-400 border-b-2 border-cyan-400 pb-1 font-semibold flex-shrink-0">Concept &amp; Theory</button>
+                            <button onclick="switchCardTab(this, 'pattern')" class="tab-btn text-gray-400 hover:text-white pb-1 flex-shrink-0">Macro Layout</button>
+                            <button onclick="switchCardTab(this, 'recipe')" class="tab-btn text-gray-400 hover:text-white pb-1 flex-shrink-0">Inst Settings</button>
                         </div>
                         <div class="tab-content concept-tab text-xs text-gray-300 space-y-2">
                             <p><strong class="text-pink-300">Attack:</strong> steps before the loop. <strong class="text-pink-300">Decay:</strong> the fall into the loop. <strong class="text-pink-300">Sustain:</strong> the looped region. <strong class="text-pink-300">Release:</strong> steps after the release marker.</p>
@@ -1068,10 +1073,10 @@ rel   = step 8     (jump here on note-off)</pre>
                         <p class="text-sm text-gray-300 mb-4">
                             An arp macro step can be <em>relative</em> (offset in semitones from the played note) or <em>fixed</em> (an absolute note, ignoring what you played). Relative gives you a chord shape that transposes with the melody; fixed gives you drum-like or bell-like sequences that stay put.
                         </p>
-                        <div class="border-b border-furnace-700 flex space-x-4 text-xs font-mono mb-3">
-                            <button onclick="switchCardTab(this, 'concept')" class="tab-btn active text-cyan-400 border-b-2 border-cyan-400 pb-1 font-semibold">Concept &amp; Theory</button>
-                            <button onclick="switchCardTab(this, 'pattern')" class="tab-btn text-gray-400 hover:text-white pb-1">Macro Layout</button>
-                            <button onclick="switchCardTab(this, 'recipe')" class="tab-btn text-gray-400 hover:text-white pb-1">Inst Settings</button>
+                        <div class="border-b border-furnace-700 flex space-x-4 text-xs font-mono mb-3 overflow-x-auto whitespace-nowrap">
+                            <button onclick="switchCardTab(this, 'concept')" class="tab-btn active text-cyan-400 border-b-2 border-cyan-400 pb-1 font-semibold flex-shrink-0">Concept &amp; Theory</button>
+                            <button onclick="switchCardTab(this, 'pattern')" class="tab-btn text-gray-400 hover:text-white pb-1 flex-shrink-0">Macro Layout</button>
+                            <button onclick="switchCardTab(this, 'recipe')" class="tab-btn text-gray-400 hover:text-white pb-1 flex-shrink-0">Inst Settings</button>
                         </div>
                         <div class="tab-content concept-tab text-xs text-gray-300 space-y-2">
                             <p><strong class="text-pink-300">Relative wins for:</strong> chord instruments — write one "minor triad" instrument and play it anywhere.</p>
@@ -1113,10 +1118,10 @@ play any note -> same 3 pitches</pre>
                         <p class="text-sm text-gray-300 mb-4">
                             The arp macro moves in whole semitones; the pitch macro moves in raw frequency units, far finer than a semitone. Use arp for musical intervals, pitch for scoops, drum drops, detune drift and vibrato that must not quantise to the chromatic grid.
                         </p>
-                        <div class="border-b border-furnace-700 flex space-x-4 text-xs font-mono mb-3">
-                            <button onclick="switchCardTab(this, 'concept')" class="tab-btn active text-cyan-400 border-b-2 border-cyan-400 pb-1 font-semibold">Concept &amp; Theory</button>
-                            <button onclick="switchCardTab(this, 'pattern')" class="tab-btn text-gray-400 hover:text-white pb-1">Macro Layout</button>
-                            <button onclick="switchCardTab(this, 'recipe')" class="tab-btn text-gray-400 hover:text-white pb-1">Inst Settings</button>
+                        <div class="border-b border-furnace-700 flex space-x-4 text-xs font-mono mb-3 overflow-x-auto whitespace-nowrap">
+                            <button onclick="switchCardTab(this, 'concept')" class="tab-btn active text-cyan-400 border-b-2 border-cyan-400 pb-1 font-semibold flex-shrink-0">Concept &amp; Theory</button>
+                            <button onclick="switchCardTab(this, 'pattern')" class="tab-btn text-gray-400 hover:text-white pb-1 flex-shrink-0">Macro Layout</button>
+                            <button onclick="switchCardTab(this, 'recipe')" class="tab-btn text-gray-400 hover:text-white pb-1 flex-shrink-0">Inst Settings</button>
                         </div>
                         <div class="tab-content concept-tab text-xs text-gray-300 space-y-2">
                             <p><strong class="text-pink-300">Relative mode:</strong> each step <em>adds</em> to the running pitch — values accumulate into a continuous slide. Absolute mode sets an offset directly.</p>
@@ -1156,10 +1161,10 @@ val: -50  -25  -8   0    no loop</pre>
                         <p class="text-sm text-gray-300 mb-4">
                             On wavetable chips (Game Boy, PC Engine, Namco 163, Furnace's own wave synth) the wave macro selects which table is loaded per tick. Step through a series of progressively brighter tables and you have a filter sweep on hardware that has no filter.
                         </p>
-                        <div class="border-b border-furnace-700 flex space-x-4 text-xs font-mono mb-3">
-                            <button onclick="switchCardTab(this, 'concept')" class="tab-btn active text-cyan-400 border-b-2 border-cyan-400 pb-1 font-semibold">Concept &amp; Theory</button>
-                            <button onclick="switchCardTab(this, 'pattern')" class="tab-btn text-gray-400 hover:text-white pb-1">Macro Layout</button>
-                            <button onclick="switchCardTab(this, 'recipe')" class="tab-btn text-gray-400 hover:text-white pb-1">Inst Settings</button>
+                        <div class="border-b border-furnace-700 flex space-x-4 text-xs font-mono mb-3 overflow-x-auto whitespace-nowrap">
+                            <button onclick="switchCardTab(this, 'concept')" class="tab-btn active text-cyan-400 border-b-2 border-cyan-400 pb-1 font-semibold flex-shrink-0">Concept &amp; Theory</button>
+                            <button onclick="switchCardTab(this, 'pattern')" class="tab-btn text-gray-400 hover:text-white pb-1 flex-shrink-0">Macro Layout</button>
+                            <button onclick="switchCardTab(this, 'recipe')" class="tab-btn text-gray-400 hover:text-white pb-1 flex-shrink-0">Inst Settings</button>
                         </div>
                         <div class="tab-content concept-tab text-xs text-gray-300 space-y-2">
                             <p><strong class="text-pink-300">Build the ramp once:</strong> make 8 tables from near-sine to near-saw, then reuse that bank across every wave instrument in the module.</p>
@@ -1197,10 +1202,10 @@ Row 08 | --- .. 1004</pre>
                         <p class="text-sm text-gray-300 mb-4">
                             Each macro has its own <strong>speed</strong> (ticks per step) and <strong>delay</strong> (ticks before it starts). Speed decouples the macro from song tempo; delay lets a wobble or a duty change arrive <em>after</em> the attack, which is how you get "the note blooms" instead of "the note is weird from tick zero".
                         </p>
-                        <div class="border-b border-furnace-700 flex space-x-4 text-xs font-mono mb-3">
-                            <button onclick="switchCardTab(this, 'concept')" class="tab-btn active text-cyan-400 border-b-2 border-cyan-400 pb-1 font-semibold">Concept &amp; Theory</button>
-                            <button onclick="switchCardTab(this, 'pattern')" class="tab-btn text-gray-400 hover:text-white pb-1">Macro Layout</button>
-                            <button onclick="switchCardTab(this, 'recipe')" class="tab-btn text-gray-400 hover:text-white pb-1">Inst Settings</button>
+                        <div class="border-b border-furnace-700 flex space-x-4 text-xs font-mono mb-3 overflow-x-auto whitespace-nowrap">
+                            <button onclick="switchCardTab(this, 'concept')" class="tab-btn active text-cyan-400 border-b-2 border-cyan-400 pb-1 font-semibold flex-shrink-0">Concept &amp; Theory</button>
+                            <button onclick="switchCardTab(this, 'pattern')" class="tab-btn text-gray-400 hover:text-white pb-1 flex-shrink-0">Macro Layout</button>
+                            <button onclick="switchCardTab(this, 'recipe')" class="tab-btn text-gray-400 hover:text-white pb-1 flex-shrink-0">Inst Settings</button>
                         </div>
                         <div class="tab-content concept-tab text-xs text-gray-300 space-y-2">
                             <p><strong class="text-pink-300">Tempo independence:</strong> if you speed the song up later, macros at speed 1 stay the same absolute length — good for drums, bad for arps you wanted locked to the groove.</p>
@@ -1234,10 +1239,10 @@ arp   : off</pre>
                         <p class="text-sm text-gray-300 mb-4">
                             Most time lost in a chiptune session is spent re-inventing the same six instruments. Build them once, save them as <code class="text-amber-300 code-font">.fui</code> files, and start every new module from a template that already has bass, lead, pad, arp, kick, snare and hat.
                         </p>
-                        <div class="border-b border-furnace-700 flex space-x-4 text-xs font-mono mb-3">
-                            <button onclick="switchCardTab(this, 'concept')" class="tab-btn active text-cyan-400 border-b-2 border-cyan-400 pb-1 font-semibold">Concept &amp; Theory</button>
-                            <button onclick="switchCardTab(this, 'pattern')" class="tab-btn text-gray-400 hover:text-white pb-1">Starter Bank</button>
-                            <button onclick="switchCardTab(this, 'recipe')" class="tab-btn text-gray-400 hover:text-white pb-1">Inst Settings</button>
+                        <div class="border-b border-furnace-700 flex space-x-4 text-xs font-mono mb-3 overflow-x-auto whitespace-nowrap">
+                            <button onclick="switchCardTab(this, 'concept')" class="tab-btn active text-cyan-400 border-b-2 border-cyan-400 pb-1 font-semibold flex-shrink-0">Concept &amp; Theory</button>
+                            <button onclick="switchCardTab(this, 'pattern')" class="tab-btn text-gray-400 hover:text-white pb-1 flex-shrink-0">Starter Bank</button>
+                            <button onclick="switchCardTab(this, 'recipe')" class="tab-btn text-gray-400 hover:text-white pb-1 flex-shrink-0">Inst Settings</button>
                         </div>
                         <div class="tab-content concept-tab text-xs text-gray-300 space-y-2">
                             <p><strong class="text-pink-300">Naming:</strong> prefix by role — <code class="bg-furnace-900 px-1.5 py-0.5 rounded text-amber-300 code-font">BS-pluck</code>, <code class="bg-furnace-900 px-1.5 py-0.5 rounded text-amber-300 code-font">LD-chirp</code>, <code class="bg-furnace-900 px-1.5 py-0.5 rounded text-amber-300 code-font">PD-swell</code>. Future-you writing at 2am will thank present-you.</p>
@@ -1269,7 +1274,7 @@ arp   : off</pre>
 
             <!-- CATEGORY 7: PERCUSSION & NOISE -->
             <section id="cat-percussion" class="category-section space-y-6 pt-4">
-                <div class="border-b border-furnace-700 pb-3 flex items-center justify-between">
+                <div class="border-b border-furnace-700 pb-3 flex flex-wrap items-center justify-between gap-3">
                     <div class="flex items-center space-x-3">
                         <div class="p-2 bg-orange-500/10 rounded-lg text-orange-400">
                             <i class="fa-solid fa-drumstick-bite text-xl"></i>
@@ -1298,10 +1303,10 @@ arp   : off</pre>
                         <p class="text-sm text-gray-300 mb-4">
                             Kick, snare and hat all live on the same noise channel; they differ only in noise pitch and envelope length. Low pitch + fast decay = kick. Mid pitch + medium decay = snare. High pitch + 2-tick decay = hat. Only one can sound at a time, so the arrangement decides which wins each row.
                         </p>
-                        <div class="border-b border-furnace-700 flex space-x-4 text-xs font-mono mb-3">
-                            <button onclick="switchCardTab(this, 'concept')" class="tab-btn active text-cyan-400 border-b-2 border-cyan-400 pb-1 font-semibold">Concept &amp; Theory</button>
-                            <button onclick="switchCardTab(this, 'pattern')" class="tab-btn text-gray-400 hover:text-white pb-1">Furnace Pattern Snippet</button>
-                            <button onclick="switchCardTab(this, 'recipe')" class="tab-btn text-gray-400 hover:text-white pb-1">Inst Settings</button>
+                        <div class="border-b border-furnace-700 flex space-x-4 text-xs font-mono mb-3 overflow-x-auto whitespace-nowrap">
+                            <button onclick="switchCardTab(this, 'concept')" class="tab-btn active text-cyan-400 border-b-2 border-cyan-400 pb-1 font-semibold flex-shrink-0">Concept &amp; Theory</button>
+                            <button onclick="switchCardTab(this, 'pattern')" class="tab-btn text-gray-400 hover:text-white pb-1 flex-shrink-0">Furnace Pattern Snippet</button>
+                            <button onclick="switchCardTab(this, 'recipe')" class="tab-btn text-gray-400 hover:text-white pb-1 flex-shrink-0">Inst Settings</button>
                         </div>
                         <div class="tab-content concept-tab text-xs text-gray-300 space-y-2">
                             <p><strong class="text-orange-300">Priority order:</strong> snare beats kick, kick beats hat. Drop the hat on any row where a snare or kick lands — the ear fills it in.</p>
@@ -1344,10 +1349,10 @@ Row | Note Ins Vol FX   | element
                         <p class="text-sm text-gray-300 mb-4">
                             A short note that falls two octaves in four ticks reads as a kick drum. The NES triangle channel does this famously (it has no volume control, so the pitch drop <em>is</em> the envelope), and any pulse or wave channel can do it with a steep pitch macro.
                         </p>
-                        <div class="border-b border-furnace-700 flex space-x-4 text-xs font-mono mb-3">
-                            <button onclick="switchCardTab(this, 'concept')" class="tab-btn active text-cyan-400 border-b-2 border-cyan-400 pb-1 font-semibold">Concept &amp; Theory</button>
-                            <button onclick="switchCardTab(this, 'pattern')" class="tab-btn text-gray-400 hover:text-white pb-1">Furnace Pattern Snippet</button>
-                            <button onclick="switchCardTab(this, 'recipe')" class="tab-btn text-gray-400 hover:text-white pb-1">Inst Settings</button>
+                        <div class="border-b border-furnace-700 flex space-x-4 text-xs font-mono mb-3 overflow-x-auto whitespace-nowrap">
+                            <button onclick="switchCardTab(this, 'concept')" class="tab-btn active text-cyan-400 border-b-2 border-cyan-400 pb-1 font-semibold flex-shrink-0">Concept &amp; Theory</button>
+                            <button onclick="switchCardTab(this, 'pattern')" class="tab-btn text-gray-400 hover:text-white pb-1 flex-shrink-0">Furnace Pattern Snippet</button>
+                            <button onclick="switchCardTab(this, 'recipe')" class="tab-btn text-gray-400 hover:text-white pb-1 flex-shrink-0">Inst Settings</button>
                         </div>
                         <div class="tab-content concept-tab text-xs text-gray-300 space-y-2">
                             <p><strong class="text-orange-300">Cost:</strong> one row of your bass channel. On the beat the bass is usually restating the root anyway, so the theft is nearly free.</p>
@@ -1389,10 +1394,10 @@ Effect-only version (no macro needed):
                         <p class="text-sm text-gray-300 mb-4">
                             The noise generator's shift register can run long (hissy white noise) or short (a buzzy, pitched, metallic tone). The short mode is not just a drum colour — it is a usable <em>bass</em> and robot-voice source, and it is how NES and Game Boy tracks get metallic percussion.
                         </p>
-                        <div class="border-b border-furnace-700 flex space-x-4 text-xs font-mono mb-3">
-                            <button onclick="switchCardTab(this, 'concept')" class="tab-btn active text-cyan-400 border-b-2 border-cyan-400 pb-1 font-semibold">Concept &amp; Theory</button>
-                            <button onclick="switchCardTab(this, 'pattern')" class="tab-btn text-gray-400 hover:text-white pb-1">Furnace Pattern Snippet</button>
-                            <button onclick="switchCardTab(this, 'recipe')" class="tab-btn text-gray-400 hover:text-white pb-1">Inst Settings</button>
+                        <div class="border-b border-furnace-700 flex space-x-4 text-xs font-mono mb-3 overflow-x-auto whitespace-nowrap">
+                            <button onclick="switchCardTab(this, 'concept')" class="tab-btn active text-cyan-400 border-b-2 border-cyan-400 pb-1 font-semibold flex-shrink-0">Concept &amp; Theory</button>
+                            <button onclick="switchCardTab(this, 'pattern')" class="tab-btn text-gray-400 hover:text-white pb-1 flex-shrink-0">Furnace Pattern Snippet</button>
+                            <button onclick="switchCardTab(this, 'recipe')" class="tab-btn text-gray-400 hover:text-white pb-1 flex-shrink-0">Inst Settings</button>
                         </div>
                         <div class="tab-content concept-tab text-xs text-gray-300 space-y-2">
                             <p><strong class="text-orange-300">NES:</strong> noise mode flag switches between 32k-step and 93-step sequences. The short one is the "metallic" setting.</p>
@@ -1434,10 +1439,10 @@ Row | Note Ins Vol FX  | comment
                         <p class="text-sm text-gray-300 mb-4">
                             Chip tracks loop, so the seams between sections carry a lot of weight. A one-bar fill, a noise riser with rising pitch and volume, or two beats of total silence before the drop are the cheapest ways to make a 90-second loop feel composed rather than assembled.
                         </p>
-                        <div class="border-b border-furnace-700 flex space-x-4 text-xs font-mono mb-3">
-                            <button onclick="switchCardTab(this, 'concept')" class="tab-btn active text-cyan-400 border-b-2 border-cyan-400 pb-1 font-semibold">Concept &amp; Theory</button>
-                            <button onclick="switchCardTab(this, 'pattern')" class="tab-btn text-gray-400 hover:text-white pb-1">Furnace Pattern Snippet</button>
-                            <button onclick="switchCardTab(this, 'recipe')" class="tab-btn text-gray-400 hover:text-white pb-1">Inst Settings</button>
+                        <div class="border-b border-furnace-700 flex space-x-4 text-xs font-mono mb-3 overflow-x-auto whitespace-nowrap">
+                            <button onclick="switchCardTab(this, 'concept')" class="tab-btn active text-cyan-400 border-b-2 border-cyan-400 pb-1 font-semibold flex-shrink-0">Concept &amp; Theory</button>
+                            <button onclick="switchCardTab(this, 'pattern')" class="tab-btn text-gray-400 hover:text-white pb-1 flex-shrink-0">Furnace Pattern Snippet</button>
+                            <button onclick="switchCardTab(this, 'recipe')" class="tab-btn text-gray-400 hover:text-white pb-1 flex-shrink-0">Inst Settings</button>
                         </div>
                         <div class="tab-content concept-tab text-xs text-gray-300 space-y-2">
                             <p><strong class="text-orange-300">Rule of 8:</strong> place a fill every 8 bars, a bigger one every 16, and change something structural every 32.</p>
@@ -1478,10 +1483,10 @@ Row | Note Vol FX
                         <p class="text-sm text-gray-300 mb-4">
                             Sample channels are tempting and expensive: on NES the DPCM channel eats ROM and can even bend the triangle's timing on real hardware. Treat samples as the <em>attack</em> layer under a synthesized body, not as a whole kit, and the track keeps its chip identity.
                         </p>
-                        <div class="border-b border-furnace-700 flex space-x-4 text-xs font-mono mb-3">
-                            <button onclick="switchCardTab(this, 'concept')" class="tab-btn active text-cyan-400 border-b-2 border-cyan-400 pb-1 font-semibold">Concept &amp; Theory</button>
-                            <button onclick="switchCardTab(this, 'pattern')" class="tab-btn text-gray-400 hover:text-white pb-1">Furnace Pattern Snippet</button>
-                            <button onclick="switchCardTab(this, 'recipe')" class="tab-btn text-gray-400 hover:text-white pb-1">Inst Settings</button>
+                        <div class="border-b border-furnace-700 flex space-x-4 text-xs font-mono mb-3 overflow-x-auto whitespace-nowrap">
+                            <button onclick="switchCardTab(this, 'concept')" class="tab-btn active text-cyan-400 border-b-2 border-cyan-400 pb-1 font-semibold flex-shrink-0">Concept &amp; Theory</button>
+                            <button onclick="switchCardTab(this, 'pattern')" class="tab-btn text-gray-400 hover:text-white pb-1 flex-shrink-0">Furnace Pattern Snippet</button>
+                            <button onclick="switchCardTab(this, 'recipe')" class="tab-btn text-gray-400 hover:text-white pb-1 flex-shrink-0">Inst Settings</button>
                         </div>
                         <div class="tab-content concept-tab text-xs text-gray-300 space-y-2">
                             <p><strong class="text-orange-300">Budget:</strong> pick 3 samples maximum — kick, snare, and one colour (clap or tom).</p>
@@ -1512,7 +1517,7 @@ Row | DPCM ch      | Noise ch     | Tri ch
 
             <!-- CATEGORY: CLASSIC GAME OST AUDITS -->
             <section id="cat-ost-audits" class="category-section space-y-6 pt-4">
-                <div class="border-b border-furnace-700 pb-3 flex items-center justify-between">
+                <div class="border-b border-furnace-700 pb-3 flex flex-wrap items-center justify-between gap-3">
                     <div class="flex items-center space-x-3">
                         <div class="p-2 bg-emerald-500/10 rounded-lg text-emerald-400">
                             <i class="fa-solid fa-gamepad text-xl"></i>
@@ -1543,10 +1548,10 @@ Row | DPCM ch      | Noise ch     | Tri ch
                             Tim Follin's signature technique: packing 5-note or 7-note micro-arpeggios across 3 octaves on a single pulse voice, then sweeping pitch down via portamento (`3xx`) to emulate a guitar whammy bar dive.
                         </p>
 
-                        <div class="border-b border-furnace-700 flex space-x-4 text-xs font-mono mb-3">
+                        <div class="border-b border-furnace-700 flex space-x-4 text-xs font-mono mb-3 overflow-x-auto whitespace-nowrap">
                             <button onclick="switchCardTab(this, 'concept')" class="tab-btn active text-emerald-400 border-b-2 border-emerald-400 pb-1 font-semibold">Audit & Breakdown</button>
-                            <button onclick="switchCardTab(this, 'pattern')" class="tab-btn text-gray-400 hover:text-white pb-1">Furnace Pattern Snippet</button>
-                            <button onclick="switchCardTab(this, 'recipe')" class="tab-btn text-gray-400 hover:text-white pb-1">Macro Sequence</button>
+                            <button onclick="switchCardTab(this, 'pattern')" class="tab-btn text-gray-400 hover:text-white pb-1 flex-shrink-0">Furnace Pattern Snippet</button>
+                            <button onclick="switchCardTab(this, 'recipe')" class="tab-btn text-gray-400 hover:text-white pb-1 flex-shrink-0">Macro Sequence</button>
                         </div>
 
                         <div class="tab-content concept-tab text-xs text-gray-300 space-y-2">
@@ -1588,9 +1593,9 @@ Row | Note | Vol | FX
                             Sunsoft's iconic rock bass engine: triggering a pitch-drop Triangle sub-bass (`20C`) precisely in unison with a low-bitrate DPCM acoustic kick sample to achieve an ultra-heavy 80s synth-rock low end.
                         </p>
 
-                        <div class="border-b border-furnace-700 flex space-x-4 text-xs font-mono mb-3">
+                        <div class="border-b border-furnace-700 flex space-x-4 text-xs font-mono mb-3 overflow-x-auto whitespace-nowrap">
                             <button onclick="switchCardTab(this, 'concept')" class="tab-btn active text-emerald-400 border-b-2 border-emerald-400 pb-1 font-semibold">Audit & Breakdown</button>
-                            <button onclick="switchCardTab(this, 'pattern')" class="tab-btn text-gray-400 hover:text-white pb-1">Furnace Pattern Snippet</button>
+                            <button onclick="switchCardTab(this, 'pattern')" class="tab-btn text-gray-400 hover:text-white pb-1 flex-shrink-0">Furnace Pattern Snippet</button>
                         </div>
 
                         <div class="tab-content concept-tab text-xs text-gray-300 space-y-2">
@@ -1628,9 +1633,9 @@ Row | Note | Vol | FX
                             Alberto González's Game Boy hallmark: alternating tracker speed commands (`F03` / `F05`) on odd rows to create an infectious jazz swing, paired with 12.5% pulse lead melodies and slap-bass wave hits.
                         </p>
 
-                        <div class="border-b border-furnace-700 flex space-x-4 text-xs font-mono mb-3">
+                        <div class="border-b border-furnace-700 flex space-x-4 text-xs font-mono mb-3 overflow-x-auto whitespace-nowrap">
                             <button onclick="switchCardTab(this, 'concept')" class="tab-btn active text-emerald-400 border-b-2 border-emerald-400 pb-1 font-semibold">Audit & Breakdown</button>
-                            <button onclick="switchCardTab(this, 'pattern')" class="tab-btn text-gray-400 hover:text-white pb-1">Furnace Pattern Snippet</button>
+                            <button onclick="switchCardTab(this, 'pattern')" class="tab-btn text-gray-400 hover:text-white pb-1 flex-shrink-0">Furnace Pattern Snippet</button>
                         </div>
 
                         <div class="tab-content concept-tab text-xs text-gray-300 space-y-2">
@@ -1667,9 +1672,9 @@ Row | Note | Vol | FX
                             David Wise emulates Roland TB-303 filter sweeps on Game Boy Wave channels by rapidly swapping 32-sample wave frames from dull sine waves to bright staircase saw waves mid-note (`9xx` offset command).
                         </p>
 
-                        <div class="border-b border-furnace-700 flex space-x-4 text-xs font-mono mb-3">
+                        <div class="border-b border-furnace-700 flex space-x-4 text-xs font-mono mb-3 overflow-x-auto whitespace-nowrap">
                             <button onclick="switchCardTab(this, 'concept')" class="tab-btn active text-emerald-400 border-b-2 border-emerald-400 pb-1 font-semibold">Audit & Breakdown</button>
-                            <button onclick="switchCardTab(this, 'recipe')" class="tab-btn text-gray-400 hover:text-white pb-1">Wave Macro Frame Sequence</button>
+                            <button onclick="switchCardTab(this, 'recipe')" class="tab-btn text-gray-400 hover:text-white pb-1 flex-shrink-0">Wave Macro Frame Sequence</button>
                         </div>
 
                         <div class="tab-content concept-tab text-xs text-gray-300 space-y-2">
@@ -1701,7 +1706,7 @@ Row | Note | Vol | FX
                             Konami's signature gothic organ and pipe chording: Pulse 1 hits on tick 0 with 25% duty, while Pulse 2 is delayed by 1 tick using `ED1` with opposing 75% duty. Gives melodies an unmistakable 3D acoustic pop.
                         </p>
 
-                        <div class="border-b border-furnace-700 flex space-x-4 text-xs font-mono mb-3">
+                        <div class="border-b border-furnace-700 flex space-x-4 text-xs font-mono mb-3 overflow-x-auto whitespace-nowrap">
                             <button onclick="switchCardTab(this, 'pattern')" class="tab-btn active text-emerald-400 border-b-2 border-emerald-400 pb-1 font-semibold">Furnace Pattern Snippet</button>
                         </div>
 
@@ -1734,7 +1739,7 @@ Row | Note | Vol | FX
                             Yuzo Koshiro's club-ready 90s dance formula: ultra-staccato syncopated minor 7th square stabs (`EC1`) paired with rapid PSG noise hi-hats and driving sub-bass for authentic club house energy.
                         </p>
 
-                        <div class="border-b border-furnace-700 flex space-x-4 text-xs font-mono mb-3">
+                        <div class="border-b border-furnace-700 flex space-x-4 text-xs font-mono mb-3 overflow-x-auto whitespace-nowrap">
                             <button onclick="switchCardTab(this, 'pattern')" class="tab-btn active text-emerald-400 border-b-2 border-emerald-400 pb-1 font-semibold">Furnace Pattern Snippet</button>
                         </div>
 
@@ -1756,7 +1761,7 @@ Row | Note | Vol | FX
 
             <!-- CATEGORY 7: COMMAND CHEAT SHEET -->
             <section id="cat-effects" class="category-section space-y-6 pt-4">
-                <div class="border-b border-furnace-700 pb-3 flex items-center justify-between">
+                <div class="border-b border-furnace-700 pb-3 flex flex-wrap items-center justify-between gap-3">
                     <div class="flex items-center space-x-3">
                         <div class="p-2 bg-blue-500/10 rounded-lg text-blue-400">
                             <i class="fa-solid fa-code text-xl"></i>
@@ -1923,7 +1928,7 @@ Row | Note | Vol | FX
             </section>
             <!-- CATEGORY 9: CHIP CHEAT SHEET -->
             <section id="cat-chips" class="category-section space-y-6 pt-4">
-                <div class="border-b border-furnace-700 pb-3 flex items-center justify-between">
+                <div class="border-b border-furnace-700 pb-3 flex flex-wrap items-center justify-between gap-3">
                     <div class="flex items-center space-x-3">
                         <div class="p-2 bg-indigo-500/10 rounded-lg text-indigo-400">
                             <i class="fa-solid fa-memory text-xl"></i>
@@ -2030,7 +2035,7 @@ Row | Note | Vol | FX
 
             <!-- CATEGORY 10: COMPOSITION PLAYBOOK -->
             <section id="cat-composition" class="category-section space-y-6 pt-4">
-                <div class="border-b border-furnace-700 pb-3 flex items-center justify-between">
+                <div class="border-b border-furnace-700 pb-3 flex flex-wrap items-center justify-between gap-3">
                     <div class="flex items-center space-x-3">
                         <div class="p-2 bg-purple-500/10 rounded-lg text-purple-400">
                             <i class="fa-solid fa-feather-pointed text-xl"></i>
@@ -2214,7 +2219,7 @@ Row | Note | Vol | FX
 
             <!-- CATEGORY 7: MACRO BUILDER TOOL -->
             <section id="cat-calculator" class="category-section space-y-6 pt-4">
-                <div class="border-b border-furnace-700 pb-3 flex items-center justify-between">
+                <div class="border-b border-furnace-700 pb-3 flex flex-wrap items-center justify-between gap-3">
                     <div class="flex items-center space-x-3">
                         <div class="p-2 bg-amber-500/10 rounded-lg text-amber-400">
                             <i class="fa-solid fa-calculator text-xl"></i>
@@ -2279,7 +2284,7 @@ Row | Note | Vol | FX
             </section>
             <!-- CATEGORY 12: TEMPO & GROOVE CALCULATOR -->
             <section id="cat-tempo" class="category-section space-y-6 pt-4 pb-12">
-                <div class="border-b border-furnace-700 pb-3 flex items-center justify-between">
+                <div class="border-b border-furnace-700 pb-3 flex flex-wrap items-center justify-between gap-3">
                     <div class="flex items-center space-x-3">
                         <div class="p-2 bg-emerald-500/10 rounded-lg text-emerald-400">
                             <i class="fa-solid fa-stopwatch-20 text-xl"></i>
@@ -3546,10 +3551,10 @@ Row | Note | Vol | FX
 
             const tabs = card.querySelectorAll('.tab-btn');
             tabs.forEach(t => {
-                t.className = 'tab-btn text-gray-400 hover:text-white pb-1';
+                t.className = 'tab-btn text-gray-400 hover:text-white pb-1 flex-shrink-0';
             });
 
-            btn.className = 'tab-btn active text-cyan-400 border-b-2 border-cyan-400 pb-1 font-semibold';
+            btn.className = 'tab-btn active text-cyan-400 border-b-2 border-cyan-400 pb-1 font-semibold flex-shrink-0';
 
             const contents = card.querySelectorAll('.tab-content');
             contents.forEach(c => c.classList.add('hidden'));
@@ -3560,7 +3565,23 @@ Row | Note | Vol | FX
             }
         }
 
+        function isMobileLayout() {
+            return window.matchMedia('(max-width: 767px)').matches;
+        }
+
+        function toggleNav(forceClose) {
+            const nav = document.getElementById('sidebar-nav');
+            const btn = document.getElementById('nav-toggle');
+            const icon = document.getElementById('nav-toggle-icon');
+            const open = forceClose === true ? false : nav.classList.contains('hidden');
+            nav.classList.toggle('hidden', !open);
+            if (open) nav.scrollTop = 0;
+            btn.setAttribute('aria-expanded', open ? 'true' : 'false');
+            icon.className = open ? 'fa-solid fa-xmark' : 'fa-solid fa-bars';
+        }
+
         function setActiveNav(el) {
+            if (isMobileLayout()) toggleNav(true);
             document.querySelectorAll('.nav-link').forEach(link => {
                 link.className = 'nav-link flex items-center space-x-3 px-3 py-2.5 rounded-lg text-sm font-medium transition text-gray-400 hover:text-white hover:bg-furnace-700/40';
             });
