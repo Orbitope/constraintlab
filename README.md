@@ -6,7 +6,7 @@ explains the idea, shows a copyable pattern snippet, lists the instrument macro
 settings, and plays an in-browser Web Audio demo so you can hear it before you
 open the tracker.
 
-**Live site:** https://<your-github-username>.github.io/furnace-utils/
+**Live site:** https://mwburke.github.io/furnace-lab/
 
 ## What's inside
 
@@ -37,10 +37,10 @@ sidebar (browsers block audio until a user gesture).
 
 The site is a single static `index.html` with no build step.
 
-1. Create a repository (e.g. `furnace-utils`) and push this folder:
+1. Create a repository (`furnace-lab`) and push this folder:
 
 ```bash
-git remote add origin https://github.com/<your-github-username>/furnace-utils.git
+git remote add origin https://github.com/mwburke/furnace-lab.git
 git branch -M main
 git push -u origin main
 ```
@@ -49,7 +49,7 @@ git push -u origin main
 3. Under **Build and deployment**, set **Source** to *Deploy from a branch*,
    then choose branch `main` and folder `/ (root)`. Save.
 4. Wait a minute; the site appears at
-   `https://<your-github-username>.github.io/furnace-utils/`.
+   `https://mwburke.github.io/furnace-lab/`.
 
 `.nojekyll` is included so GitHub serves the files as-is.
 
