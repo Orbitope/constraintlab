@@ -116,6 +116,11 @@
                 <span>Timbral &amp; PWM Motion</span>
             </a>
 
+            <a href="#cat-fm" onclick="setActiveNav(this)" class="nav-link flex items-center space-x-3 px-3 py-2.5 rounded-lg text-sm font-medium transition text-gray-400 hover:text-white hover:bg-furnace-700/40">
+                <i class="fa-solid fa-diagram-project text-base w-5 text-center text-yellow-400"></i>
+                <span>FM Synthesis</span>
+            </a>
+
             <a href="#cat-modern-retro" onclick="setActiveNav(this)" class="nav-link flex items-center space-x-3 px-3 py-2.5 rounded-lg text-sm font-medium transition text-gray-400 hover:text-white hover:bg-furnace-700/40">
                 <i class="fa-solid fa-wand-magic-sparkles text-base w-5 text-center text-red-400"></i>
                 <span>Modern &amp; Retro Tricks</span>
@@ -197,9 +202,13 @@
                 <button onclick="setFilter('all', this)" class="filter-btn active px-3 py-1.5 rounded-full bg-cyan-500/20 text-cyan-300 border border-cyan-500/40 font-medium hover:bg-cyan-500/30 transition">All</button>
                 <button onclick="setFilter('pulse', this)" class="filter-btn px-3 py-1.5 rounded-full bg-furnace-700 text-gray-300 border border-furnace-600 hover:bg-furnace-600 transition">Pulse / Square</button>
                 <button onclick="setFilter('wave', this)" class="filter-btn px-3 py-1.5 rounded-full bg-furnace-700 text-gray-300 border border-furnace-600 hover:bg-furnace-600 transition">Wave Channel</button>
-                <button onclick="setFilter('modern', this)" class="filter-btn px-3 py-1.5 rounded-full bg-furnace-700 text-gray-300 border border-furnace-600 hover:bg-furnace-600 transition">Modern / Retro</button>
+                <button onclick="setFilter('fm', this)" class="filter-btn px-3 py-1.5 rounded-full bg-furnace-700 text-gray-300 border border-furnace-600 hover:bg-furnace-600 transition">FM Synth</button>
+                <button onclick="setFilter('noise', this)" class="filter-btn px-3 py-1.5 rounded-full bg-furnace-700 text-gray-300 border border-furnace-600 hover:bg-furnace-600 transition">Noise / Perc</button>
                 <button onclick="setFilter('macro', this)" class="filter-btn px-3 py-1.5 rounded-full bg-furnace-700 text-gray-300 border border-furnace-600 hover:bg-furnace-600 transition">Furnace Macro</button>
                 <button onclick="setFilter('effects', this)" class="filter-btn px-3 py-1.5 rounded-full bg-furnace-700 text-gray-300 border border-furnace-600 hover:bg-furnace-600 transition">Tracker FX</button>
+                <button onclick="setFilter('modern', this)" class="filter-btn px-3 py-1.5 rounded-full bg-furnace-700 text-gray-300 border border-furnace-600 hover:bg-furnace-600 transition">Modern / Retro</button>
+                <button onclick="setFilter('ost', this)" class="filter-btn px-3 py-1.5 rounded-full bg-furnace-700 text-gray-300 border border-furnace-600 hover:bg-furnace-600 transition">OST Audits</button>
+                <button onclick="setFilter('composition', this)" class="filter-btn px-3 py-1.5 rounded-full bg-furnace-700 text-gray-300 border border-furnace-600 hover:bg-furnace-600 transition">Composition</button>
             </div>
         </header>
 
@@ -322,7 +331,7 @@ Row | Note | Vol | FX
                     </div>
 
                     <!-- Pattern Card: Rapid-Arp Bass -->
-                    <div class="pattern-card bg-furnace-800 border border-furnace-700 rounded-xl p-5 hover:border-cyan-500/50 transition duration-200" data-tags="macro bass arp pseudo-chord">
+                    <div class="pattern-card bg-furnace-800 border border-furnace-700 rounded-xl p-5 hover:border-cyan-500/50 transition duration-200" data-tags="macro pulse bass arp pseudo-chord">
                         <div class="flex items-start justify-between mb-3">
                             <div>
                                 <span class="text-xs font-mono text-purple-400 bg-purple-950/60 px-2 py-0.5 rounded border border-purple-800">MACRO BASS / ARP</span>
@@ -428,7 +437,7 @@ Row | Note | Vol | FX
                 <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
 
                     <!-- Pattern Card: The Attack Chirp -->
-                    <div class="pattern-card bg-furnace-800 border border-furnace-700 rounded-xl p-5 hover:border-yellow-500/50 transition duration-200" data-tags="pluck transient chirp pitch attack">
+                    <div class="pattern-card bg-furnace-800 border border-furnace-700 rounded-xl p-5 hover:border-yellow-500/50 transition duration-200" data-tags="effects pulse pluck transient chirp pitch attack articulation">
                         <div class="flex items-start justify-between mb-3">
                             <div>
                                 <span class="text-xs font-mono text-yellow-400 bg-yellow-950/60 px-2 py-0.5 rounded border border-yellow-800">PLUCK / TRANSIENT</span>
@@ -463,7 +472,7 @@ Row | Note | Vol | FX
                     </div>
 
                     <!-- Pattern Card: Portamento Glide vs Retrigger -->
-                    <div class="pattern-card bg-furnace-800 border border-furnace-700 rounded-xl p-5 hover:border-yellow-500/50 transition duration-200" data-tags="portamento glide legato 3xx">
+                    <div class="pattern-card bg-furnace-800 border border-furnace-700 rounded-xl p-5 hover:border-yellow-500/50 transition duration-200" data-tags="effects pulse portamento glide legato 3xx articulation">
                         <div class="flex items-start justify-between mb-3">
                             <div>
                                 <span class="text-xs font-mono text-yellow-400 bg-yellow-950/60 px-2 py-0.5 rounded border border-yellow-800">LEGATO / GLIDE</span>
@@ -496,7 +505,7 @@ Row | Note | Vol | FX
                     </div>
 
                     <!-- Pattern Card: Blues Micro-Scoop -->
-                    <div class="pattern-card bg-furnace-800 border border-furnace-700 rounded-xl p-5 hover:border-yellow-500/50 transition duration-200" data-tags="scoop pitch bend E12 micro">
+                    <div class="pattern-card bg-furnace-800 border border-furnace-700 rounded-xl p-5 hover:border-yellow-500/50 transition duration-200" data-tags="effects pulse scoop pitch bend e12 micro articulation">
                         <div class="flex items-start justify-between mb-3">
                             <div>
                                 <span class="text-xs font-mono text-yellow-400 bg-yellow-950/60 px-2 py-0.5 rounded border border-yellow-800">MICRO-BEND</span>
@@ -522,6 +531,90 @@ Row | Note | Vol | FX
                             </div>
                         </div>
                     </div>
+                    <!-- Legato run -->
+                    <div class="pattern-card bg-furnace-800 border border-furnace-700 rounded-xl p-5 hover:border-yellow-500/50 transition duration-200" data-tags="effects pulse legato portamento run lead articulation modern">
+                        <div class="flex items-start justify-between mb-3">
+                            <div>
+                                <span class="text-xs font-mono text-yellow-400 bg-yellow-950/60 px-2 py-0.5 rounded border border-yellow-800">ARTICULATION / PHRASING</span>
+                                <h3 class="text-lg font-bold text-white mt-1">Legato Run &amp; Portamento Ladder</h3>
+                            </div>
+                            <button onclick="playPattern('legatoRun')" class="px-3 py-1.5 bg-yellow-500/20 text-yellow-300 hover:bg-yellow-500 hover:text-black rounded-lg text-xs font-semibold flex items-center gap-1.5 transition">
+                                <i class="fa-solid fa-play"></i> Play Sound
+                            </button>
+                        </div>
+                        <p class="text-sm text-gray-300 mb-4">
+                            A run where only the first note re-triggers the envelope. Every subsequent note uses tone portamento with a high speed, so pitch snaps but the attack transient never repeats — the phrase reads as one long gesture, like a synth lead in mono/legato mode.
+                        </p>
+                        <div class="border-b border-furnace-700 flex space-x-4 text-xs font-mono mb-3 overflow-x-auto whitespace-nowrap">
+                            <button onclick="switchCardTab(this, 'concept')" class="tab-btn active text-cyan-400 border-b-2 border-cyan-400 pb-1 font-semibold flex-shrink-0">Concept &amp; Theory</button>
+                            <button onclick="switchCardTab(this, 'pattern')" class="tab-btn text-gray-400 hover:text-white pb-1 flex-shrink-0">Furnace Pattern Snippet</button>
+                            <button onclick="switchCardTab(this, 'recipe')" class="tab-btn text-gray-400 hover:text-white pb-1 flex-shrink-0">Inst Settings</button>
+                        </div>
+                        <div class="tab-content concept-tab text-xs text-gray-300 space-y-2">
+                            <p><strong class="text-yellow-300">Speed choice:</strong> <code class="bg-furnace-900 px-1.5 py-0.5 rounded text-amber-300 code-font">3FF</code> is effectively instant (snap), <code class="bg-furnace-900 px-1.5 py-0.5 rounded text-amber-300 code-font">308</code> audibly glides. Mix both inside a phrase for expression.</p>
+                            <p><strong class="text-yellow-300">Why it matters:</strong> repeated chirp attacks on a fast run sound like a machine gun; legato makes it sound played.</p>
+                            <p><strong class="text-yellow-300">Furnace note:</strong> some chips also honour <code class="bg-furnace-900 px-1.5 py-0.5 rounded text-amber-300 code-font">EAxx</code> legato mode — check the per-chip effect list.</p>
+                        </div>
+                        <div class="tab-content pattern-tab hidden">
+                            <div class="relative bg-furnace-900 rounded-lg p-3 border border-furnace-700 code-font text-xs text-green-400">
+                                <button onclick="copySnippet(this)" class="absolute top-2 right-2 px-2 py-1 bg-furnace-800 text-gray-400 hover:text-white rounded text-[10px]"><i class="fa-regular fa-copy"></i> Copy</button>
+                                <pre>
+Row | Note | Vol | FX
+00  | A-4  | F0  | ---   (only real attack)
+02  | C-5  | ..  | 3FF
+04  | D-5  | ..  | 3FF
+06  | E-5  | ..  | 320   (audible slide)
+08  | G-5  | ..  | 3FF
+12  | A-5  | ..  | 310
+14  | ---  | ..  | EC4</pre>
+                            </div>
+                        </div>
+                        <div class="tab-content recipe-tab hidden text-xs text-gray-300 space-y-2">
+                            <p><strong class="text-yellow-300">Vol Macro:</strong> attack then a long flat sustain — a decaying macro will fade out mid-run.</p>
+                            <p><strong class="text-yellow-300">Arp Macro:</strong> off. Arps re-trigger the perceived attack and fight the legato illusion.</p>
+                        </div>
+                    </div>
+                    <!-- Retrigger rolls -->
+                    <div class="pattern-card bg-furnace-800 border border-furnace-700 rounded-xl p-5 hover:border-yellow-500/50 transition duration-200" data-tags="effects pulse retrigger roll stutter 0Cxx articulation ratchet">
+                        <div class="flex items-start justify-between mb-3">
+                            <div>
+                                <span class="text-xs font-mono text-yellow-400 bg-yellow-950/60 px-2 py-0.5 rounded border border-yellow-800">ARTICULATION / FX</span>
+                                <h3 class="text-lg font-bold text-white mt-1">Retrigger Rolls &amp; Ratchets (<code>0Cxx</code>)</h3>
+                            </div>
+                            <button onclick="playPattern('retrigRoll')" class="px-3 py-1.5 bg-yellow-500/20 text-yellow-300 hover:bg-yellow-500 hover:text-black rounded-lg text-xs font-semibold flex items-center gap-1.5 transition">
+                                <i class="fa-solid fa-play"></i> Play Sound
+                            </button>
+                        </div>
+                        <p class="text-sm text-gray-300 mb-4">
+                            One row, many attacks: retrigger re-fires the note every <em>xx</em> ticks, giving buzz rolls, ratcheted hats and stutter effects at a resolution finer than your row grid — without raising the song's speed or writing every subdivision by hand.
+                        </p>
+                        <div class="border-b border-furnace-700 flex space-x-4 text-xs font-mono mb-3 overflow-x-auto whitespace-nowrap">
+                            <button onclick="switchCardTab(this, 'concept')" class="tab-btn active text-cyan-400 border-b-2 border-cyan-400 pb-1 font-semibold flex-shrink-0">Concept &amp; Theory</button>
+                            <button onclick="switchCardTab(this, 'pattern')" class="tab-btn text-gray-400 hover:text-white pb-1 flex-shrink-0">Furnace Pattern Snippet</button>
+                            <button onclick="switchCardTab(this, 'recipe')" class="tab-btn text-gray-400 hover:text-white pb-1 flex-shrink-0">Inst Settings</button>
+                        </div>
+                        <div class="tab-content concept-tab text-xs text-gray-300 space-y-2">
+                            <p><strong class="text-yellow-300">Resolution for free:</strong> at speed 6, <code class="bg-furnace-900 px-1.5 py-0.5 rounded text-amber-300 code-font">0C02</code> gives three hits inside one row — 48th notes on a 16th grid.</p>
+                            <p><strong class="text-yellow-300">Accelerating fill:</strong> step the value down across a bar (<code class="bg-furnace-900 px-1.5 py-0.5 rounded text-amber-300 code-font">0C04 → 0C03 → 0C02 → 0C01</code>) for a snare roll that speeds up into the downbeat.</p>
+                            <p><strong class="text-yellow-300">Melodic use:</strong> retrigger on a lead note is a stutter/glitch accent; two rows of it is plenty.</p>
+                        </div>
+                        <div class="tab-content pattern-tab hidden">
+                            <div class="relative bg-furnace-900 rounded-lg p-3 border border-furnace-700 code-font text-xs text-green-400">
+                                <button onclick="copySnippet(this)" class="absolute top-2 right-2 px-2 py-1 bg-furnace-800 text-gray-400 hover:text-white rounded text-[10px]"><i class="fa-regular fa-copy"></i> Copy</button>
+                                <pre>
+Row | Note Vol FX    | result
+00  | E-3  F0  ---   | plain snare
+04  | E-3  D0  0C03  | 2 hits in the row
+06  | E-3  D0  0C02  | 3 hits
+07  | E-3  E0  0C01  | 6 hits (buzz)
+08  | C-2  F0  ---   | downbeat lands</pre>
+                            </div>
+                        </div>
+                        <div class="tab-content recipe-tab hidden text-xs text-gray-300 space-y-2">
+                            <p><strong class="text-yellow-300">Envelope:</strong> the instrument restarts each hit, so a long attack macro will smear the roll — keep attack at 1 tick.</p>
+                            <p><strong class="text-yellow-300">Volume:</strong> ramp the volume column up across the roll; flat rolls sound mechanical.</p>
+                        </div>
+                    </div>
 
                 </div>
             </section>
@@ -544,7 +637,7 @@ Row | Note | Vol | FX
                 <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
 
                     <!-- Pattern Card: High-Speed Arpeggio Chords -->
-                    <div class="pattern-card bg-furnace-800 border border-furnace-700 rounded-xl p-5 hover:border-purple-500/50 transition duration-200" data-tags="arp chord polyphony 0xy c64 pulse">
+                    <div class="pattern-card bg-furnace-800 border border-furnace-700 rounded-xl p-5 hover:border-purple-500/50 transition duration-200" data-tags="effects pulse arp chord polyphony 0xy c64">
                         <div class="flex items-start justify-between mb-3">
                             <div>
                                 <span class="text-xs font-mono text-purple-400 bg-purple-950/60 px-2 py-0.5 rounded border border-purple-800">PSEUDO-CHORD / ARP</span>
@@ -585,7 +678,7 @@ Row | Note | Vol | FX
                     </div>
 
                     <!-- Pattern Card: Single-Channel Fake Delay -->
-                    <div class="pattern-card bg-furnace-800 border border-furnace-700 rounded-xl p-5 hover:border-purple-500/50 transition duration-200" data-tags="delay echo ghost note pulse">
+                    <div class="pattern-card bg-furnace-800 border border-furnace-700 rounded-xl p-5 hover:border-purple-500/50 transition duration-200" data-tags="effects pulse delay echo ghost note">
                         <div class="flex items-start justify-between mb-3">
                             <div>
                                 <span class="text-xs font-mono text-purple-400 bg-purple-950/60 px-2 py-0.5 rounded border border-purple-800">ECHO / GHOST NOTES</span>
@@ -619,7 +712,7 @@ Row | Note | Vol | FX
                     </div>
 
                     <!-- Pattern Card: Detuned Dual-Channel Chorus -->
-                    <div class="pattern-card bg-furnace-800 border border-furnace-700 rounded-xl p-5 hover:border-purple-500/50 transition duration-200" data-tags="chorus detune unison E5x pulse">
+                    <div class="pattern-card bg-furnace-800 border border-furnace-700 rounded-xl p-5 hover:border-purple-500/50 transition duration-200" data-tags="effects pulse chorus detune unison e5x">
                         <div class="flex items-start justify-between mb-3">
                             <div>
                                 <span class="text-xs font-mono text-purple-400 bg-purple-950/60 px-2 py-0.5 rounded border border-purple-800">CHORUS / UNISON</span>
@@ -641,6 +734,48 @@ Row | Note | Vol | FX
                         <div class="tab-content concept-tab text-xs text-gray-300 space-y-2">
                             <p><strong class="text-purple-300">Pulse Channel 1:</strong> Duty = 50%, Fine-tune = 0, Panning = Left.</p>
                             <p><strong class="text-purple-300">Pulse Channel 2:</strong> Duty = 25%, Fine-tune = +4 cents (`E54`), Panning = Right.</p>
+                        </div>
+                    </div>
+                    <!-- Stereo ping-pong echo -->
+                    <div class="pattern-card bg-furnace-800 border border-furnace-700 rounded-xl p-5 hover:border-purple-500/50 transition duration-200" data-tags="texture echo delay stereo panning 08xy wave gameboy pce genesis">
+                        <div class="flex items-start justify-between mb-3">
+                            <div>
+                                <span class="text-xs font-mono text-purple-400 bg-purple-950/60 px-2 py-0.5 rounded border border-purple-800">TEXTURE / STEREO</span>
+                                <h3 class="text-lg font-bold text-white mt-1">Ping-Pong Echo &amp; Hard Panning</h3>
+                            </div>
+                            <button onclick="playPattern('pingPong')" class="px-3 py-1.5 bg-purple-500/20 text-purple-300 hover:bg-purple-500 hover:text-black rounded-lg text-xs font-semibold flex items-center gap-1.5 transition">
+                                <i class="fa-solid fa-play"></i> Play Sound
+                            </button>
+                        </div>
+                        <p class="text-sm text-gray-300 mb-4">
+                            On stereo-capable chips (Game Boy, PC Engine, Genesis, Amiga) an echo does not have to be mono. Pan the lead left, put its delayed copy hard right, and a second, quieter tap back on the left: a ping-pong delay built entirely from note placement and <code class="text-amber-300 code-font">08xy</code>.
+                        </p>
+                        <div class="border-b border-furnace-700 flex space-x-4 text-xs font-mono mb-3 overflow-x-auto whitespace-nowrap">
+                            <button onclick="switchCardTab(this, 'concept')" class="tab-btn active text-cyan-400 border-b-2 border-cyan-400 pb-1 font-semibold flex-shrink-0">Concept &amp; Theory</button>
+                            <button onclick="switchCardTab(this, 'pattern')" class="tab-btn text-gray-400 hover:text-white pb-1 flex-shrink-0">Furnace Pattern Snippet</button>
+                            <button onclick="switchCardTab(this, 'recipe')" class="tab-btn text-gray-400 hover:text-white pb-1 flex-shrink-0">Inst Settings</button>
+                        </div>
+                        <div class="tab-content concept-tab text-xs text-gray-300 space-y-2">
+                            <p><strong class="text-purple-300">Delay length:</strong> a dotted 8th (3 rows on a 16th grid) is the classic synth-delay feel; 2 rows is a slapback.</p>
+                            <p><strong class="text-purple-300">Level:</strong> each tap 40–60% of the previous one, and darker if you can (narrower duty).</p>
+                            <p><strong class="text-purple-300">Mono check:</strong> hard-panned parts vanish on mono hardware — keep anything essential centred.</p>
+                        </div>
+                        <div class="tab-content pattern-tab hidden">
+                            <div class="relative bg-furnace-900 rounded-lg p-3 border border-furnace-700 code-font text-xs text-green-400">
+                                <button onclick="copySnippet(this)" class="absolute top-2 right-2 px-2 py-1 bg-furnace-800 text-gray-400 hover:text-white rounded text-[10px]"><i class="fa-regular fa-copy"></i> Copy</button>
+                                <pre>
+Row | Ch1 lead (L)   | Ch2 echo (R)
+00  | A-4 F0 0810    | ---
+03  | ---            | A-4 90 0801
+06  | ---            | A-4 40 0810   (tap 2, back L)
+08  | C-5 F0 0810    | ---
+11  | ---            | C-5 90 0801
+14  | ---            | C-5 40 0810</pre>
+                            </div>
+                        </div>
+                        <div class="tab-content recipe-tab hidden text-xs text-gray-300 space-y-2">
+                            <p><strong class="text-purple-300">Echo inst:</strong> copy of the lead with a narrower duty and no attack transient — the echo should never chirp.</p>
+                            <p><strong class="text-purple-300">Cheaper version:</strong> mono echo on one channel (see Single-Voice Pseudo-Echo) if you cannot spare a channel or the chip is mono.</p>
                         </div>
                     </div>
 
@@ -694,7 +829,7 @@ Row | Note | Vol | FX
                     </div>
 
                     <!-- Pattern Card: Pseudo-Distortion -->
-                    <div class="pattern-card bg-furnace-800 border border-furnace-700 rounded-xl p-5 hover:border-emerald-500/50 transition duration-200" data-tags="distortion bitcrush grit drive noise pulse">
+                    <div class="pattern-card bg-furnace-800 border border-furnace-700 rounded-xl p-5 hover:border-emerald-500/50 transition duration-200" data-tags="pulse noise distortion bitcrush grit drive timbre">
                         <div class="flex items-start justify-between mb-3">
                             <div>
                                 <span class="text-xs font-mono text-emerald-400 bg-emerald-950/60 px-2 py-0.5 rounded border border-emerald-800">BITCRUSH / GRIT</span>
@@ -720,9 +855,340 @@ Row | Note | Vol | FX
                             </div>
                         </div>
                     </div>
+                    <!-- Tremolo gate -->
+                    <div class="pattern-card bg-furnace-800 border border-furnace-700 rounded-xl p-5 hover:border-emerald-500/50 transition duration-200" data-tags="effects pulse tremolo gate stutter timbre 07xy volume">
+                        <div class="flex items-start justify-between mb-3">
+                            <div>
+                                <span class="text-xs font-mono text-emerald-400 bg-emerald-950/60 px-2 py-0.5 rounded border border-emerald-800">TIMBRE / DYNAMICS</span>
+                                <h3 class="text-lg font-bold text-white mt-1">Tremolo Gating (<code>07xy</code>)</h3>
+                            </div>
+                            <button onclick="playPattern('tremoloGate')" class="px-3 py-1.5 bg-emerald-500/20 text-emerald-300 hover:bg-emerald-500 hover:text-black rounded-lg text-xs font-semibold flex items-center gap-1.5 transition">
+                                <i class="fa-solid fa-play"></i> Play Sound
+                            </button>
+                        </div>
+                        <p class="text-sm text-gray-300 mb-4">
+                            Vibrato's amplitude twin. Shallow and slow, it is expressive warmth on a held note; fast and deep, it becomes a gate/stutter — the chip equivalent of a trance gate on a pad, from one effect command and no extra channels.
+                        </p>
+                        <div class="border-b border-furnace-700 flex space-x-4 text-xs font-mono mb-3 overflow-x-auto whitespace-nowrap">
+                            <button onclick="switchCardTab(this, 'concept')" class="tab-btn active text-cyan-400 border-b-2 border-cyan-400 pb-1 font-semibold flex-shrink-0">Concept &amp; Theory</button>
+                            <button onclick="switchCardTab(this, 'pattern')" class="tab-btn text-gray-400 hover:text-white pb-1 flex-shrink-0">Furnace Pattern Snippet</button>
+                            <button onclick="switchCardTab(this, 'recipe')" class="tab-btn text-gray-400 hover:text-white pb-1 flex-shrink-0">Inst Settings</button>
+                        </div>
+                        <div class="tab-content concept-tab text-xs text-gray-300 space-y-2">
+                            <p><strong class="text-emerald-300">Two settings, two uses:</strong> <code class="bg-furnace-900 px-1.5 py-0.5 rounded text-amber-300 code-font">0722</code> = gentle organ warble; <code class="bg-furnace-900 px-1.5 py-0.5 rounded text-amber-300 code-font">07CF</code> = hard rhythmic gate.</p>
+                            <p><strong class="text-emerald-300">Lock to the grid:</strong> pick a speed whose period divides evenly into a beat, or the gate fights the groove.</p>
+                            <p><strong class="text-emerald-300">Macro alternative:</strong> a looping volume macro gives the same gate but stays locked to the instrument, not the row.</p>
+                        </div>
+                        <div class="tab-content pattern-tab hidden">
+                            <div class="relative bg-furnace-900 rounded-lg p-3 border border-furnace-700 code-font text-xs text-green-400">
+                                <button onclick="copySnippet(this)" class="absolute top-2 right-2 px-2 py-1 bg-furnace-800 text-gray-400 hover:text-white rounded text-[10px]"><i class="fa-regular fa-copy"></i> Copy</button>
+                                <pre>
+Row | Pad ch
+00  | C-4 F0 07CF   gated chord
+08  | --- .. ---
+16  | A#3 F0 0722   gentle warble
+24  | --- .. 0700   tremolo off
+32  | F-3 F0 07CF</pre>
+                            </div>
+                        </div>
+                        <div class="tab-content recipe-tab hidden text-xs text-gray-300 space-y-2">
+                            <p><strong class="text-emerald-300">Pairs well with:</strong> a wide duty (50%) so the gate has body to chop.</p>
+                            <p><strong class="text-emerald-300">Do not stack:</strong> tremolo plus a decaying volume macro cancels the effect — use a flat sustain macro.</p>
+                        </div>
+                    </div>
+
+                    <!-- AY buzz bass -->
+                    <div class="pattern-card bg-furnace-800 border border-furnace-700 rounded-xl p-5 hover:border-emerald-500/50 transition duration-200" data-tags="pulse timbre ay buzz bass hardware envelope zx spectrum atari st msx">
+                        <div class="flex items-start justify-between mb-3">
+                            <div>
+                                <span class="text-xs font-mono text-emerald-400 bg-emerald-950/60 px-2 py-0.5 rounded border border-emerald-800">TIMBRE / AY-3-8910</span>
+                                <h3 class="text-lg font-bold text-white mt-1">Hardware-Envelope "Buzz" Bass</h3>
+                            </div>
+                            <button onclick="playPattern('buzzBass')" class="px-3 py-1.5 bg-emerald-500/20 text-emerald-300 hover:bg-emerald-500 hover:text-black rounded-lg text-xs font-semibold flex items-center gap-1.5 transition">
+                                <i class="fa-solid fa-play"></i> Play Sound
+                            </button>
+                        </div>
+                        <p class="text-sm text-gray-300 mb-4">
+                            The AY's volume envelope can loop at audio rate — so instead of shaping loudness it becomes an oscillator, producing a buzzy sawtooth-like bass that the chip has no waveform for. This is the signature ZX Spectrum / Atari ST / MSX bass sound, and it effectively hands a three-voice chip a fourth timbre.
+                        </p>
+                        <div class="border-b border-furnace-700 flex space-x-4 text-xs font-mono mb-3 overflow-x-auto whitespace-nowrap">
+                            <button onclick="switchCardTab(this, 'concept')" class="tab-btn active text-cyan-400 border-b-2 border-cyan-400 pb-1 font-semibold flex-shrink-0">Concept &amp; Theory</button>
+                            <button onclick="switchCardTab(this, 'pattern')" class="tab-btn text-gray-400 hover:text-white pb-1 flex-shrink-0">Furnace Pattern Snippet</button>
+                            <button onclick="switchCardTab(this, 'recipe')" class="tab-btn text-gray-400 hover:text-white pb-1 flex-shrink-0">Inst Settings</button>
+                        </div>
+                        <div class="tab-content concept-tab text-xs text-gray-300 space-y-2">
+                            <p><strong class="text-emerald-300">Pitch comes from the envelope period,</strong> not the tone register — so you set the envelope period per note, and the channel's own tone can be muted or detuned against it for extra grit.</p>
+                            <p><strong class="text-emerald-300">Trade-off:</strong> the envelope generator is shared across the chip, so only one buzz voice at a time.</p>
+                            <p><strong class="text-emerald-300">Furnace:</strong> use the AY instrument's hardware-envelope settings and the envelope-period effects rather than a volume macro.</p>
+                        </div>
+                        <div class="tab-content pattern-tab hidden">
+                            <div class="relative bg-furnace-900 rounded-lg p-3 border border-furnace-700 code-font text-xs text-green-400">
+                                <button onclick="copySnippet(this)" class="absolute top-2 right-2 px-2 py-1 bg-furnace-800 text-gray-400 hover:text-white rounded text-[10px]"><i class="fa-regular fa-copy"></i> Copy</button>
+                                <pre>
+Row | Buzz bass ch | Ch2 lead | Ch3 arp
+00  | C-2 (env on) | G-4      | C-4 037
+04  | C-2          | A#4      | ---
+08  | G-1          | G-4      | G-3 047
+12  | A#1          | F-4      | ---
+   env shape = sawtooth-style, looping</pre>
+                            </div>
+                        </div>
+                        <div class="tab-content recipe-tab hidden text-xs text-gray-300 space-y-2">
+                            <p><strong class="text-emerald-300">Envelope shape:</strong> the ramp-and-repeat shapes give saw-like buzz; the triangle-ish shapes are softer.</p>
+                            <p><strong class="text-emerald-300">Layer:</strong> mute the channel's square tone for a clean buzz, or leave it slightly detuned for the classic dirty ST bass.</p>
+                        </div>
+                    </div>
 
                 </div>
             </section>
+            <!-- CATEGORY: FM SYNTHESIS -->
+            <section id="cat-fm" class="category-section space-y-6 pt-4">
+                <div class="border-b border-furnace-700 pb-3 flex flex-wrap items-center justify-between gap-3">
+                    <div class="flex items-center space-x-3">
+                        <div class="p-2 bg-yellow-500/10 rounded-lg text-yellow-400">
+                            <i class="fa-solid fa-diagram-project text-xl"></i>
+                        </div>
+                        <div>
+                            <h2 class="text-xl font-bold text-white">5. FM Synthesis (OPN / OPM / OPL)</h2>
+                            <p class="text-xs text-gray-400">Genesis, arcade and MSX FM patch design — algorithms, operator ratios, feedback and the envelopes that make FM sound like an instrument.</p>
+                        </div>
+                    </div>
+                    <span class="text-xs font-mono px-2.5 py-1 bg-yellow-500/10 text-yellow-300 rounded border border-yellow-500/30">5 Techniques</span>
+                </div>
+
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+
+                    <div class="pattern-card bg-furnace-800 border border-furnace-700 rounded-xl p-5 hover:border-yellow-500/50 transition duration-200" data-tags="fm algorithm operator genesis ym2612 ym2151 patch">
+                        <div class="flex items-start justify-between mb-3">
+                            <div>
+                                <span class="text-xs font-mono text-yellow-400 bg-yellow-950/60 px-2 py-0.5 rounded border border-yellow-800">FM / STRUCTURE</span>
+                                <h3 class="text-lg font-bold text-white mt-1">Reading Algorithms: Serial vs Parallel</h3>
+                            </div>
+                            <button onclick="playPattern('fmAlgorithms')" class="px-3 py-1.5 bg-yellow-500/20 text-yellow-300 hover:bg-yellow-500 hover:text-black rounded-lg text-xs font-semibold flex items-center gap-1.5 transition">
+                                <i class="fa-solid fa-play"></i> Play Sound
+                            </button>
+                        </div>
+                        <p class="text-sm text-gray-300 mb-4">
+                            An FM algorithm is just the wiring diagram between four operators. Fully serial (one chain) gives dense, metallic, bell-like tones. Fully parallel gives additive, organ-like tones. Everything expressive lives in between — and picking the right algorithm is 80% of getting a patch that works.
+                        </p>
+                        <div class="border-b border-furnace-700 flex space-x-4 text-xs font-mono mb-3 overflow-x-auto whitespace-nowrap">
+                            <button onclick="switchCardTab(this, 'concept')" class="tab-btn active text-cyan-400 border-b-2 border-cyan-400 pb-1 font-semibold flex-shrink-0">Concept &amp; Theory</button>
+                            <button onclick="switchCardTab(this, 'pattern')" class="tab-btn text-gray-400 hover:text-white pb-1 flex-shrink-0">Patch Map</button>
+                            <button onclick="switchCardTab(this, 'recipe')" class="tab-btn text-gray-400 hover:text-white pb-1 flex-shrink-0">Inst Settings</button>
+                        </div>
+                        <div class="tab-content concept-tab text-xs text-gray-300 space-y-2">
+                            <p><strong class="text-yellow-300">Carriers make sound; modulators shape it.</strong> Only operators that reach the output are audible — the rest bend the ones that do.</p>
+                            <p><strong class="text-yellow-300">More carriers = fatter, softer.</strong> More modulators in series = brighter, harsher, more metallic.</p>
+                            <p><strong class="text-yellow-300">Start here:</strong> algorithm 4 (two 2-op stacks) is the most useful all-rounder — bass, brass and keys all come out of it.</p>
+                        </div>
+                        <div class="tab-content pattern-tab hidden">
+                            <div class="relative bg-furnace-900 rounded-lg p-3 border border-furnace-700 code-font text-xs text-green-400">
+                                <button onclick="copySnippet(this)" class="absolute top-2 right-2 px-2 py-1 bg-furnace-800 text-gray-400 hover:text-white rounded text-[10px]"><i class="fa-regular fa-copy"></i> Copy</button>
+                                <pre>
+ALG 0  (serial)      OP1-&gt;OP2-&gt;OP3-&gt;OP4-&gt;out
+                     bells, clangs, aggressive leads
+
+ALG 4  (2 stacks)    OP1-&gt;OP2 --\
+                     OP3-&gt;OP4 ---&gt; out
+                     bass, brass, e-piano
+
+ALG 7  (parallel)    OP1 OP2 OP3 OP4 all -&gt; out
+                     organ, additive pads, soft keys</pre>
+                            </div>
+                        </div>
+                        <div class="tab-content recipe-tab hidden text-xs text-gray-300 space-y-2">
+                            <p><strong class="text-yellow-300">Workflow:</strong> pick the algorithm, set carrier envelopes for the shape you want, and only then tune modulator level and ratio for timbre.</p>
+                            <p><strong class="text-yellow-300">Level discipline:</strong> a modulator's total level is your "brightness knob". Small changes are large timbral moves.</p>
+                        </div>
+                    </div>
+
+                    <div class="pattern-card bg-furnace-800 border border-furnace-700 rounded-xl p-5 hover:border-yellow-500/50 transition duration-200" data-tags="fm bass genesis ym2612 ratio pluck patch">
+                        <div class="flex items-start justify-between mb-3">
+                            <div>
+                                <span class="text-xs font-mono text-yellow-400 bg-yellow-950/60 px-2 py-0.5 rounded border border-yellow-800">FM / BASS</span>
+                                <h3 class="text-lg font-bold text-white mt-1">The Genesis Bass Patch (Ratio + Fast Decay)</h3>
+                            </div>
+                            <button onclick="playPattern('fmBass')" class="px-3 py-1.5 bg-yellow-500/20 text-yellow-300 hover:bg-yellow-500 hover:text-black rounded-lg text-xs font-semibold flex items-center gap-1.5 transition">
+                                <i class="fa-solid fa-play"></i> Play Sound
+                            </button>
+                        </div>
+                        <p class="text-sm text-gray-300 mb-4">
+                            The classic Mega Drive bass is two operators: a carrier at ratio 1 for the fundamental, and a modulator at ratio 1 or 2 whose envelope decays in a few tens of milliseconds. The modulator's decay <em>is</em> the pluck — brightness collapses to a pure tone, exactly like a plucked string.
+                        </p>
+                        <div class="border-b border-furnace-700 flex space-x-4 text-xs font-mono mb-3 overflow-x-auto whitespace-nowrap">
+                            <button onclick="switchCardTab(this, 'concept')" class="tab-btn active text-cyan-400 border-b-2 border-cyan-400 pb-1 font-semibold flex-shrink-0">Concept &amp; Theory</button>
+                            <button onclick="switchCardTab(this, 'pattern')" class="tab-btn text-gray-400 hover:text-white pb-1 flex-shrink-0">Patch Map</button>
+                            <button onclick="switchCardTab(this, 'recipe')" class="tab-btn text-gray-400 hover:text-white pb-1 flex-shrink-0">Inst Settings</button>
+                        </div>
+                        <div class="tab-content concept-tab text-xs text-gray-300 space-y-2">
+                            <p><strong class="text-yellow-300">Ratio rules:</strong> integer ratios (1, 2, 3) stay harmonic and musical. Non-integer ratios go inharmonic — great for bells, wrong for bass.</p>
+                            <p><strong class="text-yellow-300">Ratio 1:1</strong> = round and warm. <strong class="text-yellow-300">1:2</strong> = hollow, more "clav". <strong class="text-yellow-300">1:3</strong> = reedy and aggressive.</p>
+                            <p><strong class="text-yellow-300">Keep it low:</strong> FM bass below C2 loses definition fast; write C2–G2 and let the harmonics imply the depth.</p>
+                        </div>
+                        <div class="tab-content pattern-tab hidden">
+                            <div class="relative bg-furnace-900 rounded-lg p-3 border border-furnace-700 code-font text-xs text-green-400">
+                                <button onclick="copySnippet(this)" class="absolute top-2 right-2 px-2 py-1 bg-furnace-800 text-gray-400 hover:text-white rounded text-[10px]"><i class="fa-regular fa-copy"></i> Copy</button>
+                                <pre>
+ALG 4, FB 2
+OP1 (mod)  ratio 1  TL 20  AR 31 D1R 18 D1L 8  SR 12
+OP3 (mod)  ratio 2  TL 34  AR 31 D1R 20 D1L 10 SR 14
+OP2 (car)  ratio 1  TL 0   AR 31 D1R 6  D1L 2  RR 10
+OP4 (car)  ratio 1  TL 4   AR 31 D1R 6  D1L 2  RR 10
+
+Pattern
+00 | C-2 F0 ---
+04 | C-2 D0 ---
+06 | D#2 D0 EC2
+08 | G-2 F0 ---</pre>
+                            </div>
+                        </div>
+                        <div class="tab-content recipe-tab hidden text-xs text-gray-300 space-y-2">
+                            <p><strong class="text-yellow-300">Punchier:</strong> raise modulator attack rate to maximum and shorten its decay — brightness should be gone within ~60 ms.</p>
+                            <p><strong class="text-yellow-300">Feedback:</strong> 1–3 adds grit. Above 5 it turns to noise, which is a percussion trick, not a bass one.</p>
+                        </div>
+                    </div>
+
+                    <div class="pattern-card bg-furnace-800 border border-furnace-700 rounded-xl p-5 hover:border-yellow-500/50 transition duration-200" data-tags="fm brass stab lead genesis ym2151 envelope patch">
+                        <div class="flex items-start justify-between mb-3">
+                            <div>
+                                <span class="text-xs font-mono text-yellow-400 bg-yellow-950/60 px-2 py-0.5 rounded border border-yellow-800">FM / BRASS</span>
+                                <h3 class="text-lg font-bold text-white mt-1">Brass Stabs: Brightness That Blooms</h3>
+                            </div>
+                            <button onclick="playPattern('fmBrass')" class="px-3 py-1.5 bg-yellow-500/20 text-yellow-300 hover:bg-yellow-500 hover:text-black rounded-lg text-xs font-semibold flex items-center gap-1.5 transition">
+                                <i class="fa-solid fa-play"></i> Play Sound
+                            </button>
+                        </div>
+                        <p class="text-sm text-gray-300 mb-4">
+                            Real brass gets brighter <em>after</em> the attack as the player pushes air. Reproduce it by giving the modulator a slower attack than the carrier: the note starts soft and blooms into a blaring stab over 50–150&nbsp;ms. This one envelope trick is what separates convincing FM brass from a buzzer.
+                        </p>
+                        <div class="border-b border-furnace-700 flex space-x-4 text-xs font-mono mb-3 overflow-x-auto whitespace-nowrap">
+                            <button onclick="switchCardTab(this, 'concept')" class="tab-btn active text-cyan-400 border-b-2 border-cyan-400 pb-1 font-semibold flex-shrink-0">Concept &amp; Theory</button>
+                            <button onclick="switchCardTab(this, 'pattern')" class="tab-btn text-gray-400 hover:text-white pb-1 flex-shrink-0">Patch Map</button>
+                            <button onclick="switchCardTab(this, 'recipe')" class="tab-btn text-gray-400 hover:text-white pb-1 flex-shrink-0">Inst Settings</button>
+                        </div>
+                        <div class="tab-content concept-tab text-xs text-gray-300 space-y-2">
+                            <p><strong class="text-yellow-300">Attack order:</strong> carrier attack fast, modulator attack slower. Reverse it and you get a plucked key instead.</p>
+                            <p><strong class="text-yellow-300">Stab vs sustain:</strong> for stabs, cut with <code class="bg-furnace-900 px-1.5 py-0.5 rounded text-amber-300 code-font">ECxx</code> just after the bloom peaks — the shape is the hook.</p>
+                            <p><strong class="text-yellow-300">Section writing:</strong> two FM channels a fourth or fifth apart read as a brass section; three is a horn stack.</p>
+                        </div>
+                        <div class="tab-content pattern-tab hidden">
+                            <div class="relative bg-furnace-900 rounded-lg p-3 border border-furnace-700 code-font text-xs text-green-400">
+                                <button onclick="copySnippet(this)" class="absolute top-2 right-2 px-2 py-1 bg-furnace-800 text-gray-400 hover:text-white rounded text-[10px]"><i class="fa-regular fa-copy"></i> Copy</button>
+                                <pre>
+ALG 2, FB 4
+OP mod  ratio 1  TL 26  AR 18 (slow)  D1R 8  D1L 4
+OP car  ratio 1  TL 0   AR 31 (fast)  D1R 4  D1L 2
+
+Row | Ch1 (brass) | Ch2 (brass 5th)
+00  | C-4 F0 EC5  | G-4 D0 EC5
+04  | C-4 F0 EC5  | G-4 D0 EC5
+06  | D#4 F0 EC5  | A#4 D0 EC5
+12  | F-4 F0 ---  | C-5 D0 ---</pre>
+                            </div>
+                        </div>
+                        <div class="tab-content recipe-tab hidden text-xs text-gray-300 space-y-2">
+                            <p><strong class="text-yellow-300">Add air:</strong> slight operator detune (DT 1) thickens the stack without a second channel.</p>
+                            <p><strong class="text-yellow-300">Velocity feel:</strong> lower the volume column and the patch also gets darker if the chip scales modulator level — dynamics for free.</p>
+                        </div>
+                    </div>
+
+                    <div class="pattern-card bg-furnace-800 border border-furnace-700 rounded-xl p-5 hover:border-yellow-500/50 transition duration-200" data-tags="fm percussion feedback noise drums genesis patch">
+                        <div class="flex items-start justify-between mb-3">
+                            <div>
+                                <span class="text-xs font-mono text-yellow-400 bg-yellow-950/60 px-2 py-0.5 rounded border border-yellow-800">FM / PERCUSSION</span>
+                                <h3 class="text-lg font-bold text-white mt-1">Feedback as a Noise Source</h3>
+                            </div>
+                            <button onclick="playPattern('fmPerc')" class="px-3 py-1.5 bg-yellow-500/20 text-yellow-300 hover:bg-yellow-500 hover:text-black rounded-lg text-xs font-semibold flex items-center gap-1.5 transition">
+                                <i class="fa-solid fa-play"></i> Play Sound
+                            </button>
+                        </div>
+                        <p class="text-sm text-gray-300 mb-4">
+                            Push operator feedback to its maximum and the waveform breaks down into noise. Combine that with a fast pitch drop and a short envelope and an FM channel becomes a snare, tom or cymbal — no sample memory, no PSG noise channel required.
+                        </p>
+                        <div class="border-b border-furnace-700 flex space-x-4 text-xs font-mono mb-3 overflow-x-auto whitespace-nowrap">
+                            <button onclick="switchCardTab(this, 'concept')" class="tab-btn active text-cyan-400 border-b-2 border-cyan-400 pb-1 font-semibold flex-shrink-0">Concept &amp; Theory</button>
+                            <button onclick="switchCardTab(this, 'pattern')" class="tab-btn text-gray-400 hover:text-white pb-1 flex-shrink-0">Patch Map</button>
+                            <button onclick="switchCardTab(this, 'recipe')" class="tab-btn text-gray-400 hover:text-white pb-1 flex-shrink-0">Inst Settings</button>
+                        </div>
+                        <div class="tab-content concept-tab text-xs text-gray-300 space-y-2">
+                            <p><strong class="text-yellow-300">Tom:</strong> harmonic ratios + pitch drop. <strong class="text-yellow-300">Snare:</strong> max feedback + non-integer ratio. <strong class="text-yellow-300">Cymbal:</strong> high inharmonic ratios, long decay.</p>
+                            <p><strong class="text-yellow-300">Trade-off:</strong> each drum costs an FM channel while it sounds. Keep drum notes short so the channel returns to melodic duty.</p>
+                            <p><strong class="text-yellow-300">Genesis reality:</strong> most games used the DAC channel for drums; FM drums are the option when the DAC is busy or ROM is tight.</p>
+                        </div>
+                        <div class="tab-content pattern-tab hidden">
+                            <div class="relative bg-furnace-900 rounded-lg p-3 border border-furnace-700 code-font text-xs text-green-400">
+                                <button onclick="copySnippet(this)" class="absolute top-2 right-2 px-2 py-1 bg-furnace-800 text-gray-400 hover:text-white rounded text-[10px]"><i class="fa-regular fa-copy"></i> Copy</button>
+                                <pre>
+SNARE  ALG 0, FB 7
+  ratios 1 / 1.41-ish (use DT to detune off-integer)
+  AR 31, D1R 24, RR 15, no sustain
+  pitch macro: 0 -20 -40 (2 ticks)
+
+TOM    ALG 4, FB 3, ratios 1 / 2
+  pitch macro: 0 -30 -55 -70
+
+Row | FM ch
+00  | C-3 F0    (tom)
+04  | E-3 F0    (snare)
+08  | C-3 D0
+12  | E-3 F0</pre>
+                            </div>
+                        </div>
+                        <div class="tab-content recipe-tab hidden text-xs text-gray-300 space-y-2">
+                            <p><strong class="text-yellow-300">Layer it:</strong> FM snare + PSG noise hat keeps both channels busy but sounds like a full kit.</p>
+                            <p><strong class="text-yellow-300">Tuning:</strong> pitch the tom to a chord tone. Tuned drums sit in the mix instead of fighting it.</p>
+                        </div>
+                    </div>
+
+                    <div class="pattern-card bg-furnace-800 border border-furnace-700 rounded-xl p-5 hover:border-yellow-500/50 transition duration-200" data-tags="fm detune chorus pad genesis ym2151 patch">
+                        <div class="flex items-start justify-between mb-3">
+                            <div>
+                                <span class="text-xs font-mono text-yellow-400 bg-yellow-950/60 px-2 py-0.5 rounded border border-yellow-800">FM / WIDTH</span>
+                                <h3 class="text-lg font-bold text-white mt-1">Operator Detune for Free Chorus</h3>
+                            </div>
+                            <button onclick="playPattern('fmDetune')" class="px-3 py-1.5 bg-yellow-500/20 text-yellow-300 hover:bg-yellow-500 hover:text-black rounded-lg text-xs font-semibold flex items-center gap-1.5 transition">
+                                <i class="fa-solid fa-play"></i> Play Sound
+                            </button>
+                        </div>
+                        <p class="text-sm text-gray-300 mb-4">
+                            On a parallel algorithm, detuning carriers slightly against each other makes them beat — a chorus effect inside one channel, costing nothing. It is the cheapest way to turn a thin FM pad into a wide one without spending a second voice.
+                        </p>
+                        <div class="border-b border-furnace-700 flex space-x-4 text-xs font-mono mb-3 overflow-x-auto whitespace-nowrap">
+                            <button onclick="switchCardTab(this, 'concept')" class="tab-btn active text-cyan-400 border-b-2 border-cyan-400 pb-1 font-semibold flex-shrink-0">Concept &amp; Theory</button>
+                            <button onclick="switchCardTab(this, 'pattern')" class="tab-btn text-gray-400 hover:text-white pb-1 flex-shrink-0">Patch Map</button>
+                            <button onclick="switchCardTab(this, 'recipe')" class="tab-btn text-gray-400 hover:text-white pb-1 flex-shrink-0">Inst Settings</button>
+                        </div>
+                        <div class="tab-content concept-tab text-xs text-gray-300 space-y-2">
+                            <p><strong class="text-yellow-300">DT vs channel detune:</strong> operator detune (DT) beats <em>inside</em> the voice; <code class="bg-furnace-900 px-1.5 py-0.5 rounded text-amber-300 code-font">E5xx</code> detunes the whole channel against another. Use both for a huge pad.</p>
+                            <p><strong class="text-yellow-300">Amount:</strong> DT 1–2 is width; DT 3 starts sounding broken on sustained notes.</p>
+                            <p><strong class="text-yellow-300">Beware bass:</strong> detuned low notes turn to mud. Keep detune for pads and leads.</p>
+                        </div>
+                        <div class="tab-content pattern-tab hidden">
+                            <div class="relative bg-furnace-900 rounded-lg p-3 border border-furnace-700 code-font text-xs text-green-400">
+                                <button onclick="copySnippet(this)" class="absolute top-2 right-2 px-2 py-1 bg-furnace-800 text-gray-400 hover:text-white rounded text-[10px]"><i class="fa-regular fa-copy"></i> Copy</button>
+                                <pre>
+ALG 7 (all parallel), FB 0
+OP1 ratio 1  DT 0   TL 8
+OP2 ratio 1  DT +1  TL 10
+OP3 ratio 2  DT -1  TL 18
+OP4 ratio 1  DT +2  TL 14
+all: slow AR, high D1L, long RR  -&gt; pad
+
+Row | Pad
+00  | C-4 A0 ---
+16  | A#3 A0 ---
+32  | F-4 A0 ---</pre>
+                            </div>
+                        </div>
+                        <div class="tab-content recipe-tab hidden text-xs text-gray-300 space-y-2">
+                            <p><strong class="text-yellow-300">Movement:</strong> add a slow LFO/AMS on one carrier so the beating drifts rather than sitting static.</p>
+                            <p><strong class="text-yellow-300">Stereo:</strong> on YM2151/2612, pan the pad wide and keep bass centred.</p>
+                        </div>
+                    </div>
+
+                </div>
+            </section>
+
             <!-- CATEGORY 5: MODERN & CLASSIC RETRO TRICKS -->
             <section id="cat-modern-retro" class="category-section space-y-6 pt-4">
                 <div class="border-b border-furnace-700 pb-3 flex flex-wrap items-center justify-between gap-3">
@@ -731,11 +1197,11 @@ Row | Note | Vol | FX
                             <i class="fa-solid fa-wand-magic-sparkles text-xl"></i>
                         </div>
                         <div>
-                            <h2 class="text-xl font-bold text-white">5. Modern &amp; Classic Retro Tricks</h2>
+                            <h2 class="text-xl font-bold text-white">6. Modern &amp; Classic Retro Tricks</h2>
                             <p class="text-xs text-gray-400">Borrowing EDM, synthwave and rock production moves and re-implementing them inside chip constraints.</p>
                         </div>
                     </div>
-                    <span class="text-xs font-mono px-2.5 py-1 bg-red-500/10 text-red-300 rounded border border-red-500/30">6 Techniques</span>
+                    <span class="text-xs font-mono px-2.5 py-1 bg-red-500/10 text-red-300 rounded border border-red-500/30">5 Techniques</span>
                 </div>
 
                 <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
@@ -912,49 +1378,6 @@ Row | Ch1          | Ch2
                         </div>
                     </div>
 
-                    <!-- Legato run -->
-                    <div class="pattern-card bg-furnace-800 border border-furnace-700 rounded-xl p-5 hover:border-red-500/50 transition duration-200" data-tags="modern lead legato portamento run effects">
-                        <div class="flex items-start justify-between mb-3">
-                            <div>
-                                <span class="text-xs font-mono text-red-400 bg-red-950/60 px-2 py-0.5 rounded border border-red-800">MODERN / PHRASING</span>
-                                <h3 class="text-lg font-bold text-white mt-1">Legato Run &amp; Portamento Ladder</h3>
-                            </div>
-                            <button onclick="playPattern('legatoRun')" class="px-3 py-1.5 bg-red-500/20 text-red-300 hover:bg-red-500 hover:text-black rounded-lg text-xs font-semibold flex items-center gap-1.5 transition">
-                                <i class="fa-solid fa-play"></i> Play Sound
-                            </button>
-                        </div>
-                        <p class="text-sm text-gray-300 mb-4">
-                            A run where only the first note re-triggers the envelope. Every subsequent note uses tone portamento with a high speed, so pitch snaps but the attack transient never repeats — the phrase reads as one long gesture, like a synth lead in mono/legato mode.
-                        </p>
-                        <div class="border-b border-furnace-700 flex space-x-4 text-xs font-mono mb-3 overflow-x-auto whitespace-nowrap">
-                            <button onclick="switchCardTab(this, 'concept')" class="tab-btn active text-cyan-400 border-b-2 border-cyan-400 pb-1 font-semibold flex-shrink-0">Concept &amp; Theory</button>
-                            <button onclick="switchCardTab(this, 'pattern')" class="tab-btn text-gray-400 hover:text-white pb-1 flex-shrink-0">Furnace Pattern Snippet</button>
-                            <button onclick="switchCardTab(this, 'recipe')" class="tab-btn text-gray-400 hover:text-white pb-1 flex-shrink-0">Inst Settings</button>
-                        </div>
-                        <div class="tab-content concept-tab text-xs text-gray-300 space-y-2">
-                            <p><strong class="text-red-300">Speed choice:</strong> <code class="bg-furnace-900 px-1.5 py-0.5 rounded text-amber-300 code-font">3FF</code> is effectively instant (snap), <code class="bg-furnace-900 px-1.5 py-0.5 rounded text-amber-300 code-font">308</code> audibly glides. Mix both inside a phrase for expression.</p>
-                            <p><strong class="text-red-300">Why it matters:</strong> repeated chirp attacks on a fast run sound like a machine gun; legato makes it sound played.</p>
-                            <p><strong class="text-red-300">Furnace note:</strong> some chips also honour <code class="bg-furnace-900 px-1.5 py-0.5 rounded text-amber-300 code-font">EAxx</code> legato mode — check the per-chip effect list.</p>
-                        </div>
-                        <div class="tab-content pattern-tab hidden">
-                            <div class="relative bg-furnace-900 rounded-lg p-3 border border-furnace-700 code-font text-xs text-green-400">
-                                <button onclick="copySnippet(this)" class="absolute top-2 right-2 px-2 py-1 bg-furnace-800 text-gray-400 hover:text-white rounded text-[10px]"><i class="fa-regular fa-copy"></i> Copy</button>
-                                <pre>
-Row | Note | Vol | FX
-00  | A-4  | F0  | ---   (only real attack)
-02  | C-5  | ..  | 3FF
-04  | D-5  | ..  | 3FF
-06  | E-5  | ..  | 320   (audible slide)
-08  | G-5  | ..  | 3FF
-12  | A-5  | ..  | 310
-14  | ---  | ..  | EC4</pre>
-                            </div>
-                        </div>
-                        <div class="tab-content recipe-tab hidden text-xs text-gray-300 space-y-2">
-                            <p><strong class="text-red-300">Vol Macro:</strong> attack then a long flat sustain — a decaying macro will fade out mid-run.</p>
-                            <p><strong class="text-red-300">Arp Macro:</strong> off. Arps re-trigger the perceived attack and fight the legato illusion.</p>
-                        </div>
-                    </div>
 
                     <!-- Lofi -->
                     <div class="pattern-card bg-furnace-800 border border-furnace-700 rounded-xl p-5 hover:border-red-500/50 transition duration-200" data-tags="modern lofi noise texture ambience wave">
@@ -1008,7 +1431,7 @@ Row | Noise ch     | Pad ch
                             <i class="fa-solid fa-microchip text-xl"></i>
                         </div>
                         <div>
-                            <h2 class="text-xl font-bold text-white">6. Furnace Macro Recipes</h2>
+                            <h2 class="text-xl font-bold text-white">7. Furnace Macro Recipes</h2>
                             <p class="text-xs text-gray-400">How the instrument macro editor actually behaves — loop/release points, relative vs absolute, macro speed, and ready-made envelopes.</p>
                         </div>
                     </div>
@@ -1280,7 +1703,7 @@ arp   : off</pre>
                             <i class="fa-solid fa-drumstick-bite text-xl"></i>
                         </div>
                         <div>
-                            <h2 class="text-xl font-bold text-white">7. Percussion &amp; Noise Engineering</h2>
+                            <h2 class="text-xl font-bold text-white">8. Percussion &amp; Noise Engineering</h2>
                             <p class="text-xs text-gray-400">Building a convincing drum kit out of one noise channel — plus tonal-channel drums when noise is busy.</p>
                         </div>
                     </div>
@@ -1336,7 +1759,7 @@ Row | Note Ins Vol FX   | element
                     </div>
 
                     <!-- Tonal kick -->
-                    <div class="pattern-card bg-furnace-800 border border-furnace-700 rounded-xl p-5 hover:border-orange-500/50 transition duration-200" data-tags="percussion kick triangle pitch drop tonal drums">
+                    <div class="pattern-card bg-furnace-800 border border-furnace-700 rounded-xl p-5 hover:border-orange-500/50 transition duration-200" data-tags="percussion noise kick triangle pitch drop tonal drums">
                         <div class="flex items-start justify-between mb-3">
                             <div>
                                 <span class="text-xs font-mono text-orange-400 bg-orange-950/60 px-2 py-0.5 rounded border border-orange-800">PERC / TONAL</span>
@@ -1426,7 +1849,7 @@ Row | Note Ins Vol FX  | comment
                     </div>
 
                     <!-- Fills and risers -->
-                    <div class="pattern-card bg-furnace-800 border border-furnace-700 rounded-xl p-5 hover:border-orange-500/50 transition duration-200" data-tags="percussion fill riser transition noise arrangement">
+                    <div class="pattern-card bg-furnace-800 border border-furnace-700 rounded-xl p-5 hover:border-orange-500/50 transition duration-200" data-tags="percussion noise fill riser transition arrangement composition">
                         <div class="flex items-start justify-between mb-3">
                             <div>
                                 <span class="text-xs font-mono text-orange-400 bg-orange-950/60 px-2 py-0.5 rounded border border-orange-800">PERC / ARRANGEMENT</span>
@@ -1473,7 +1896,7 @@ Row | Note Vol FX
                     </div>
 
                     <!-- Sample layering -->
-                    <div class="pattern-card bg-furnace-800 border border-furnace-700 rounded-xl p-5 hover:border-orange-500/50 transition duration-200" data-tags="percussion dpcm sample pcm layering nes">
+                    <div class="pattern-card bg-furnace-800 border border-furnace-700 rounded-xl p-5 hover:border-orange-500/50 transition duration-200" data-tags="percussion noise dpcm sample pcm layering nes">
                         <div class="flex items-start justify-between mb-3">
                             <div>
                                 <span class="text-xs font-mono text-orange-400 bg-orange-950/60 px-2 py-0.5 rounded border border-orange-800">PERC / SAMPLES</span>
@@ -1510,6 +1933,56 @@ Row | DPCM ch      | Noise ch     | Tri ch
                             <p><strong class="text-orange-300">Pitch:</strong> DPCM playback rates are quantised — audition every note, do not assume chromatic accuracy.</p>
                         </div>
                     </div>
+                    <!-- Triplets and polyrhythm -->
+                    <div class="pattern-card bg-furnace-800 border border-furnace-700 rounded-xl p-5 hover:border-orange-500/50 transition duration-200" data-tags="percussion rhythm triplet polyrhythm groove speed odd time noise">
+                        <div class="flex items-start justify-between mb-3">
+                            <div>
+                                <span class="text-xs font-mono text-orange-400 bg-orange-950/60 px-2 py-0.5 rounded border border-orange-800">PERC / RHYTHM</span>
+                                <h3 class="text-lg font-bold text-white mt-1">Triplets, Polyrhythm &amp; Odd Groupings</h3>
+                            </div>
+                            <button onclick="playPattern('polyRhythm')" class="px-3 py-1.5 bg-orange-500/20 text-orange-300 hover:bg-orange-500 hover:text-black rounded-lg text-xs font-semibold flex items-center gap-1.5 transition">
+                                <i class="fa-solid fa-play"></i> Play Sound
+                            </button>
+                        </div>
+                        <p class="text-sm text-gray-300 mb-4">
+                            A 16th-note row grid cannot divide by three — so triplets need either a grid that can (6 or 12 rows per beat) or note delays that fake the spacing. Get this right and you unlock shuffle, 6/8 feel, and 3-against-4 polyrhythms that make a chip track sound arranged rather than typed.
+                        </p>
+                        <div class="border-b border-furnace-700 flex space-x-4 text-xs font-mono mb-3 overflow-x-auto whitespace-nowrap">
+                            <button onclick="switchCardTab(this, 'concept')" class="tab-btn active text-cyan-400 border-b-2 border-cyan-400 pb-1 font-semibold flex-shrink-0">Concept &amp; Theory</button>
+                            <button onclick="switchCardTab(this, 'pattern')" class="tab-btn text-gray-400 hover:text-white pb-1 flex-shrink-0">Furnace Pattern Snippet</button>
+                            <button onclick="switchCardTab(this, 'recipe')" class="tab-btn text-gray-400 hover:text-white pb-1 flex-shrink-0">Inst Settings</button>
+                        </div>
+                        <div class="tab-content concept-tab text-xs text-gray-300 space-y-2">
+                            <p><strong class="text-orange-300">Cleanest route:</strong> set 12 rows per beat. 16ths land every 3 rows, triplets every 4 — both are exact, no delays needed.</p>
+                            <p><strong class="text-orange-300">Fake route:</strong> stay on 4 rows/beat and use <code class="bg-furnace-900 px-1.5 py-0.5 rounded text-amber-300 code-font">EDxx</code> to nudge the middle note of each triplet by 2 ticks.</p>
+                            <p><strong class="text-orange-300">3-against-4:</strong> put a dotted-8th ostinato (every 3 rows) against a straight 4/4 drum pattern — it drifts and realigns every 3 bars, which is the whole effect.</p>
+                        </div>
+                        <div class="tab-content pattern-tab hidden">
+                            <div class="relative bg-furnace-900 rounded-lg p-3 border border-furnace-700 code-font text-xs text-green-400">
+                                <button onclick="copySnippet(this)" class="absolute top-2 right-2 px-2 py-1 bg-furnace-800 text-gray-400 hover:text-white rounded text-[10px]"><i class="fa-regular fa-copy"></i> Copy</button>
+                                <pre>
+3-against-4 (16th grid)
+Row | Arp (every 3 rows) | Drums (every 4)
+00  | C-5                | kick
+03  | E-5                | ---
+04  | ---                | hat
+06  | G-5                | ---
+08  | C-6                | snare
+09  | E-5                | ---
+12  | G-5                | kick
+
+Triplet without a grid change
+Row | Note FX
+00  | C-5  ---
+01  | E-5  ED02   (nudged late)
+03  | G-5  ---</pre>
+                            </div>
+                        </div>
+                        <div class="tab-content recipe-tab hidden text-xs text-gray-300 space-y-2">
+                            <p><strong class="text-orange-300">Cost of a finer grid:</strong> patterns get longer and speed values shrink, so effect resolution per row drops. Speed 2 at 12 rows/beat leaves little room for <code class="bg-furnace-900 px-1.5 py-0.5 rounded text-amber-300 code-font">ECxx</code> nuance.</p>
+                            <p><strong class="text-orange-300">Decide early:</strong> converting a finished track from a 4- to a 12-row grid is a rewrite, not an edit.</p>
+                        </div>
+                    </div>
 
                 </div>
             </section>
@@ -1523,7 +1996,7 @@ Row | DPCM ch      | Noise ch     | Tri ch
                             <i class="fa-solid fa-gamepad text-xl"></i>
                         </div>
                         <div>
-                            <h2 class="text-xl font-bold text-white">8. Classic Game OST Audits &amp; Composer Signatures</h2>
+                            <h2 class="text-xl font-bold text-white">9. Classic Game OST Audits &amp; Composer Signatures</h2>
                             <p class="text-xs text-gray-400">Deep-dive technical audits of iconic OSTs — Tim Follin, Koji Kondo, Hirokazu Tanaka, Rob Hubbard, Nobuo Uematsu, Jeroen Tel, Keiji Yamagishi, Chris Huelsbeck, Sunsoft, Alberto González, David Wise, Konami, Yuzo Koshiro.</p>
                         </div>
                     </div>
@@ -1533,7 +2006,7 @@ Row | DPCM ch      | Noise ch     | Tri ch
                 <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
 
                     <!-- OST Audit Card 1: Tim Follin -->
-                    <div class="pattern-card bg-furnace-800 border border-furnace-700 rounded-xl p-5 hover:border-emerald-500/50 transition duration-200" data-tags="tim follin solstice plok nes c64 shred polyrhythm arpeggio whammy">
+                    <div class="pattern-card bg-furnace-800 border border-furnace-700 rounded-xl p-5 hover:border-emerald-500/50 transition duration-200" data-tags="ost pulse tim follin solstice plok nes c64 shred polyrhythm arpeggio whammy">
                         <div class="flex items-start justify-between mb-3">
                             <div>
                                 <span class="text-xs font-mono text-emerald-400 bg-emerald-950/60 px-2 py-0.5 rounded border border-emerald-800">TIM FOLLIN / SOLSTICE & PLOK</span>
@@ -1578,7 +2051,7 @@ Row | Note | Vol | FX
                     </div>
 
                     <!-- OST Audit Card 2: Sunsoft / Naoki Kodaka -->
-                    <div class="pattern-card bg-furnace-800 border border-furnace-700 rounded-xl p-5 hover:border-emerald-500/50 transition duration-200" data-tags="sunsoft naoki kodaka batman journey to silius nes triangle dpcm sub bass rock kick">
+                    <div class="pattern-card bg-furnace-800 border border-furnace-700 rounded-xl p-5 hover:border-emerald-500/50 transition duration-200" data-tags="ost percussion noise sunsoft naoki kodaka batman journey to silius nes triangle dpcm sub bass rock kick">
                         <div class="flex items-start justify-between mb-3">
                             <div>
                                 <span class="text-xs font-mono text-emerald-400 bg-emerald-950/60 px-2 py-0.5 rounded border border-emerald-800">SUNSOFT / NAOKI KODAKA</span>
@@ -1618,7 +2091,7 @@ Row | Note | Vol | FX
                     </div>
 
                     <!-- OST Audit Card 3: Alberto González -->
-                    <div class="pattern-card bg-furnace-800 border border-furnace-700 rounded-xl p-5 hover:border-emerald-500/50 transition duration-200" data-tags="alberto gonzalez asterix smurfs gameboy swing groove wave slap 12.5% duty">
+                    <div class="pattern-card bg-furnace-800 border border-furnace-700 rounded-xl p-5 hover:border-emerald-500/50 transition duration-200" data-tags="ost wave alberto gonzalez asterix smurfs gameboy swing groove slap 12.5% duty">
                         <div class="flex items-start justify-between mb-3">
                             <div>
                                 <span class="text-xs font-mono text-emerald-400 bg-emerald-950/60 px-2 py-0.5 rounded border border-emerald-800">ALBERTO GONZÁLEZ / ASTERIX GB</span>
@@ -1657,7 +2130,7 @@ Row | Note | Vol | FX
                     </div>
 
                     <!-- OST Audit Card 4: David Wise -->
-                    <div class="pattern-card bg-furnace-800 border border-furnace-700 rounded-xl p-5 hover:border-emerald-500/50 transition duration-200" data-tags="david wise battletoads donkey kong land gameboy wavetable filter 303 sweep">
+                    <div class="pattern-card bg-furnace-800 border border-furnace-700 rounded-xl p-5 hover:border-emerald-500/50 transition duration-200" data-tags="ost wave david wise battletoads donkey kong land gameboy wavetable filter 303 sweep">
                         <div class="flex items-start justify-between mb-3">
                             <div>
                                 <span class="text-xs font-mono text-emerald-400 bg-emerald-950/60 px-2 py-0.5 rounded border border-emerald-800">DAVID WISE / BATTLETOADS & DK LAND</span>
@@ -1691,7 +2164,7 @@ Row | Note | Vol | FX
                     </div>
 
                     <!-- OST Audit Card 5: Konami Sound Team / KAGE -->
-                    <div class="pattern-card bg-furnace-800 border border-furnace-700 rounded-xl p-5 hover:border-emerald-500/50 transition duration-200" data-tags="konami shatterhand castlevania nes pulse handoff ed1 organ brass chorus">
+                    <div class="pattern-card bg-furnace-800 border border-furnace-700 rounded-xl p-5 hover:border-emerald-500/50 transition duration-200" data-tags="ost pulse effects konami shatterhand castlevania nes handoff ed1 organ brass chorus">
                         <div class="flex items-start justify-between mb-3">
                             <div>
                                 <span class="text-xs font-mono text-emerald-400 bg-emerald-950/60 px-2 py-0.5 rounded border border-emerald-800">KONAMI SOUND TEAM / SHATTERHAND & CASTLEVANIA</span>
@@ -1724,7 +2197,7 @@ Row | Note | Vol | FX
                     </div>
 
                     <!-- OST Audit Card 6: Yuzo Koshiro -->
-                    <div class="pattern-card bg-furnace-800 border border-furnace-700 rounded-xl p-5 hover:border-emerald-500/50 transition duration-200" data-tags="yuzo koshiro streets of rage genesis megadrive eurodance stab house beat psg noise">
+                    <div class="pattern-card bg-furnace-800 border border-furnace-700 rounded-xl p-5 hover:border-emerald-500/50 transition duration-200" data-tags="ost fm yuzo koshiro streets of rage genesis megadrive eurodance stab house beat psg noise">
                         <div class="flex items-start justify-between mb-3">
                             <div>
                                 <span class="text-xs font-mono text-emerald-400 bg-emerald-950/60 px-2 py-0.5 rounded border border-emerald-800">YUZO KOSHIRO / STREETS OF RAGE</span>
@@ -1757,7 +2230,7 @@ Row | Note | Vol | FX
                     </div>
 
                     <!-- Koji Kondo -->
-                    <div class="pattern-card bg-furnace-800 border border-furnace-700 rounded-xl p-5 hover:border-emerald-500/50 transition duration-200" data-tags="pulse ost kondo mario nintendo harmony shuffle">
+                    <div class="pattern-card bg-furnace-800 border border-furnace-700 rounded-xl p-5 hover:border-emerald-500/50 transition duration-200" data-tags="ost pulse kondo mario nintendo harmony shuffle">
                         <div class="flex items-start justify-between mb-3">
                             <div>
                                 <span class="text-xs font-mono text-emerald-400 bg-emerald-950/60 px-2 py-0.5 rounded border border-emerald-800">KOJI KONDO / NES</span>
@@ -1804,7 +2277,7 @@ Row | Pulse 1 | Pulse 2 | Triangle
                     </div>
 
                     <!-- Hip Tanaka -->
-                    <div class="pattern-card bg-furnace-800 border border-furnace-700 rounded-xl p-5 hover:border-emerald-500/50 transition duration-200" data-tags="pulse ost tanaka metroid ambient dissonance atmosphere">
+                    <div class="pattern-card bg-furnace-800 border border-furnace-700 rounded-xl p-5 hover:border-emerald-500/50 transition duration-200" data-tags="ost pulse tanaka metroid ambient dissonance atmosphere">
                         <div class="flex items-start justify-between mb-3">
                             <div>
                                 <span class="text-xs font-mono text-emerald-400 bg-emerald-950/60 px-2 py-0.5 rounded border border-emerald-800">HIROKAZU TANAKA / NES</span>
@@ -1849,7 +2322,7 @@ Row | Pulse 1     | Pulse 2   | Noise
                     </div>
 
                     <!-- Rob Hubbard -->
-                    <div class="pattern-card bg-furnace-800 border border-furnace-700 rounded-xl p-5 hover:border-emerald-500/50 transition duration-200" data-tags="ost hubbard c64 sid arpeggio hard restart commodore">
+                    <div class="pattern-card bg-furnace-800 border border-furnace-700 rounded-xl p-5 hover:border-emerald-500/50 transition duration-200" data-tags="ost pulse macro hubbard c64 sid arpeggio hard restart commodore">
                         <div class="flex items-start justify-between mb-3">
                             <div>
                                 <span class="text-xs font-mono text-emerald-400 bg-emerald-950/60 px-2 py-0.5 rounded border border-emerald-800">ROB HUBBARD / C64 SID</span>
@@ -1894,7 +2367,7 @@ Row | V1 lead | V2 arp chord | V3 bass/drum
                     </div>
 
                     <!-- Nobuo Uematsu -->
-                    <div class="pattern-card bg-furnace-800 border border-furnace-700 rounded-xl p-5 hover:border-emerald-500/50 transition duration-200" data-tags="pulse ost uematsu final fantasy arpeggio broken chord harp">
+                    <div class="pattern-card bg-furnace-800 border border-furnace-700 rounded-xl p-5 hover:border-emerald-500/50 transition duration-200" data-tags="ost pulse uematsu final fantasy arpeggio broken chord harp">
                         <div class="flex items-start justify-between mb-3">
                             <div>
                                 <span class="text-xs font-mono text-emerald-400 bg-emerald-950/60 px-2 py-0.5 rounded border border-emerald-800">NOBUO UEMATSU / NES</span>
@@ -1942,7 +2415,7 @@ Row | Pulse 1 | Vol
                     </div>
 
                     <!-- Keiji Yamagishi -->
-                    <div class="pattern-card bg-furnace-800 border border-furnace-700 rounded-xl p-5 hover:border-emerald-500/50 transition duration-200" data-tags="pulse ost yamagishi ninja gaiden tecmo bass drive chromatic">
+                    <div class="pattern-card bg-furnace-800 border border-furnace-700 rounded-xl p-5 hover:border-emerald-500/50 transition duration-200" data-tags="ost pulse yamagishi ninja gaiden tecmo bass drive chromatic">
                         <div class="flex items-start justify-between mb-3">
                             <div>
                                 <span class="text-xs font-mono text-emerald-400 bg-emerald-950/60 px-2 py-0.5 rounded border border-emerald-800">KEIJI YAMAGISHI / NES</span>
@@ -1989,7 +2462,7 @@ Row | Lead    | Bass (never rests)
                     </div>
 
                     <!-- Jeroen Tel -->
-                    <div class="pattern-card bg-furnace-800 border border-furnace-700 rounded-xl p-5 hover:border-emerald-500/50 transition duration-200" data-tags="ost tel c64 sid wavetable funk bass maniacs of noise">
+                    <div class="pattern-card bg-furnace-800 border border-furnace-700 rounded-xl p-5 hover:border-emerald-500/50 transition duration-200" data-tags="ost macro tel c64 sid wavetable funk bass maniacs of noise">
                         <div class="flex items-start justify-between mb-3">
                             <div>
                                 <span class="text-xs font-mono text-emerald-400 bg-emerald-950/60 px-2 py-0.5 rounded border border-emerald-800">JEROEN TEL / C64 SID</span>
@@ -2036,7 +2509,7 @@ Row | Bass
                     </div>
 
                     <!-- Konami VRC6 -->
-                    <div class="pattern-card bg-furnace-800 border border-furnace-700 rounded-xl p-5 hover:border-emerald-500/50 transition duration-200" data-tags="ost konami vrc6 castlevania sawtooth expansion bass">
+                    <div class="pattern-card bg-furnace-800 border border-furnace-700 rounded-xl p-5 hover:border-emerald-500/50 transition duration-200" data-tags="ost pulse konami vrc6 castlevania sawtooth expansion bass">
                         <div class="flex items-start justify-between mb-3">
                             <div>
                                 <span class="text-xs font-mono text-emerald-400 bg-emerald-950/60 px-2 py-0.5 rounded border border-emerald-800">KONAMI / VRC6</span>
@@ -2078,7 +2551,7 @@ Row | VRC6 saw | Triangle    | Pulse 1+2
                     </div>
 
                     <!-- Chris Huelsbeck -->
-                    <div class="pattern-card bg-furnace-800 border border-furnace-700 rounded-xl p-5 hover:border-emerald-500/50 transition duration-200" data-tags="ost huelsbeck amiga turrican mod sample echo delay">
+                    <div class="pattern-card bg-furnace-800 border border-furnace-700 rounded-xl p-5 hover:border-emerald-500/50 transition duration-200" data-tags="ost huelsbeck amiga turrican mod sample echo delay composition">
                         <div class="flex items-start justify-between mb-3">
                             <div>
                                 <span class="text-xs font-mono text-emerald-400 bg-emerald-950/60 px-2 py-0.5 rounded border border-emerald-800">CHRIS HUELSBECK / AMIGA</span>
@@ -2131,7 +2604,7 @@ Row | Ch1 lead | Ch2 echo   | Ch3 bass | Ch4 shared
                             <i class="fa-solid fa-code text-xl"></i>
                         </div>
                         <div>
-                            <h2 class="text-xl font-bold text-white">9. Tracker Command &amp; Effect Reference</h2>
+                            <h2 class="text-xl font-bold text-white">10. Tracker Command &amp; Effect Reference</h2>
                             <p class="text-xs text-gray-400">Standard effect column syntax used in Furnace, DefleMask, FamiTracker, and 0CC.</p>
                         </div>
                     </div>
@@ -2298,7 +2771,7 @@ Row | Ch1 lead | Ch2 echo   | Ch3 bass | Ch4 shared
                             <i class="fa-solid fa-memory text-xl"></i>
                         </div>
                         <div>
-                            <h2 class="text-xl font-bold text-white">10. Chip Channel Cheat Sheet</h2>
+                            <h2 class="text-xl font-bold text-white">11. Chip Channel Cheat Sheet</h2>
                             <p class="text-xs text-gray-400">What you actually get to write with on each system Furnace emulates, and the composing consequence of each limit.</p>
                         </div>
                     </div>
@@ -2405,7 +2878,7 @@ Row | Ch1 lead | Ch2 echo   | Ch3 bass | Ch4 shared
                             <i class="fa-solid fa-feather-pointed text-xl"></i>
                         </div>
                         <div>
-                            <h2 class="text-xl font-bold text-white">11. Composition Playbook</h2>
+                            <h2 class="text-xl font-bold text-white">12. Composition Playbook</h2>
                             <p class="text-xs text-gray-400">Writing the music, not just the sound: channel budgeting, form, melody, harmony, groove and mixing under hard chip limits.</p>
                         </div>
                     </div>
@@ -2589,7 +3062,7 @@ Row | Ch1 lead | Ch2 echo   | Ch3 bass | Ch4 shared
                             <i class="fa-solid fa-calculator text-xl"></i>
                         </div>
                         <div>
-                            <h2 class="text-xl font-bold text-white">12. Interactive Furnace Macro Recipe Calculator</h2>
+                            <h2 class="text-xl font-bold text-white">13. Interactive Furnace Macro Recipe Calculator</h2>
                             <p class="text-xs text-gray-400">Select chord qualities and attack envelopes to generate instant copyable Furnace macro strings.</p>
                         </div>
                     </div>
@@ -2654,7 +3127,7 @@ Row | Ch1 lead | Ch2 echo   | Ch3 bass | Ch4 shared
                             <i class="fa-solid fa-stopwatch-20 text-xl"></i>
                         </div>
                         <div>
-                            <h2 class="text-xl font-bold text-white">13. Tempo, Tick &amp; Groove Calculator</h2>
+                            <h2 class="text-xl font-bold text-white">14. Tempo, Tick &amp; Groove Calculator</h2>
                             <p class="text-xs text-gray-400">Convert between tick rate, speed, rows-per-beat and BPM — then read off the note-cut, delay and echo values that match your grid.</p>
                         </div>
                     </div>
@@ -3588,7 +4061,7 @@ Row | Ch1 lead | Ch2 echo   | Ch3 bass | Ch4 shared
             }
 
             osc.connect(gain);
-            gain.connect(masterOut());
+            connectOut(gain, opt.pan);
             osc.start(t0);
             osc.stop(t0 + dur + 0.02);
             return osc;
@@ -3615,9 +4088,60 @@ Row | Ch1 lead | Ch2 echo   | Ch3 bass | Ch4 shared
 
             src.connect(filter);
             filter.connect(gain);
-            gain.connect(masterOut());
+            connectOut(gain, opt.pan);
             src.start(t0);
             src.stop(t0 + dur + 0.02);
+        }
+
+
+        /* Route a node to the master bus, optionally panned (-1 left .. +1 right). */
+        function connectOut(node, pan) {
+            if (pan === undefined || pan === 0 || !audioCtx.createStereoPanner) {
+                node.connect(masterOut());
+                return;
+            }
+            const p = audioCtx.createStereoPanner();
+            p.pan.value = Math.max(-1, Math.min(1, pan));
+            node.connect(p);
+            p.connect(masterOut());
+        }
+
+        /* Two-operator FM voice: one modulator into the carrier's frequency.
+           opt: { freq, start, dur, vol, ratio, index, modAttack, modDecay,
+                  attack, sustain, detune, slideTo, pan } */
+        function fmNote(opt) {
+            const t0 = opt.start, dur = opt.dur;
+            const car = audioCtx.createOscillator();
+            const mod = audioCtx.createOscillator();
+            const modGain = audioCtx.createGain();
+            const gain = audioCtx.createGain();
+
+            car.frequency.setValueAtTime(opt.freq, t0);
+            if (opt.detune) car.detune.setValueAtTime(opt.detune, t0);
+            if (opt.slideTo) car.frequency.exponentialRampToValueAtTime(opt.slideTo, t0 + dur);
+            mod.frequency.setValueAtTime(opt.freq * (opt.ratio === undefined ? 1 : opt.ratio), t0);
+
+            // modulation index envelope = the "brightness" envelope
+            const index = opt.index === undefined ? 300 : opt.index;
+            const mAtk = opt.modAttack === undefined ? 0.002 : opt.modAttack;
+            modGain.gain.setValueAtTime(0.0001, t0);
+            modGain.gain.linearRampToValueAtTime(index, t0 + mAtk);
+            modGain.gain.exponentialRampToValueAtTime(
+                Math.max(0.5, index * 0.02), t0 + mAtk + (opt.modDecay === undefined ? 0.2 : opt.modDecay));
+
+            const vol = opt.vol === undefined ? 0.22 : opt.vol;
+            const atk = opt.attack === undefined ? 0.004 : opt.attack;
+            gain.gain.setValueAtTime(0.0001, t0);
+            gain.gain.exponentialRampToValueAtTime(vol, t0 + atk);
+            if (opt.sustain) gain.gain.setValueAtTime(vol, t0 + dur - 0.06);
+            gain.gain.exponentialRampToValueAtTime(0.0001, t0 + dur);
+
+            mod.connect(modGain);
+            modGain.connect(car.frequency);
+            car.connect(gain);
+            connectOut(gain, opt.pan);
+            mod.start(t0); car.start(t0);
+            mod.stop(t0 + dur + 0.02); car.stop(t0 + dur + 0.02);
         }
 
         /* Demo patterns for the newer cards. Each receives (now). */
@@ -3822,6 +4346,126 @@ Row | Ch1 lead | Ch2 echo   | Ch3 bass | Ch4 shared
                     chipNoise({ start: now + off, dur: 0.2, vol: 0.28, mode: 'periodic',
                                 pitch: nf(n), filter: 'bandpass', cutoff: nf(n) * 3, q: 1.2 });
                 });
+            },
+
+            /* --- FM voice: modulator -> carrier frequency, both enveloped --- */
+            fmAlgorithms: function (now) {
+                // serial (bright/metallic) -> two stacks -> parallel (organ)
+                fmNote({ freq: nf('C4'), start: now, dur: 0.7, vol: 0.22, ratio: 3.0, index: 700, modDecay: 0.7 });
+                fmNote({ freq: nf('C4'), start: now + 0.85, dur: 0.7, vol: 0.24, ratio: 1.0, index: 260, modDecay: 0.25 });
+                [1, 2, 3].forEach(r => fmNote({ freq: nf('C4'), start: now + 1.7, dur: 0.8,
+                                                vol: 0.10, ratio: r, index: 20, modDecay: 0.8 }));
+            },
+
+            fmBass: function (now) {
+                [['C2', 0], ['C2', 0.4], ['D#2', 0.6], ['G2', 0.8], ['C2', 1.2], ['A#1', 1.6]]
+                    .forEach(([n, off], i) => fmNote({ freq: nf(n), start: now + off, dur: i % 2 ? 0.16 : 0.3,
+                                                       vol: 0.3, ratio: 1, index: 520, modDecay: 0.05 }));
+            },
+
+            fmBrass: function (now) {
+                // modulator attack slower than carrier = brightness blooms after the hit
+                [[['C4', 'G4'], 0], [['C4', 'G4'], 0.5], [['D#4', 'A#4'], 0.75], [['F4', 'C5'], 1.25]]
+                    .forEach(([pair, off]) => pair.forEach((n, i) =>
+                        fmNote({ freq: nf(n), start: now + off, dur: 0.42, vol: i ? 0.12 : 0.2,
+                                 ratio: 1, index: 340, modAttack: 0.12, modDecay: 0.5, sustain: true })));
+            },
+
+            fmPerc: function (now) {
+                // high modulation index + inharmonic ratio + pitch drop = snare/tom
+                [0, 0.8].forEach(off => fmNote({ freq: nf('C3'), start: now + off, dur: 0.22, vol: 0.28,
+                                                 ratio: 2, index: 900, modDecay: 0.12, slideTo: nf('C2') }));
+                [0.4, 1.2].forEach(off => fmNote({ freq: nf('E3'), start: now + off, dur: 0.25, vol: 0.24,
+                                                   ratio: 1.41, index: 2600, modDecay: 0.2 }));
+                [0.2, 0.6, 1.0, 1.4].forEach(off => fmNote({ freq: nf('C6'), start: now + off, dur: 0.06,
+                                                             vol: 0.09, ratio: 3.37, index: 1800, modDecay: 0.05 }));
+            },
+
+            fmDetune: function (now) {
+                // parallel carriers, slightly detuned against each other = chorus inside one voice
+                [['C4', 0, 1.1], ['A#3', 1.2, 1.1]].forEach(([n, off, d]) => {
+                    [0, 6, -7, 12].forEach((cents, i) =>
+                        fmNote({ freq: nf(n) * (i === 3 ? 2 : 1), start: now + off, dur: d, vol: 0.09,
+                                 ratio: i === 2 ? 2 : 1, index: 60, detune: cents,
+                                 modAttack: 0.3, modDecay: 1.0, sustain: true, attack: 0.25 }));
+                });
+            },
+
+            retrigRoll: function (now) {
+                const snare = t => chipNoise({ start: t, dur: 0.12, vol: 0.26, filter: 'bandpass', cutoff: 1400, q: 0.8 });
+                snare(now);
+                [0.4, 0.5].forEach(t => snare(now + t));                       // 0C03
+                [0.6, 0.667, 0.733].forEach(t => snare(now + t));              // 0C02
+                for (let i = 0; i < 6; i++) snare(now + 0.8 + i * 0.033);      // 0C01 buzz
+                chipNoise({ start: now + 1.05, dur: 0.18, vol: 0.5, filter: 'lowpass', cutoff: 150, q: 3 });
+                chipNote({ freq: nf('C3'), start: now + 1.05, dur: 0.3, vol: 0.26, duty: 0.5, decay: 'sustain' });
+            },
+
+            tremoloGate: function (now) {
+                // hard gate, then gentle warble on the same chord
+                [['C4', 'E4', 'G4'], ['A#3', 'D4', 'F4']].forEach((chord, c) => {
+                    const t0 = now + c * 1.3, dur = 1.15, deep = c === 0;
+                    chord.forEach(n => {
+                        const osc = audioCtx.createOscillator();
+                        const g = audioCtx.createGain();
+                        const lfo = audioCtx.createOscillator();
+                        const lg = audioCtx.createGain();
+                        osc.setPeriodicWave(pulseWave(0.5));
+                        osc.frequency.setValueAtTime(nf(n), t0);
+                        lfo.type = deep ? 'square' : 'sine';
+                        lfo.frequency.value = deep ? 8 : 4.5;
+                        lg.gain.value = deep ? 0.055 : 0.018;
+                        g.gain.setValueAtTime(deep ? 0.06 : 0.075, t0);
+                        lfo.connect(lg); lg.connect(g.gain);
+                        osc.connect(g); g.connect(masterOut());
+                        osc.start(t0); lfo.start(t0);
+                        osc.stop(t0 + dur); lfo.stop(t0 + dur);
+                    });
+                });
+            },
+
+            buzzBass: function (now) {
+                // audio-rate volume envelope: amplitude modulation at the note's own pitch
+                [['C2', 0, 0.38], ['C2', 0.4, 0.18], ['G1', 0.8, 0.38], ['A#1', 1.2, 0.38]]
+                    .forEach(([n, off, d]) => {
+                        const t = now + off, f = nf(n);
+                        const osc = audioCtx.createOscillator();
+                        const g = audioCtx.createGain();
+                        const env = audioCtx.createOscillator();
+                        const envGain = audioCtx.createGain();
+                        osc.setPeriodicWave(pulseWave(0.5));
+                        osc.frequency.setValueAtTime(f * 2, t);
+                        env.type = 'sawtooth';
+                        env.frequency.setValueAtTime(f, t);   // envelope looping at audio rate
+                        envGain.gain.value = 0.13;
+                        g.gain.setValueAtTime(0.13, t);
+                        env.connect(envGain); envGain.connect(g.gain);
+                        osc.connect(g); g.connect(masterOut());
+                        osc.start(t); env.start(t);
+                        osc.stop(t + d); env.stop(t + d);
+                    });
+            },
+
+            pingPong: function (now) {
+                [['A4', 0], ['C5', 0.5]].forEach(([n, off]) => {
+                    const t = now + off;
+                    chipNote({ freq: nf(n), start: t, dur: 0.2, vol: 0.26, duty: 0.5, pan: -0.9 });
+                    chipNote({ freq: nf(n), start: t + 0.18, dur: 0.18, vol: 0.13, duty: 0.25, pan: 0.9 });
+                    chipNote({ freq: nf(n), start: t + 0.36, dur: 0.16, vol: 0.06, duty: 0.125, pan: -0.9 });
+                });
+            },
+
+            polyRhythm: function (now) {
+                const row = 0.11;
+                // arp every 3 rows
+                ['C5', 'E5', 'G5', 'C6', 'E5', 'G5', 'C5'].forEach((n, i) =>
+                    chipNote({ freq: nf(n), start: now + i * 3 * row, dur: 0.09, vol: 0.16, duty: 0.25 }));
+                // drums every 4 rows
+                for (let i = 0; i < 5; i++) {
+                    const t = now + i * 4 * row;
+                    if (i % 2 === 0) chipNoise({ start: t, dur: 0.14, vol: 0.4, filter: 'lowpass', cutoff: 150, q: 3 });
+                    else chipNoise({ start: t, dur: 0.16, vol: 0.24, filter: 'bandpass', cutoff: 1400, q: 0.8 });
+                }
             },
 
             kondoHarmony: function (now) {
