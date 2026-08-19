@@ -21,9 +21,11 @@ open the tracker.
 | 10. Classic Game OST Audits | 14 composer/game breakdowns — Follin, Kondo, Tanaka, Hubbard, Uematsu, Tel, Yamagishi, Huelsbeck, Sunsoft, González, Wise, Konami, Koshiro |
 | 11. Effect Command Reference | Expanded tracker effect table with practical usage notes |
 | 12. Chip Channel Cheat Sheet | Voices, timbre palette and composing consequences for 2A03, VRC6, FDS, DMG, SN76489, AY, SID, HuC6280, YM2612, YM2151, SCC, Paula |
-| 13. Composition Playbook | Channel budgeting, loop-friendly form, melody writing, harmony under constraint, groove, mixing, tension, workflow, pre-release checklist |
-| 14. Macro Generator | Builds arp/duty macro strings from a chord type and attack transient |
-| 15. Tempo, Tick & Groove Calculator | Converts tick rate / speed / rows-per-beat to BPM, and derives matching `ECxx`, `EDxx`, echo-delay and swing values |
+| 13. Melodic & Harmonic Craft | Motif transformation, contrary motion, a harmonic palette by mood, walking bass, half-time/double-time and comping |
+| 14. Game-Scoring Craft | Composing around SFX channel theft, intro-then-loop cue structure, stingers and jingles, leitmotif variants |
+| 15. Composition Playbook | Channel budgeting, loop-friendly form, melody writing, harmony under constraint, groove, mixing, tension, workflow, pre-release checklist |
+| 16. Macro Generator | Builds arp/duty macro strings from a chord type and attack transient |
+| 17. Tempo, Tick & Groove Calculator | Converts tick rate / speed / rows-per-beat to BPM, and derives matching `ECxx`, `EDxx`, echo-delay and swing values |
 
 Search and the chip-tag filters work across every card; sections with no
 matching content collapse automatically.

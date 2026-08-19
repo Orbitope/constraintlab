@@ -206,6 +206,16 @@
                 <span>Chip Channel Cheat Sheet</span>
             </a>
 
+            <a href="#cat-craft" onclick="setActiveNav(this)" class="nav-link flex items-center space-x-3 px-3 py-2.5 rounded-lg text-sm font-medium transition text-gray-400 hover:text-white hover:bg-furnace-700/40">
+                <i class="fa-solid fa-pen-nib text-base w-5 text-center text-purple-400"></i>
+                <span>Melodic &amp; Harmonic Craft</span>
+            </a>
+
+            <a href="#cat-gamescore" onclick="setActiveNav(this)" class="nav-link flex items-center space-x-3 px-3 py-2.5 rounded-lg text-sm font-medium transition text-gray-400 hover:text-white hover:bg-furnace-700/40">
+                <i class="fa-solid fa-gamepad text-base w-5 text-center text-emerald-400"></i>
+                <span>Game-Scoring Craft</span>
+            </a>
+
             <a href="#cat-composition" onclick="setActiveNav(this)" class="nav-link flex items-center space-x-3 px-3 py-2.5 rounded-lg text-sm font-medium transition text-gray-400 hover:text-white hover:bg-furnace-700/40">
                 <i class="fa-solid fa-feather-pointed text-base w-5 text-center text-purple-400"></i>
                 <span>Composition Playbook</span>
@@ -3227,6 +3237,472 @@ Row | Ch1 lead | Ch2 echo   | Ch3 bass | Ch4 shared
                 </div>
             </section>
 
+            <!-- CATEGORY: MELODIC & HARMONIC CRAFT -->
+            <section id="cat-craft" class="category-section space-y-6 pt-4">
+                <div class="border-b border-furnace-700 pb-3 flex flex-wrap items-center justify-between gap-3">
+                    <div class="flex items-center space-x-3">
+                        <div class="p-2 bg-purple-500/10 rounded-lg text-purple-400">
+                            <i class="fa-solid fa-pen-nib text-xl"></i>
+                        </div>
+                        <div>
+                            <h2 class="text-xl font-bold text-white">13. Melodic &amp; Harmonic Craft</h2>
+                            <p class="text-xs text-gray-400">The "what notes" side: developing a motif, writing two independent lines, and reaching for a progression that already means something.</p>
+                        </div>
+                    </div>
+                    <span class="text-xs font-mono px-2.5 py-1 bg-purple-500/10 text-purple-300 rounded border border-purple-500/30">5 Techniques</span>
+                </div>
+
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+
+                    <div class="pattern-card bg-furnace-800 border border-furnace-700 rounded-xl p-5 hover:border-purple-500/50 transition duration-200" data-tags="composition pulse motif development inversion retrograde augmentation melody craft">
+                        <div class="flex items-start justify-between mb-3">
+                            <div>
+                                <span class="text-xs font-mono text-purple-400 bg-purple-950/60 px-2 py-0.5 rounded border border-purple-800">CRAFT / MELODY</span>
+                                <h3 class="text-lg font-bold text-white mt-1">Motif Transformation: One Idea, Whole Track</h3>
+                            </div>
+                            <button onclick="playPattern('motifTransform')" class="px-3 py-1.5 bg-purple-500/20 text-purple-300 hover:bg-purple-500 hover:text-black rounded-lg text-xs font-semibold flex items-center gap-1.5 transition">
+                                <i class="fa-solid fa-play"></i> Play Sound
+                            </button>
+                        </div>
+                        <p class="text-sm text-gray-300 mb-4">
+                            A 90-second loop does not need six ideas; it needs one idea seen from six angles. Take a 4-note motif and transform it — flip it upside down, stretch it, start it on a different beat — and the track stays coherent while never quite repeating. This is the single highest-leverage compositional skill for looped game music.
+                        </p>
+                        <div class="border-b border-furnace-700 flex space-x-4 text-xs font-mono mb-3 overflow-x-auto whitespace-nowrap">
+                            <button onclick="switchCardTab(this, 'concept')" class="tab-btn active text-cyan-400 border-b-2 border-cyan-400 pb-1 font-semibold flex-shrink-0">Concept &amp; Theory</button>
+                            <button onclick="switchCardTab(this, 'pattern')" class="tab-btn text-gray-400 hover:text-white pb-1 flex-shrink-0">Furnace Pattern Snippet</button>
+                            <button onclick="switchCardTab(this, 'recipe')" class="tab-btn text-gray-400 hover:text-white pb-1 flex-shrink-0">Inst Settings</button>
+                        </div>
+                        <div class="tab-content concept-tab text-xs text-gray-300 space-y-2">
+                            <p><strong class="text-purple-300">Inversion:</strong> flip every interval's direction. Up a 3rd becomes down a 3rd. Same rhythm, new contour — the ear hears a relative, not a stranger.</p>
+                            <p><strong class="text-purple-300">Retrograde:</strong> play the pitches backwards. Works best on angular motifs; on smooth ones it can sound accidental.</p>
+                            <p><strong class="text-purple-300">Augmentation / diminution:</strong> double or halve every note length. Augmented motifs make excellent bass lines and pads; diminished ones make fills.</p>
+                            <p><strong class="text-purple-300">Displacement:</strong> start the same motif two rows later. Costs nothing, changes everything about how it sits against the drums.</p>
+                            <p><strong class="text-purple-300">Sequence:</strong> repeat it a step or third higher. The most audible of the lot and the reason so many NES hooks feel inevitable.</p>
+                        </div>
+                        <div class="tab-content pattern-tab hidden">
+                            <div class="relative bg-furnace-900 rounded-lg p-3 border border-furnace-700 code-font text-xs text-green-400">
+                                <button onclick="copySnippet(this)" class="absolute top-2 right-2 px-2 py-1 bg-furnace-800 text-gray-400 hover:text-white rounded text-[10px]"><i class="fa-regular fa-copy"></i> Copy</button>
+                                <pre>
+MOTIF        A-4 C-5 B-4 E-5     (up, down, up)
+INVERTED     A-4 F-4 G-4 D-4     (down, up, down)
+RETROGRADE   E-5 B-4 C-5 A-4
+AUGMENTED    A-4 ... C-5 ... B-4 ... E-5 ...
+SEQUENCED    C-5 E-5 D-5 G-5     (up a 3rd)
+DISPLACED    --- --- A-4 C-5 B-4 E-5
+
+Bar 1-4  motif        Bar 9-12  sequenced
+Bar 5-8  inverted     Bar 13-16 augmented in bass</pre>
+                            </div>
+                        </div>
+                        <div class="tab-content recipe-tab hidden text-xs text-gray-300 space-y-2">
+                            <p><strong class="text-purple-300">Keep the rhythm:</strong> when transforming pitch, hold the rhythm constant — that is what keeps the relationship audible.</p>
+                            <p><strong class="text-purple-300">Where to put them:</strong> statement in section A, one transformation in A', two combined in the bridge.</p>
+                        </div>
+                    </div>
+
+                    <div class="pattern-card bg-furnace-800 border border-furnace-700 rounded-xl p-5 hover:border-purple-500/50 transition duration-200" data-tags="composition pulse counterpoint contrary motion two voices counter melody craft">
+                        <div class="flex items-start justify-between mb-3">
+                            <div>
+                                <span class="text-xs font-mono text-purple-400 bg-purple-950/60 px-2 py-0.5 rounded border border-purple-800">CRAFT / COUNTERPOINT</span>
+                                <h3 class="text-lg font-bold text-white mt-1">Contrary Motion: Two Lines That Stay Separate</h3>
+                            </div>
+                            <button onclick="playPattern('counterpoint')" class="px-3 py-1.5 bg-purple-500/20 text-purple-300 hover:bg-purple-500 hover:text-black rounded-lg text-xs font-semibold flex items-center gap-1.5 transition">
+                                <i class="fa-solid fa-play"></i> Play Sound
+                            </button>
+                        </div>
+                        <p class="text-sm text-gray-300 mb-4">
+                            Parallel thirds fuse two channels into one fat instrument (the Kondo move). Contrary motion does the opposite: when one line rises as the other falls, the ear tracks them as two independent players. On a two-pulse chip that is the difference between a duet and a thickened solo — and you want both, in different sections.
+                        </p>
+                        <div class="border-b border-furnace-700 flex space-x-4 text-xs font-mono mb-3 overflow-x-auto whitespace-nowrap">
+                            <button onclick="switchCardTab(this, 'concept')" class="tab-btn active text-cyan-400 border-b-2 border-cyan-400 pb-1 font-semibold flex-shrink-0">Concept &amp; Theory</button>
+                            <button onclick="switchCardTab(this, 'pattern')" class="tab-btn text-gray-400 hover:text-white pb-1 flex-shrink-0">Furnace Pattern Snippet</button>
+                            <button onclick="switchCardTab(this, 'recipe')" class="tab-btn text-gray-400 hover:text-white pb-1 flex-shrink-0">Inst Settings</button>
+                        </div>
+                        <div class="tab-content concept-tab text-xs text-gray-300 space-y-2">
+                            <p><strong class="text-purple-300">The one rule that matters:</strong> when the melody moves, move the counter-line the other way, or hold it still. Both lines leaping the same direction is what makes chip duets sound muddy.</p>
+                            <p><strong class="text-purple-300">Rhythmic independence:</strong> give the counter-line motion where the melody rests. Two lines that breathe at the same time read as one.</p>
+                            <p><strong class="text-purple-300">Avoid parallel 5ths and octaves</strong> between the two — not for old rules' sake, but because they genuinely collapse into a single perceived voice on square waves.</p>
+                            <p><strong class="text-purple-300">Cheap counter-line:</strong> the augmented (stretched) version of the melody's own motif. Coherent by construction.</p>
+                        </div>
+                        <div class="tab-content pattern-tab hidden">
+                            <div class="relative bg-furnace-900 rounded-lg p-3 border border-furnace-700 code-font text-xs text-green-400">
+                                <button onclick="copySnippet(this)" class="absolute top-2 right-2 px-2 py-1 bg-furnace-800 text-gray-400 hover:text-white rounded text-[10px]"><i class="fa-regular fa-copy"></i> Copy</button>
+                                <pre>
+Row | Pulse 1 (melody) | Pulse 2 (counter)
+00  | C-5              | E-4
+02  | D-5     (up)     | D-4     (down)
+04  | E-5     (up)     | C-4     (down)
+06  | ---              | B-3
+08  | F-5     (up)     | A-3     (down)
+10  | E-5     (down)   | B-3     (up)
+12  | D-5     (down)   | C-4     (up)
+   melody rests at 06, counter moves</pre>
+                            </div>
+                        </div>
+                        <div class="tab-content recipe-tab hidden text-xs text-gray-300 space-y-2">
+                            <p><strong class="text-purple-300">Timbre separation:</strong> 50% duty melody, 12.5% counter — different widths help the ear split them.</p>
+                            <p><strong class="text-purple-300">Level:</strong> counter-line 3–4 volume steps below the melody, always.</p>
+                        </div>
+                    </div>
+
+                    <div class="pattern-card bg-furnace-800 border border-furnace-700 rounded-xl p-5 hover:border-purple-500/50 transition duration-200" data-tags="composition pulse harmony progression chords mood palette craft">
+                        <div class="flex items-start justify-between mb-3">
+                            <div>
+                                <span class="text-xs font-mono text-purple-400 bg-purple-950/60 px-2 py-0.5 rounded border border-purple-800">CRAFT / HARMONY</span>
+                                <h3 class="text-lg font-bold text-white mt-1">Harmonic Palette: Progressions That Already Mean Something</h3>
+                            </div>
+                            <button onclick="playPattern('harmonicPalette')" class="px-3 py-1.5 bg-purple-500/20 text-purple-300 hover:bg-purple-500 hover:text-black rounded-lg text-xs font-semibold flex items-center gap-1.5 transition">
+                                <i class="fa-solid fa-play"></i> Play Sound
+                            </button>
+                        </div>
+                        <p class="text-sm text-gray-300 mb-4">
+                            Game music leans on a small vocabulary of progressions that carry meaning before a single melody note is written. Knowing them by ear means you start from the right emotional ground instead of finding it by accident on the third rewrite.
+                        </p>
+                        <div class="border-b border-furnace-700 flex space-x-4 text-xs font-mono mb-3 overflow-x-auto whitespace-nowrap">
+                            <button onclick="switchCardTab(this, 'concept')" class="tab-btn active text-cyan-400 border-b-2 border-cyan-400 pb-1 font-semibold flex-shrink-0">Palette</button>
+                            <button onclick="switchCardTab(this, 'pattern')" class="tab-btn text-gray-400 hover:text-white pb-1 flex-shrink-0">Furnace Pattern Snippet</button>
+                            <button onclick="switchCardTab(this, 'recipe')" class="tab-btn text-gray-400 hover:text-white pb-1 flex-shrink-0">Inst Settings</button>
+                        </div>
+                        <div class="tab-content concept-tab text-xs text-gray-300 space-y-2">
+                            <p><strong class="text-purple-300">Heroic / overworld:</strong> <code class="bg-furnace-900 px-1.5 py-0.5 rounded text-amber-300 code-font">I – bVII – IV – I</code>. Borrowed bVII is the whole trick; it sounds triumphant without sounding like a fanfare.</p>
+                            <p><strong class="text-purple-300">Dungeon / dread:</strong> <code class="bg-furnace-900 px-1.5 py-0.5 rounded text-amber-300 code-font">i – bVI – bVII – i</code> or a chromatic descending bass under a static chord.</p>
+                            <p><strong class="text-purple-300">Melancholy / town:</strong> <code class="bg-furnace-900 px-1.5 py-0.5 rounded text-amber-300 code-font">vi – IV – I – V</code>, or <code class="bg-furnace-900 px-1.5 py-0.5 rounded text-amber-300 code-font">I – iii – IV – iv</code> with that borrowed minor iv at the end.</p>
+                            <p><strong class="text-purple-300">Koshiro-style dance:</strong> <code class="bg-furnace-900 px-1.5 py-0.5 rounded text-amber-300 code-font">im7 – IVm7 – bIIImaj7 – bVImaj7</code> — jazz sevenths over a four-on-the-floor beat.</p>
+                            <p><strong class="text-purple-300">Wonder / discovery:</strong> chromatic mediants — <code class="bg-furnace-900 px-1.5 py-0.5 rounded text-amber-300 code-font">I – bIII – bVI – I</code>. Two shared tones, one surprising move.</p>
+                            <p><strong class="text-purple-300">Urgency:</strong> <code class="bg-furnace-900 px-1.5 py-0.5 rounded text-amber-300 code-font">i – V – i – V</code> with harmonic minor's raised 7th, over a driving 16th bass.</p>
+                        </div>
+                        <div class="tab-content pattern-tab hidden">
+                            <div class="relative bg-furnace-900 rounded-lg p-3 border border-furnace-700 code-font text-xs text-green-400">
+                                <button onclick="copySnippet(this)" class="absolute top-2 right-2 px-2 py-1 bg-furnace-800 text-gray-400 hover:text-white rounded text-[10px]"><i class="fa-regular fa-copy"></i> Copy</button>
+                                <pre>
+Heroic in C:  C  -  Bb  -  F  -  C
+Row | Bass | Arp (0xy on one channel)
+00  | C-2  | C-4 047
+08  | A#1  | A#3 047
+16  | F-2  | F-3 047
+24  | C-2  | C-4 047
+
+Dread in A minor: Am - F - G - Am
+00  | A-1  | A-3 037
+08  | F-1  | F-3 047
+16  | G-1  | G-3 047
+24  | A-1  | A-3 037</pre>
+                            </div>
+                        </div>
+                        <div class="tab-content recipe-tab hidden text-xs text-gray-300 space-y-2">
+                            <p><strong class="text-purple-300">Chord rate:</strong> one chord per bar for grandeur, two per bar for momentum, one per two bars for ambience.</p>
+                            <p><strong class="text-purple-300">Do not state every chord:</strong> bass root + arp colour is enough. The third channel is better spent on melody.</p>
+                        </div>
+                    </div>
+
+                    <div class="pattern-card bg-furnace-800 border border-furnace-700 rounded-xl p-5 hover:border-purple-500/50 transition duration-200" data-tags="composition pulse bass walking voice leading triangle craft jazz">
+                        <div class="flex items-start justify-between mb-3">
+                            <div>
+                                <span class="text-xs font-mono text-purple-400 bg-purple-950/60 px-2 py-0.5 rounded border border-purple-800">CRAFT / BASS</span>
+                                <h3 class="text-lg font-bold text-white mt-1">Walking &amp; Voice-Led Bass</h3>
+                            </div>
+                            <button onclick="playPattern('walkingBass')" class="px-3 py-1.5 bg-purple-500/20 text-purple-300 hover:bg-purple-500 hover:text-black rounded-lg text-xs font-semibold flex items-center gap-1.5 transition">
+                                <i class="fa-solid fa-play"></i> Play Sound
+                            </button>
+                        </div>
+                        <p class="text-sm text-gray-300 mb-4">
+                            Most chip bass lines hammer roots and fifths. A bass that <em>walks</em> — landing on a chord tone at each change and stepping there through scale or chromatic notes — does harmonic work no other channel can afford, and it makes a three-channel arrangement sound like it has four.
+                        </p>
+                        <div class="border-b border-furnace-700 flex space-x-4 text-xs font-mono mb-3 overflow-x-auto whitespace-nowrap">
+                            <button onclick="switchCardTab(this, 'concept')" class="tab-btn active text-cyan-400 border-b-2 border-cyan-400 pb-1 font-semibold flex-shrink-0">Concept &amp; Theory</button>
+                            <button onclick="switchCardTab(this, 'pattern')" class="tab-btn text-gray-400 hover:text-white pb-1 flex-shrink-0">Furnace Pattern Snippet</button>
+                            <button onclick="switchCardTab(this, 'recipe')" class="tab-btn text-gray-400 hover:text-white pb-1 flex-shrink-0">Inst Settings</button>
+                        </div>
+                        <div class="tab-content concept-tab text-xs text-gray-300 space-y-2">
+                            <p><strong class="text-purple-300">Target-and-approach:</strong> decide the note you land on at each chord change first, then fill backwards toward it by step. Approach from a semitone below for pull, from above for release.</p>
+                            <p><strong class="text-purple-300">Inversions:</strong> a bass on the 3rd instead of the root makes a progression flow. <code class="bg-furnace-900 px-1.5 py-0.5 rounded text-amber-300 code-font">C – C/E – F</code> beats <code class="bg-furnace-900 px-1.5 py-0.5 rounded text-amber-300 code-font">C – C – F</code>.</p>
+                            <p><strong class="text-purple-300">Pedal contrast:</strong> alternate walking sections with a static pedal note. Constant walking is as tiring as constant root-hammering.</p>
+                            <p><strong class="text-purple-300">On NES:</strong> this is what the triangle is for once a VRC6 saw or a second pulse covers the low root.</p>
+                        </div>
+                        <div class="tab-content pattern-tab hidden">
+                            <div class="relative bg-furnace-900 rounded-lg p-3 border border-furnace-700 code-font text-xs text-green-400">
+                                <button onclick="copySnippet(this)" class="absolute top-2 right-2 px-2 py-1 bg-furnace-800 text-gray-400 hover:text-white rounded text-[10px]"><i class="fa-regular fa-copy"></i> Copy</button>
+                                <pre>
+Chords: | Am      | Dm      | G       | C       |
+Row | Bass | note function
+00  | A-1  | root
+02  | C-2  | 3rd
+04  | E-2  | 5th
+06  | C#2  | chromatic approach ->
+08  | D-2  | root of Dm
+10  | F-2  | 3rd
+12  | A-2  | 5th
+14  | F#2  | approach ->
+16  | G-1  | root of G</pre>
+                            </div>
+                        </div>
+                        <div class="tab-content recipe-tab hidden text-xs text-gray-300 space-y-2">
+                            <p><strong class="text-purple-300">Articulation:</strong> <code class="bg-furnace-900 px-1.5 py-0.5 rounded text-amber-300 code-font">ECxx</code> at roughly 3/4 of the row so notes are distinct but not clipped — walking lines need to be heard as steps.</p>
+                            <p><strong class="text-purple-300">Register:</strong> keep it inside one octave. Wide leaps break the sense of a line walking.</p>
+                        </div>
+                    </div>
+
+                    <div class="pattern-card bg-furnace-800 border border-furnace-700 rounded-xl p-5 hover:border-purple-500/50 transition duration-200" data-tags="composition rhythm half time double time comping stabs groove craft arrangement">
+                        <div class="flex items-start justify-between mb-3">
+                            <div>
+                                <span class="text-xs font-mono text-purple-400 bg-purple-950/60 px-2 py-0.5 rounded border border-purple-800">CRAFT / RHYTHM</span>
+                                <h3 class="text-lg font-bold text-white mt-1">Half-Time, Double-Time &amp; Comping</h3>
+                            </div>
+                            <button onclick="playPattern('halfTime')" class="px-3 py-1.5 bg-purple-500/20 text-purple-300 hover:bg-purple-500 hover:text-black rounded-lg text-xs font-semibold flex items-center gap-1.5 transition">
+                                <i class="fa-solid fa-play"></i> Play Sound
+                            </button>
+                        </div>
+                        <p class="text-sm text-gray-300 mb-4">
+                            You can change the entire feel of a section without touching the tempo or writing new material. Move the snare from beat 3 to beat 4 of a doubled bar and the track drops into half-time; double the drum subdivisions and it lifts. Meanwhile the chord channel's <em>rhythm</em> — where the stabs land — carries as much groove information as the drums.
+                        </p>
+                        <div class="border-b border-furnace-700 flex space-x-4 text-xs font-mono mb-3 overflow-x-auto whitespace-nowrap">
+                            <button onclick="switchCardTab(this, 'concept')" class="tab-btn active text-cyan-400 border-b-2 border-cyan-400 pb-1 font-semibold flex-shrink-0">Concept &amp; Theory</button>
+                            <button onclick="switchCardTab(this, 'pattern')" class="tab-btn text-gray-400 hover:text-white pb-1 flex-shrink-0">Furnace Pattern Snippet</button>
+                            <button onclick="switchCardTab(this, 'recipe')" class="tab-btn text-gray-400 hover:text-white pb-1 flex-shrink-0">Inst Settings</button>
+                        </div>
+                        <div class="tab-content concept-tab text-xs text-gray-300 space-y-2">
+                            <p><strong class="text-purple-300">Half-time:</strong> same BPM, snare every 8 rows instead of every 4. Instantly heavier — the standard "boss phase 2" move.</p>
+                            <p><strong class="text-purple-300">Double-time:</strong> hats and bass at double density while the melody keeps its original note lengths. Energy without chaos.</p>
+                            <p><strong class="text-purple-300">Offbeat comping:</strong> chord stabs on the "and" of each beat = ska/reggae lift; stabs on beats 2 and 4 = funk push.</p>
+                            <p><strong class="text-purple-300">Rests are rhythm:</strong> a comping pattern is defined by where it does <em>not</em> play. Write the gaps deliberately.</p>
+                        </div>
+                        <div class="tab-content pattern-tab hidden">
+                            <div class="relative bg-furnace-900 rounded-lg p-3 border border-furnace-700 code-font text-xs text-green-400">
+                                <button onclick="copySnippet(this)" class="absolute top-2 right-2 px-2 py-1 bg-furnace-800 text-gray-400 hover:text-white rounded text-[10px]"><i class="fa-regular fa-copy"></i> Copy</button>
+                                <pre>
+STRAIGHT   kick 00 08 | snare 04 12
+HALF-TIME  kick 00 16 | snare 08     (same BPM)
+DOUBLE     kick 00 04 08 12 | snare 02 06 10 14
+
+Offbeat comping (arp channel)
+Row | Chord stab
+02  | C-4 047 EC2     ("and" of 1)
+06  | C-4 047 EC2     ("and" of 2)
+10  | A#3 047 EC2
+14  | A#3 047 EC2</pre>
+                            </div>
+                        </div>
+                        <div class="tab-content recipe-tab hidden text-xs text-gray-300 space-y-2">
+                            <p><strong class="text-purple-300">Stab length:</strong> 2–3 ticks. A long stab stops being rhythm and becomes a pad.</p>
+                            <p><strong class="text-purple-300">Section planning:</strong> straight verse → half-time bridge → double-time final chorus needs no new melodic material at all.</p>
+                        </div>
+                    </div>
+
+                </div>
+            </section>
+            <!-- CATEGORY: GAME-SCORING CRAFT -->
+            <section id="cat-gamescore" class="category-section space-y-6 pt-4">
+                <div class="border-b border-furnace-700 pb-3 flex flex-wrap items-center justify-between gap-3">
+                    <div class="flex items-center space-x-3">
+                        <div class="p-2 bg-emerald-500/10 rounded-lg text-emerald-400">
+                            <i class="fa-solid fa-gamepad text-xl"></i>
+                        </div>
+                        <div>
+                            <h2 class="text-xl font-bold text-white">14. Game-Scoring Craft</h2>
+                            <p class="text-xs text-gray-400">Writing for an interactive context: surviving the sound-effects engine, cue structure, stingers, and making one theme cover a whole game.</p>
+                        </div>
+                    </div>
+                    <span class="text-xs font-mono px-2.5 py-1 bg-emerald-500/10 text-emerald-300 rounded border border-emerald-500/30">4 Techniques</span>
+                </div>
+
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+
+                    <div class="pattern-card bg-furnace-800 border border-furnace-700 rounded-xl p-5 hover:border-emerald-500/50 transition duration-200" data-tags="composition pulse noise sfx channel theft game engine arrangement nes gameboy">
+                        <div class="flex items-start justify-between mb-3">
+                            <div>
+                                <span class="text-xs font-mono text-emerald-400 bg-emerald-950/60 px-2 py-0.5 rounded border border-emerald-800">GAME / CONSTRAINT</span>
+                                <h3 class="text-lg font-bold text-white mt-1">Composing Around SFX Channel Theft</h3>
+                            </div>
+                            <button onclick="playPattern('sfxTheft')" class="px-3 py-1.5 bg-emerald-500/20 text-emerald-300 hover:bg-emerald-500 hover:text-black rounded-lg text-xs font-semibold flex items-center gap-1.5 transition">
+                                <i class="fa-solid fa-play"></i> Play Sound
+                            </button>
+                        </div>
+                        <p class="text-sm text-gray-300 mb-4">
+                            In an actual game, the sound engine interrupts your music. A jump, a shot or a pickup grabs a channel mid-phrase and hands it back a moment later. The composers who sound good in-game wrote for that: the stolen channel carries the most expendable part, and every section still makes sense with it missing.
+                        </p>
+                        <div class="border-b border-furnace-700 flex space-x-4 text-xs font-mono mb-3 overflow-x-auto whitespace-nowrap">
+                            <button onclick="switchCardTab(this, 'concept')" class="tab-btn active text-cyan-400 border-b-2 border-cyan-400 pb-1 font-semibold flex-shrink-0">Concept &amp; Theory</button>
+                            <button onclick="switchCardTab(this, 'pattern')" class="tab-btn text-gray-400 hover:text-white pb-1 flex-shrink-0">Furnace Pattern Snippet</button>
+                            <button onclick="switchCardTab(this, 'recipe')" class="tab-btn text-gray-400 hover:text-white pb-1 flex-shrink-0">Inst Settings</button>
+                        </div>
+                        <div class="tab-content concept-tab text-xs text-gray-300 space-y-2">
+                            <p><strong class="text-emerald-300">Know which channel goes:</strong> engines usually steal the noise channel or pulse 2. Put the melody on the channel that stays, and the harmony/arp on the one that goes.</p>
+                            <p><strong class="text-emerald-300">The mute test:</strong> solo-mute the stealable channel and play the track through. If a section falls apart, that section is over-reliant on it — the fix is usually to move one sustained note into the safe channel.</p>
+                            <p><strong class="text-emerald-300">Do not put the hook there:</strong> a melody interrupted by a jump sound is the single most common sin of amateur game music.</p>
+                            <p><strong class="text-emerald-300">Bass is sacred:</strong> losing bass mid-phrase is far more damaging than losing harmony. Never schedule bass on the stealable voice.</p>
+                            <p><strong class="text-emerald-300">If you control the engine:</strong> duck the music channel briefly instead of hard-cutting it — the return is much less jarring.</p>
+                        </div>
+                        <div class="tab-content pattern-tab hidden">
+                            <div class="relative bg-furnace-900 rounded-lg p-3 border border-furnace-700 code-font text-xs text-green-400">
+                                <button onclick="copySnippet(this)" class="absolute top-2 right-2 px-2 py-1 bg-furnace-800 text-gray-400 hover:text-white rounded text-[10px]"><i class="fa-regular fa-copy"></i> Copy</button>
+                                <pre>
+Channel plan for an action game
+  Pulse 1  MELODY     never stolen  (the hook)
+  Pulse 2  ARP/HARM   stolen by SFX (expendable)
+  Triangle BASS       never stolen  (foundation)
+  Noise    DRUMS      stolen by SFX (ear fills it)
+
+Test: mute Pulse 2 + Noise, play the whole song.
+Anything that stops making sense gets rewritten.</pre>
+                            </div>
+                        </div>
+                        <div class="tab-content recipe-tab hidden text-xs text-gray-300 space-y-2">
+                            <p><strong class="text-emerald-300">Design SFX in the same key</strong> where you can — a pickup blip on a chord tone is far less intrusive than a random pitch.</p>
+                            <p><strong class="text-emerald-300">Furnace tip:</strong> use channel mute in the tracker to run the mute test without editing anything.</p>
+                        </div>
+                    </div>
+
+                    <div class="pattern-card bg-furnace-800 border border-furnace-700 rounded-xl p-5 hover:border-emerald-500/50 transition duration-200" data-tags="composition form loop intro cue structure game order list arrangement">
+                        <div class="flex items-start justify-between mb-3">
+                            <div>
+                                <span class="text-xs font-mono text-emerald-400 bg-emerald-950/60 px-2 py-0.5 rounded border border-emerald-800">GAME / STRUCTURE</span>
+                                <h3 class="text-lg font-bold text-white mt-1">Intro-Then-Loop: Writing a Cue, Not a Song</h3>
+                            </div>
+                            <button onclick="playPattern('introLoop')" class="px-3 py-1.5 bg-emerald-500/20 text-emerald-300 hover:bg-emerald-500 hover:text-black rounded-lg text-xs font-semibold flex items-center gap-1.5 transition">
+                                <i class="fa-solid fa-play"></i> Play Sound
+                            </button>
+                        </div>
+                        <p class="text-sm text-gray-300 mb-4">
+                            A game cue has a shape a song does not: a short intro that plays exactly once, then a body that repeats until the player leaves. The intro sets the scene; the loop has to survive being heard for ten minutes. Getting the seam right — the last bar leading back into the loop start — is most of the job.
+                        </p>
+                        <div class="border-b border-furnace-700 flex space-x-4 text-xs font-mono mb-3 overflow-x-auto whitespace-nowrap">
+                            <button onclick="switchCardTab(this, 'concept')" class="tab-btn active text-cyan-400 border-b-2 border-cyan-400 pb-1 font-semibold flex-shrink-0">Concept &amp; Theory</button>
+                            <button onclick="switchCardTab(this, 'pattern')" class="tab-btn text-gray-400 hover:text-white pb-1 flex-shrink-0">Order List</button>
+                            <button onclick="switchCardTab(this, 'recipe')" class="tab-btn text-gray-400 hover:text-white pb-1 flex-shrink-0">Inst Settings</button>
+                        </div>
+                        <div class="tab-content concept-tab text-xs text-gray-300 space-y-2">
+                            <p><strong class="text-emerald-300">Loop point:</strong> <code class="bg-furnace-900 px-1.5 py-0.5 rounded text-amber-300 code-font">0Bxx</code> on the last row jumps back to the order position where the loop body begins — past the intro, not to zero.</p>
+                            <p><strong class="text-emerald-300">Seam test:</strong> listen to the last four bars followed immediately by the first four of the loop, three times over. Any bump will be heard hundreds of times in play.</p>
+                            <p><strong class="text-emerald-300">Intro length:</strong> 2–4 bars. Long intros are a liability when the player dies and re-enters the room every twenty seconds.</p>
+                            <p><strong class="text-emerald-300">Do not resolve at the seam:</strong> end the loop on something that wants to move — a V chord, a pickup run, an unresolved drum fill.</p>
+                            <p><strong class="text-emerald-300">Sustain trap:</strong> a note still ringing at the loop point will cut abruptly on the jump. End the last bar with explicit cuts.</p>
+                        </div>
+                        <div class="tab-content pattern-tab hidden">
+                            <div class="relative bg-furnace-900 rounded-lg p-3 border border-furnace-700 code-font text-xs text-green-400">
+                                <button onclick="copySnippet(this)" class="absolute top-2 right-2 px-2 py-1 bg-furnace-800 text-gray-400 hover:text-white rounded text-[10px]"><i class="fa-regular fa-copy"></i> Copy</button>
+                                <pre>
+Order list
+  00  INTRO-A     plays once
+  01  INTRO-B     plays once
+  02  LOOP-A   &lt;- loop target
+  03  LOOP-B
+  04  LOOP-A2
+  05  LOOP-C      last row: 0B02
+
+Last row of pattern 05
+Row | Ch1     | Ch2     | Ch3   | FX
+62  | G-4     | B-3     | G-1   | ---
+63  | --- EC1 | --- EC1 | ---   | 0B02</pre>
+                            </div>
+                        </div>
+                        <div class="tab-content recipe-tab hidden text-xs text-gray-300 space-y-2">
+                            <p><strong class="text-emerald-300">Reuse patterns:</strong> LOOP-A appearing twice in the order list costs nothing and keeps edits in one place.</p>
+                            <p><strong class="text-emerald-300">Export note:</strong> if the target engine needs a separate intro and loop file, split at the loop point rather than fading.</p>
+                        </div>
+                    </div>
+
+                    <div class="pattern-card bg-furnace-800 border border-furnace-700 rounded-xl p-5 hover:border-emerald-500/50 transition duration-200" data-tags="composition pulse stinger jingle fanfare short cue game FFxx">
+                        <div class="flex items-start justify-between mb-3">
+                            <div>
+                                <span class="text-xs font-mono text-emerald-400 bg-emerald-950/60 px-2 py-0.5 rounded border border-emerald-800">GAME / SHORT CUES</span>
+                                <h3 class="text-lg font-bold text-white mt-1">Stingers, Jingles &amp; Fanfares</h3>
+                            </div>
+                            <button onclick="playPattern('stingers')" class="px-3 py-1.5 bg-emerald-500/20 text-emerald-300 hover:bg-emerald-500 hover:text-black rounded-lg text-xs font-semibold flex items-center gap-1.5 transition">
+                                <i class="fa-solid fa-play"></i> Play Sound
+                            </button>
+                        </div>
+                        <p class="text-sm text-gray-300 mb-4">
+                            Two seconds of music that a player hears a thousand times: item get, level clear, game over. They are the most-heard music in any game and the most commonly neglected. A stinger has no time for development — it needs one gesture, a clear cadence, and a hard stop.
+                        </p>
+                        <div class="border-b border-furnace-700 flex space-x-4 text-xs font-mono mb-3 overflow-x-auto whitespace-nowrap">
+                            <button onclick="switchCardTab(this, 'concept')" class="tab-btn active text-cyan-400 border-b-2 border-cyan-400 pb-1 font-semibold flex-shrink-0">Concept &amp; Theory</button>
+                            <button onclick="switchCardTab(this, 'pattern')" class="tab-btn text-gray-400 hover:text-white pb-1 flex-shrink-0">Furnace Pattern Snippet</button>
+                            <button onclick="switchCardTab(this, 'recipe')" class="tab-btn text-gray-400 hover:text-white pb-1 flex-shrink-0">Inst Settings</button>
+                        </div>
+                        <div class="tab-content concept-tab text-xs text-gray-300 space-y-2">
+                            <p><strong class="text-emerald-300">Length:</strong> victory fanfare 2–4 s, item get under 1.5 s, game over 2–3 s. Longer and it stops being punctuation.</p>
+                            <p><strong class="text-emerald-300">End it properly:</strong> <code class="bg-furnace-900 px-1.5 py-0.5 rounded text-amber-300 code-font">FFxx</code> stops playback so the cue never loops. A looping jingle is a bug the player hears immediately.</p>
+                            <p><strong class="text-emerald-300">Cadence carries the meaning:</strong> rising to the tonic reads as success; a falling chromatic line or a deceptive resolution reads as failure. Both in under 20 rows.</p>
+                            <p><strong class="text-emerald-300">Quote the theme:</strong> build the fanfare from the first three notes of the main theme — free coherence across the whole soundtrack.</p>
+                            <p><strong class="text-emerald-300">Leave headroom:</strong> stingers often play over the tail of other audio; keep the arrangement to two channels so it cuts through.</p>
+                        </div>
+                        <div class="tab-content pattern-tab hidden">
+                            <div class="relative bg-furnace-900 rounded-lg p-3 border border-furnace-700 code-font text-xs text-green-400">
+                                <button onclick="copySnippet(this)" class="absolute top-2 right-2 px-2 py-1 bg-furnace-800 text-gray-400 hover:text-white rounded text-[10px]"><i class="fa-regular fa-copy"></i> Copy</button>
+                                <pre>
+ITEM GET (speed 3, ~1 s)
+Row | Ch1  | Ch2
+00  | C-5  | E-4
+02  | E-5  | G-4
+04  | G-5  | C-5
+06  | C-6  | E-5
+10  | ---  | ---   FF00
+
+GAME OVER (speed 6, ~2.5 s)
+00  | C-4  | E-3
+08  | B-3  | D#3
+16  | A#3  | D-3
+24  | A-3  | C-3   (chromatic fall)
+36  | ---  | ---   FF00</pre>
+                            </div>
+                        </div>
+                        <div class="tab-content recipe-tab hidden text-xs text-gray-300 space-y-2">
+                            <p><strong class="text-emerald-300">Instrument:</strong> brighter and louder than the main track — a stinger should feel like an interruption.</p>
+                            <p><strong class="text-emerald-300">Store them as separate subsongs</strong> in one Furnace module so the whole soundtrack ships together.</p>
+                        </div>
+                    </div>
+
+                    <div class="pattern-card bg-furnace-800 border border-furnace-700 rounded-xl p-5 hover:border-emerald-500/50 transition duration-200" data-tags="composition pulse adaptive layers theme variation leitmotif game soundtrack arrangement">
+                        <div class="flex items-start justify-between mb-3">
+                            <div>
+                                <span class="text-xs font-mono text-emerald-400 bg-emerald-950/60 px-2 py-0.5 rounded border border-emerald-800">GAME / SOUNDTRACK</span>
+                                <h3 class="text-lg font-bold text-white mt-1">One Theme, Many Rooms (Leitmotif Variants)</h3>
+                            </div>
+                            <button onclick="playPattern('adaptiveLayers')" class="px-3 py-1.5 bg-emerald-500/20 text-emerald-300 hover:bg-emerald-500 hover:text-black rounded-lg text-xs font-semibold flex items-center gap-1.5 transition">
+                                <i class="fa-solid fa-play"></i> Play Sound
+                            </button>
+                        </div>
+                        <p class="text-sm text-gray-300 mb-4">
+                            A small soundtrack sounds bigger when its cues are related. Take the main theme and re-score it: same melody, minor mode and half tempo for the cave; fragmented over a pedal for the tense corridor; harmonised and double-time for the boss. The player recognises the world without recognising that you only wrote one tune.
+                        </p>
+                        <div class="border-b border-furnace-700 flex space-x-4 text-xs font-mono mb-3 overflow-x-auto whitespace-nowrap">
+                            <button onclick="switchCardTab(this, 'concept')" class="tab-btn active text-cyan-400 border-b-2 border-cyan-400 pb-1 font-semibold flex-shrink-0">Concept &amp; Theory</button>
+                            <button onclick="switchCardTab(this, 'pattern')" class="tab-btn text-gray-400 hover:text-white pb-1 flex-shrink-0">Variant Recipes</button>
+                            <button onclick="switchCardTab(this, 'recipe')" class="tab-btn text-gray-400 hover:text-white pb-1 flex-shrink-0">Inst Settings</button>
+                        </div>
+                        <div class="tab-content concept-tab text-xs text-gray-300 space-y-2">
+                            <p><strong class="text-emerald-300">Change one axis at a time:</strong> mode, tempo, register, instrumentation, density. Changing all five gives you an unrelated track, not a variant.</p>
+                            <p><strong class="text-emerald-300">Fragment for tension:</strong> the first three notes of the theme, repeated over a pedal, is instantly "something is wrong here".</p>
+                            <p><strong class="text-emerald-300">Layered version:</strong> if the engine supports it, ship the same cue with channels muted for exploration and unmuted for combat — one pattern set, two intensities.</p>
+                            <p><strong class="text-emerald-300">Budget:</strong> variants reuse instruments and wavetables, so a whole soundtrack fits in far less memory than unrelated tracks would.</p>
+                        </div>
+                        <div class="tab-content pattern-tab hidden">
+                            <div class="relative bg-furnace-900 rounded-lg p-3 border border-furnace-700 code-font text-xs text-green-400">
+                                <button onclick="copySnippet(this)" class="absolute top-2 right-2 px-2 py-1 bg-furnace-800 text-gray-400 hover:text-white rounded text-[10px]"><i class="fa-regular fa-copy"></i> Copy</button>
+                                <pre>
+THEME (overworld)   C major, speed 6, full kit
+  melody + arp + walking bass + drums
+
+CAVE      minor mode, speed 9, no drums
+  melody an octave down, sparse pedal bass
+
+TENSION   first 3 notes only, repeated
+  static bass pedal, noise wash, no melody
+
+BOSS      harmonic minor, speed 4, double-time
+  melody harmonised in 3rds, driving 16th bass
+
+VICTORY   first 3 notes as a rising fanfare, FF00</pre>
+                            </div>
+                        </div>
+                        <div class="tab-content recipe-tab hidden text-xs text-gray-300 space-y-2">
+                            <p><strong class="text-emerald-300">Subsongs:</strong> keep every variant in one Furnace module so they share the instrument bank and stay in sync when you tweak a patch.</p>
+                            <p><strong class="text-emerald-300">Test in sequence:</strong> play the variants back to back — they should feel like the same world, not the same file.</p>
+                        </div>
+                    </div>
+
+                </div>
+            </section>
             <!-- CATEGORY 10: COMPOSITION PLAYBOOK -->
             <section id="cat-composition" class="category-section space-y-6 pt-4">
                 <div class="border-b border-furnace-700 pb-3 flex flex-wrap items-center justify-between gap-3">
@@ -3235,7 +3711,7 @@ Row | Ch1 lead | Ch2 echo   | Ch3 bass | Ch4 shared
                             <i class="fa-solid fa-feather-pointed text-xl"></i>
                         </div>
                         <div>
-                            <h2 class="text-xl font-bold text-white">13. Composition Playbook</h2>
+                            <h2 class="text-xl font-bold text-white">15. Composition Playbook</h2>
                             <p class="text-xs text-gray-400">Writing the music, not just the sound: channel budgeting, form, melody, harmony, groove and mixing under hard chip limits.</p>
                         </div>
                     </div>
@@ -3419,7 +3895,7 @@ Row | Ch1 lead | Ch2 echo   | Ch3 bass | Ch4 shared
                             <i class="fa-solid fa-calculator text-xl"></i>
                         </div>
                         <div>
-                            <h2 class="text-xl font-bold text-white">14. Interactive Furnace Macro Recipe Calculator</h2>
+                            <h2 class="text-xl font-bold text-white">16. Interactive Furnace Macro Recipe Calculator</h2>
                             <p class="text-xs text-gray-400">Select chord qualities and attack envelopes to generate instant copyable Furnace macro strings.</p>
                         </div>
                     </div>
@@ -3484,7 +3960,7 @@ Row | Ch1 lead | Ch2 echo   | Ch3 bass | Ch4 shared
                             <i class="fa-solid fa-stopwatch-20 text-xl"></i>
                         </div>
                         <div>
-                            <h2 class="text-xl font-bold text-white">15. Tempo, Tick &amp; Groove Calculator</h2>
+                            <h2 class="text-xl font-bold text-white">17. Tempo, Tick &amp; Groove Calculator</h2>
                             <p class="text-xs text-gray-400">Convert between tick rate, speed, rows-per-beat and BPM — then read off the note-cut, delay and echo values that match your grid.</p>
                         </div>
                     </div>
@@ -4706,6 +5182,142 @@ Row | Ch1 lead | Ch2 echo   | Ch3 bass | Ch4 shared
             },
 
             /* --- FM voice: modulator -> carrier frequency, both enveloped --- */
+            motifTransform: function (now) {
+                // statement -> inversion -> sequence -> augmentation (in the bass)
+                const motif = ['A4', 'C5', 'B4', 'E5'];
+                const inverted = ['A4', 'F4', 'G4', 'D4'];
+                const sequenced = ['C5', 'E5', 'D5', 'G5'];
+                const play = (notes, t0, step, vol, duty) => notes.forEach((n, i) =>
+                    chipNote({ freq: nf(n), start: t0 + i * step, dur: step * 0.85, vol: vol, duty: duty }));
+                play(motif, now, 0.16, 0.24, 0.5);
+                play(inverted, now + 0.8, 0.16, 0.24, 0.5);
+                play(sequenced, now + 1.6, 0.16, 0.24, 0.5);
+                // augmented: same shape, double length, an octave down
+                play(['A3', 'C4', 'B3', 'E4'], now + 2.4, 0.32, 0.2, 0.25);
+            },
+
+            counterpoint: function (now) {
+                // melody rises, counter-line falls; counter moves where melody rests
+                const mel = [['C5', 0], ['D5', 2], ['E5', 4], ['F5', 8], ['E5', 10], ['D5', 12]];
+                const ctr = [['E4', 0], ['D4', 2], ['C4', 4], ['B3', 6], ['A3', 8], ['B3', 10], ['C4', 12]];
+                const row = 0.13;
+                mel.forEach(([n, r]) => chipNote({ freq: nf(n), start: now + r * row, dur: row * 1.7, vol: 0.24, duty: 0.5 }));
+                ctr.forEach(([n, r]) => chipNote({ freq: nf(n), start: now + r * row, dur: row * 1.7, vol: 0.13, duty: 0.125 }));
+            },
+
+            harmonicPalette: function (now) {
+                // heroic I-bVII-IV-I, then dread i-bVI-bVII-i
+                const play = (chords, t0) => chords.forEach(([root, ints], c) => {
+                    const t = t0 + c * 0.55;
+                    chipNote({ freq: nf(root), start: t, dur: 0.5, vol: 0.22, duty: 0.5, decay: 'sustain' });
+                    for (let i = 0; i < 12; i++) {   // arp the chord colour above the root
+                        chipNote({ freq: nf(root) * 4 * Math.pow(2, ints[i % ints.length] / 12),
+                                   start: t + i * 0.042, dur: 0.04, vol: 0.13, duty: 0.25 });
+                    }
+                });
+                play([['C2', [0,4,7]], ['A#1', [0,4,7]], ['F2', [0,4,7]], ['C2', [0,4,7]]], now);
+                play([['A1', [0,3,7]], ['F1', [0,4,7]], ['G1', [0,4,7]], ['A1', [0,3,7]]], now + 2.4);
+            },
+
+            walkingBass: function (now) {
+                // target chord tones, approached by step and chromatically
+                const line = ['A1','C2','E2','C#2','D2','F2','A2','F#2','G1','B1','D2','B1','C2','E2','G2','G#2'];
+                line.forEach((n, i) => chipNote({ freq: nf(n), start: now + i * 0.135, dur: 0.1,
+                                                  vol: i % 4 === 0 ? 0.26 : 0.2, duty: 0.25 }));
+                // chord stabs marking each change
+                [['A3',[0,3,7],0], ['D4',[0,3,7],4], ['G3',[0,4,7],8], ['C4',[0,4,7],12]]
+                    .forEach(([root, ints, r]) => ints.forEach(iv =>
+                        chipNote({ freq: nf(root) * Math.pow(2, iv/12), start: now + r * 0.135, dur: 0.1,
+                                   vol: 0.08, duty: 0.125 })));
+            },
+
+            halfTime: function (now) {
+                const row = 0.115;
+                const kick = t => chipNoise({ start: t, dur: 0.15, vol: 0.42, filter: 'lowpass', cutoff: 150, q: 3 });
+                const snare = t => chipNoise({ start: t, dur: 0.17, vol: 0.26, filter: 'bandpass', cutoff: 1400, q: 0.8 });
+                const hat = t => chipNoise({ start: t, dur: 0.04, vol: 0.07, filter: 'highpass', cutoff: 7000 });
+                // bar 1-2: straight
+                [0, 8, 16, 24].forEach(r => kick(now + r * row));
+                [4, 12, 20, 28].forEach(r => snare(now + r * row));
+                for (let r = 2; r < 32; r += 4) hat(now + r * row);
+                // bar 3-4: half-time, same tempo - snare every 8 rows
+                [32, 48].forEach(r => kick(now + r * row));
+                [40, 56].forEach(r => snare(now + r * row));
+                for (let r = 34; r < 64; r += 4) hat(now + r * row);
+                // offbeat comping over both
+                for (let r = 2; r < 64; r += 8) {
+                    [0, 4, 7].forEach(iv => chipNote({ freq: nf('C4') * Math.pow(2, iv/12),
+                                                       start: now + r * row, dur: 0.07, vol: 0.1, duty: 0.25 }));
+                }
+            },
+
+            sfxTheft: function (now) {
+                // full arrangement, then the same bars with pulse 2 stolen by SFX
+                const row = 0.115;
+                const mel = [['A4',0],['C5',4],['B4',8],['E5',12],['A4',16],['C5',20],['B4',24],['E5',28]];
+                const arp = r => [0,4,7].forEach(iv => chipNote({ freq: nf('A3') * Math.pow(2, iv/12),
+                                                                  start: now + r * row, dur: 0.07, vol: 0.1, duty: 0.25 }));
+                mel.forEach(([n, r]) => chipNote({ freq: nf(n), start: now + r * row, dur: 0.3, vol: 0.24,
+                                                   duty: 0.5, decay: 'sustain' }));
+                for (let r = 0; r < 32; r += 4) chipNote({ freq: nf('A1'), start: now + r * row, dur: 0.12, vol: 0.22, duty: 0.5 });
+                for (let r = 0; r < 16; r += 2) arp(r);            // harmony present in bar 1-2
+                for (let r = 16; r < 32; r += 2) {                 // bar 3-4: channel stolen
+                    if (r === 18 || r === 26) {                    // SFX blips, in key
+                        chipNote({ freq: nf('E5'), start: now + r * row, dur: 0.09, vol: 0.2,
+                                   duty: 0.125, slideTo: nf('E6') });
+                    }
+                }
+                // melody and bass carry the section unaided
+            },
+
+            introLoop: function (now) {
+                const row = 0.12;
+                const phrase = (notes, t0) => notes.forEach(([n, r, d]) =>
+                    chipNote({ freq: nf(n), start: t0 + r * row, dur: (d || 2) * row * 0.9, vol: 0.23, duty: 0.5, decay: 'sustain' }));
+                // intro: plays once
+                phrase([['C5',0,2],['E5',2,2],['G5',4,4]], now);
+                // loop body, twice, ending on an unresolved V that pulls back to the start
+                [0, 1].forEach(rep => {
+                    const t = now + 1.05 + rep * 1.45;
+                    phrase([['A4',0,2],['C5',2,2],['B4',4,2],['E5',6,2],['D5',8,2],['G4',10,2]], t);
+                    for (let r = 0; r < 12; r += 2) chipNote({ freq: nf(r < 8 ? 'A1' : 'E2'), start: t + r * row,
+                                                               dur: 0.1, vol: 0.2, duty: 0.5 });
+                });
+            },
+
+            stingers: function (now) {
+                // item get: rising to the tonic
+                [['C5',0],['E5',0.09],['G5',0.18],['C6',0.27]].forEach(([n, off]) =>
+                    chipNote({ freq: nf(n), start: now + off, dur: 0.16, vol: 0.26, duty: 0.25 }));
+                chipNote({ freq: nf('C6'), start: now + 0.36, dur: 0.3, vol: 0.24, duty: 0.25, decay: 'sustain' });
+                // game over: chromatic fall, unresolved
+                [['C4',1.1],['B3',1.35],['A#3',1.6],['A3',1.85]].forEach(([n, off]) => {
+                    chipNote({ freq: nf(n), start: now + off, dur: 0.26, vol: 0.24, duty: 0.5, decay: 'sustain' });
+                    chipNote({ freq: nf(n) / 2, start: now + off, dur: 0.26, vol: 0.14, duty: 0.5, decay: 'sustain' });
+                });
+            },
+
+            adaptiveLayers: function (now) {
+                const theme = [['A4',0],['C5',2],['B4',4],['E5',6]];
+                const row = 0.13;
+                // overworld: major-ish, full, with drums
+                theme.forEach(([n, r]) => chipNote({ freq: nf(n), start: now + r * row, dur: 0.22, vol: 0.24, duty: 0.5 }));
+                for (let r = 0; r < 8; r += 2) chipNote({ freq: nf('A2'), start: now + r * row, dur: 0.1, vol: 0.2, duty: 0.25 });
+                [0, 4].forEach(r => chipNoise({ start: now + r * row, dur: 0.12, vol: 0.32, filter: 'lowpass', cutoff: 150, q: 3 }));
+                // cave: same melody, octave down, slower, no drums
+                const t2 = now + 1.3;
+                theme.forEach(([n, r]) => chipNote({ freq: nf(n) / 2, start: t2 + r * row * 1.8, dur: 0.4,
+                                                     vol: 0.18, duty: 0.125, decay: 'sustain' }));
+                chipNote({ freq: nf('A1'), start: t2, dur: 1.5, vol: 0.14, duty: 0.5, decay: 'sustain' });
+                // tension: first three notes only, over a pedal
+                const t3 = now + 3.2;
+                [0, 1, 2].forEach(i => [0, 1].forEach(rep =>
+                    chipNote({ freq: nf(theme[i][0]), start: t3 + rep * 0.5 + i * 0.12, dur: 0.1,
+                               vol: 0.16, duty: 0.125 })));
+                chipNoise({ start: t3, dur: 1.1, vol: 0.03, filter: 'bandpass', cutoff: 800, q: 0.6 });
+                chipNote({ freq: nf('A1'), start: t3, dur: 1.1, vol: 0.16, duty: 0.5, decay: 'sustain' });
+            },
+
             compoundMelody: function (now) {
                 // low notes on the beat, high notes off it: the ear splits them into two voices
                 const line = [['A2', 0], ['E4', 1], ['A2', 2], ['F4', 3], ['A2', 4], ['E4', 5],
