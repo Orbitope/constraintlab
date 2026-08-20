@@ -13,15 +13,15 @@
       gtag('config', 'G-KG3409EZDQ');
     </script>
 
-    <title>Furnace Chiptune Reference Manual &amp; Macro Lab</title>
-    <meta name="description" content="A playable reference for composing chiptune in the Furnace tracker: bass, arps, articulation, PWM, percussion, macro recipes, effect commands, per-chip channel budgets, a composition playbook, and interactive macro/tempo calculators.">
+    <title>Constraint Lab — Furnace &amp; PO-33 Technique Reference</title>
+    <meta name="description" content="Playable technique references for making music on small machines: the Furnace chiptune tracker (78 techniques, 14 composer audits, macro and tempo calculators) and the Teenage Engineering PO-33 K.O! sampler (sampling, chopping, sequencing and punch-in effects).">
     <meta name="theme-color" content="#0d1117">
     <meta property="og:type" content="website">
-    <meta property="og:url" content="https://mwburke.github.io/furnace-lab/">
-    <link rel="canonical" href="https://mwburke.github.io/furnace-lab/">
+    <meta property="og:url" content="https://mwburke.github.io/constraint-lab/">
+    <link rel="canonical" href="https://mwburke.github.io/constraint-lab/">
     <meta name="twitter:card" content="summary_large_image">
-    <meta property="og:title" content="Furnace Chiptune Reference Manual &amp; Macro Lab">
-    <meta property="og:description" content="Playable chiptune technique reference and macro/tempo calculators for the Furnace tracker.">
+    <meta property="og:title" content="Constraint Lab — Furnace &amp; PO-33 Technique Reference">
+    <meta property="og:description" content="Technique references for music made under hard limits — the Furnace tracker and the PO-33 sampler — every technique with a demo you can hear in the browser.">
     <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%23111009'/%3E%3Cpath d='M4 20h5v-8h5v8h5v-8h5v8h4' stroke='%23E8C068' stroke-width='3' fill='none'/%3E%3C/svg%3E">
     <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
@@ -133,8 +133,8 @@
                     <i class="fa-solid fa-wave-square"></i>
                 </div>
                 <div>
-                    <h1 class="font-bold text-lg text-white tracking-wide">FURNACE LAB</h1>
-                    <p class="text-xs text-cyan-400 font-mono">8-Bit Tracking Bible</p>
+                    <h1 class="font-bold text-lg text-white tracking-wide">CONSTRAINT LAB</h1>
+                    <p class="text-xs text-cyan-400 font-mono">Music on small machines</p>
                 </div>
             </div>
             <button id="nav-toggle" onclick="toggleNav()" aria-expanded="false" aria-controls="sidebar-nav"
@@ -144,8 +144,21 @@
             </button>
         </div>
 
+        <!-- Device switcher -->
+        <div class="px-4 pt-4 pb-1 flex gap-2">
+            <button id="tab-furnace" onclick="switchDevice('furnace')"
+                    class="device-tab flex-1 px-3 py-2 rounded-lg text-xs font-semibold border transition bg-furnace-700/60 text-cyan-300 border-cyan-500/40">
+                <i class="fa-solid fa-wave-square mr-1.5"></i>Furnace
+            </button>
+            <button id="tab-po33" onclick="switchDevice('po33')"
+                    class="device-tab flex-1 px-3 py-2 rounded-lg text-xs font-semibold border transition bg-furnace-800 text-gray-400 border-furnace-600 hover:text-white">
+                <i class="fa-solid fa-cassette-tape mr-1.5"></i>PO-33
+            </button>
+        </div>
+
         <!-- Category Nav Links -->
         <nav id="sidebar-nav" class="hidden md:block flex-1 overflow-y-auto p-4 space-y-1 max-h-[60vh] md:max-h-none">
+            <div id="navbook-furnace" class="nav-book">
             <div class="text-xs font-semibold text-gray-500 uppercase tracking-wider px-3 mb-2">Categories</div>
 
             <a href="#cat-bass" onclick="setActiveNav(this)" class="nav-link flex items-center space-x-3 px-3 py-2.5 rounded-lg text-sm font-medium transition text-cyan-400 bg-furnace-700/60 border-l-4 border-cyan-400">
@@ -234,6 +247,36 @@
                 <i class="fa-solid fa-stopwatch-20 text-base w-5 text-center text-emerald-400"></i>
                 <span>Tempo &amp; Groove Calculator</span>
             </a>
+        </div>
+            <div id="navbook-po33" class="nav-book hidden">
+            <div class="text-xs font-semibold text-gray-500 uppercase tracking-wider px-3 mb-2">PO-33 K.O!</div>
+
+            <a href="#po-sampling" onclick="setActiveNav(this)" class="nav-link flex items-center space-x-3 px-3 py-2.5 rounded-lg text-sm font-medium transition text-cyan-400 bg-furnace-700/60 border-l-4 border-cyan-400">
+                <i class="fa-solid fa-microphone text-base w-5 text-center text-cyan-400"></i>
+                <span>Sampling &amp; Budget</span>
+            </a>
+
+            <a href="#po-slots" onclick="setActiveNav(this)" class="nav-link flex items-center space-x-3 px-3 py-2.5 rounded-lg text-sm font-medium transition text-gray-400 hover:text-white hover:bg-furnace-700/40">
+                <i class="fa-solid fa-scissors text-base w-5 text-center text-purple-400"></i>
+                <span>Slots: Chop &amp; Pitch</span>
+            </a>
+
+            <a href="#po-sequencing" onclick="setActiveNav(this)" class="nav-link flex items-center space-x-3 px-3 py-2.5 rounded-lg text-sm font-medium transition text-gray-400 hover:text-white hover:bg-furnace-700/40">
+                <i class="fa-solid fa-grip text-base w-5 text-center text-emerald-400"></i>
+                <span>Patterns &amp; Chaining</span>
+            </a>
+
+            <a href="#po-fx" onclick="setActiveNav(this)" class="nav-link flex items-center space-x-3 px-3 py-2.5 rounded-lg text-sm font-medium transition text-gray-400 hover:text-white hover:bg-furnace-700/40">
+                <i class="fa-solid fa-bolt text-base w-5 text-center text-red-400"></i>
+                <span>Punch-In Effects</span>
+            </a>
+
+            <a href="#po-workflow" onclick="setActiveNav(this)" class="nav-link flex items-center space-x-3 px-3 py-2.5 rounded-lg text-sm font-medium transition text-gray-400 hover:text-white hover:bg-furnace-700/40">
+                <i class="fa-solid fa-plug text-base w-5 text-center text-teal-400"></i>
+                <span>Sync &amp; Workflow</span>
+            </a>
+
+            </div>
         </nav>
 
         <!-- System Audio Engine Status Footer -->
@@ -266,6 +309,7 @@
             <!-- Quick Filter Tags -->
             <div class="flex items-center space-x-2 overflow-x-auto w-full sm:w-auto pb-1 sm:pb-0 text-xs">
                 <span class="text-gray-400 font-medium mr-1">Filter:</span>
+                <span id="chips-furnace" class="flex items-center space-x-2">
                 <button onclick="setFilter('all', this)" class="filter-btn active whitespace-nowrap px-3 py-1.5 rounded-full bg-cyan-500/20 text-cyan-300 border border-cyan-500/40 font-medium hover:bg-cyan-500/30 transition">All</button>
                 <button onclick="setFilter('pulse', this)" class="filter-btn whitespace-nowrap px-3 py-1.5 rounded-full bg-furnace-700 text-gray-300 border border-furnace-600 hover:bg-furnace-600 transition">Pulse / Square</button>
                 <button onclick="setFilter('wave', this)" class="filter-btn whitespace-nowrap px-3 py-1.5 rounded-full bg-furnace-700 text-gray-300 border border-furnace-600 hover:bg-furnace-600 transition">Wave Channel</button>
@@ -277,6 +321,16 @@
                 <button onclick="setFilter('modern', this)" class="filter-btn whitespace-nowrap px-3 py-1.5 rounded-full bg-furnace-700 text-gray-300 border border-furnace-600 hover:bg-furnace-600 transition">Modern / Retro</button>
                 <button onclick="setFilter('ost', this)" class="filter-btn whitespace-nowrap px-3 py-1.5 rounded-full bg-furnace-700 text-gray-300 border border-furnace-600 hover:bg-furnace-600 transition">OST Audits</button>
                 <button onclick="setFilter('composition', this)" class="filter-btn whitespace-nowrap px-3 py-1.5 rounded-full bg-furnace-700 text-gray-300 border border-furnace-600 hover:bg-furnace-600 transition">Composition</button>
+            </span>
+                <span id="chips-po33" class="hidden items-center space-x-2">
+                <button onclick="setFilter('all', this)" class="filter-btn active whitespace-nowrap px-3 py-1.5 rounded-full bg-cyan-500/20 text-cyan-300 border border-cyan-500/40 font-medium hover:bg-cyan-500/30 transition">All</button>
+                <button onclick="setFilter('sampling', this)" class="filter-btn whitespace-nowrap px-3 py-1.5 rounded-full bg-furnace-700 text-gray-300 border border-furnace-600 hover:bg-furnace-600 transition">Sampling</button>
+                <button onclick="setFilter('chopping', this)" class="filter-btn whitespace-nowrap px-3 py-1.5 rounded-full bg-furnace-700 text-gray-300 border border-furnace-600 hover:bg-furnace-600 transition">Chopping</button>
+                <button onclick="setFilter('melodic', this)" class="filter-btn whitespace-nowrap px-3 py-1.5 rounded-full bg-furnace-700 text-gray-300 border border-furnace-600 hover:bg-furnace-600 transition">Melodic</button>
+                <button onclick="setFilter('sequencing', this)" class="filter-btn whitespace-nowrap px-3 py-1.5 rounded-full bg-furnace-700 text-gray-300 border border-furnace-600 hover:bg-furnace-600 transition">Sequencing</button>
+                <button onclick="setFilter('fx', this)" class="filter-btn whitespace-nowrap px-3 py-1.5 rounded-full bg-furnace-700 text-gray-300 border border-furnace-600 hover:bg-furnace-600 transition">Punch-In FX</button>
+                <button onclick="setFilter('workflow', this)" class="filter-btn whitespace-nowrap px-3 py-1.5 rounded-full bg-furnace-700 text-gray-300 border border-furnace-600 hover:bg-furnace-600 transition">Workflow</button>
+                </span>
             </div>
         </header>
 
@@ -285,6 +339,7 @@
 
 
 
+            <div id="book-furnace" class="device-book space-y-10">
             <!-- CATEGORY 1: BASSLINES & HARMONY -->
             <section id="cat-bass" class="category-section space-y-6">
                 <div class="border-b border-furnace-700 pb-3 flex flex-wrap items-center justify-between gap-3">
@@ -4039,6 +4094,778 @@ VICTORY   first 3 notes as a rising fanfare, FF00</pre>
                     <p><strong class="text-emerald-300">Hardware truth:</strong> on real consoles the tick rate is the video refresh rate, so a PAL machine plays an NTSC-timed track about 17% slower. If authenticity matters, compose at the target region's rate from the start.</p>
                 </div>
             </section>
+            </div>
+
+            <div id="book-po33" class="device-book space-y-10 hidden">
+            <!-- PO-33: SAMPLING -->
+            <section id="po-sampling" class="category-section space-y-6 pt-4">
+                <div class="border-b border-furnace-700 pb-3 flex flex-wrap items-center justify-between gap-3">
+                    <div class="flex items-center space-x-3">
+                        <div class="p-2 bg-cyan-500/10 rounded-lg text-cyan-400">
+                            <i class="fa-solid fa-microphone text-xl"></i>
+                        </div>
+                        <div>
+                            <h2 class="text-xl font-bold text-white">1. Sampling &amp; the 40-Second Budget</h2>
+                            <p class="text-xs text-gray-400">Getting sound in: mic versus line, how the 40 seconds is spent, and why trimming is the highest-value habit on this machine.</p>
+                        </div>
+                    </div>
+                    <span class="text-xs font-mono px-2.5 py-1 bg-cyan-500/10 text-cyan-300 rounded border border-cyan-500/30">4 Techniques</span>
+                </div>
+
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+
+                    <div class="pattern-card bg-furnace-800 border border-furnace-700 rounded-xl p-5 hover:border-cyan-500/50 transition duration-200" data-tags="sampling record mic line in gain po33 source">
+                        <div class="flex items-start justify-between mb-3">
+                            <div>
+                                <span class="text-xs font-mono text-cyan-400 bg-cyan-950/60 px-2 py-0.5 rounded border border-cyan-800">SAMPLING / INPUT</span>
+                                <h3 class="text-lg font-bold text-white mt-1">Hold-to-Record: Mic vs Line In</h3>
+                            </div>
+                            <button onclick="playPattern('po33Record')" class="px-3 py-1.5 bg-cyan-500/20 text-cyan-300 hover:bg-cyan-500 hover:text-black rounded-lg text-xs font-semibold flex items-center gap-1.5 transition">
+                                <i class="fa-solid fa-play"></i> Play Sound
+                            </button>
+                        </div>
+                        <p class="text-sm text-gray-300 mb-4">
+                            Recording is a held gesture, not a transport: <strong>hold record and press a key 1–16</strong>, and the machine records for exactly as long as you hold. Plug a cable into line in and it records from there instead of the built-in mic — the decision is made by the jack, not a menu.
+                        </p>
+                        <div class="border-b border-furnace-700 flex space-x-4 text-xs font-mono mb-3 overflow-x-auto whitespace-nowrap">
+                            <button onclick="switchCardTab(this, 'concept')" class="tab-btn active text-cyan-400 border-b-2 border-cyan-400 pb-1 font-semibold flex-shrink-0">Concept &amp; Practice</button>
+                            <button onclick="switchCardTab(this, 'pattern')" class="tab-btn text-gray-400 hover:text-white pb-1 flex-shrink-0">Key Combo</button>
+                            <button onclick="switchCardTab(this, 'recipe')" class="tab-btn text-gray-400 hover:text-white pb-1 flex-shrink-0">Settings</button>
+                        </div>
+                        <div class="tab-content concept-tab text-xs text-gray-300 space-y-2">
+                            <p><strong class="text-cyan-300">Hold time is sample length.</strong> Because the gesture defines the length, rehearse the release before you commit — an over-long hold spends memory you cannot get back without re-recording.</p>
+                            <p><strong class="text-cyan-300">Mic placement:</strong> the built-in mic is close-range and unforgiving. Get near the source and keep the room out; a lo-fi sampler will exaggerate every reflection you capture.</p>
+                            <p><strong class="text-cyan-300">Line in is the quality path</strong> for anything already electronic — phone, laptop, another Pocket Operator — and avoids the mic's noise floor entirely.</p>
+                            <p><strong class="text-cyan-300">Capture in tempo:</strong> if you are sampling a loop, record it at the BPM you intend to use. Everything downstream is easier when a slot already fits the grid.</p>
+                        </div>
+                        <div class="tab-content pattern-tab hidden">
+                            <div class="relative bg-furnace-900 rounded-lg p-3 border border-furnace-700 code-font text-xs text-green-400">
+                                <button onclick="copySnippet(this)" class="absolute top-2 right-2 px-2 py-1 bg-furnace-800 text-gray-400 hover:text-white rounded text-[10px]"><i class="fa-regular fa-copy"></i> Copy</button>
+                                <pre>
+RECORD        hold [record] + key 1-16
+              records while held, into that slot
+
+SOURCE        cable in line-in  -> records line in
+              no cable          -> records built-in mic
+
+DELETE SOUND  hold [record] + [sound]
+              removes the selected sound
+
+MEMORY        40 seconds total, shared by all slots</pre>
+                            </div>
+                        </div>
+                        <div class="tab-content recipe-tab hidden text-xs text-gray-300 space-y-2">
+                            <p><strong class="text-cyan-300">Before recording:</strong> know which slot you are aiming at — keys 1–8 are melodic, 9–16 are drum, and the two behave completely differently on playback.</p>
+                            <p><strong class="text-cyan-300">Full memory:</strong> there is no compaction. If the 40 seconds are spent, delete a sound or record over one.</p>
+                        </div>
+                    </div>
+
+                    <div class="pattern-card bg-furnace-800 border border-furnace-700 rounded-xl p-5 hover:border-cyan-500/50 transition duration-200" data-tags="sampling memory budget slots planning po33 arrangement">
+                        <div class="flex items-start justify-between mb-3">
+                            <div>
+                                <span class="text-xs font-mono text-cyan-400 bg-cyan-950/60 px-2 py-0.5 rounded border border-cyan-800">SAMPLING / BUDGET</span>
+                                <h3 class="text-lg font-bold text-white mt-1">Spending 40 Seconds Well</h3>
+                            </div>
+                        </div>
+                        <p class="text-sm text-gray-300 mb-4">
+                            Forty seconds across sixteen slots is the whole instrument. Treat it like a channel budget on a chip: decide the allocation before you start sampling, because reclaiming memory means destroying something you already recorded.
+                        </p>
+                        <div class="border-b border-furnace-700 flex space-x-4 text-xs font-mono mb-3 overflow-x-auto whitespace-nowrap">
+                            <button onclick="switchCardTab(this, 'concept')" class="tab-btn active text-cyan-400 border-b-2 border-cyan-400 pb-1 font-semibold flex-shrink-0">Concept &amp; Practice</button>
+                            <button onclick="switchCardTab(this, 'pattern')" class="tab-btn text-gray-400 hover:text-white pb-1 flex-shrink-0">Budget Sheet</button>
+                            <button onclick="switchCardTab(this, 'recipe')" class="tab-btn text-gray-400 hover:text-white pb-1 flex-shrink-0">Settings</button>
+                        </div>
+                        <div class="tab-content concept-tab text-xs text-gray-300 space-y-2">
+                            <p><strong class="text-cyan-300">Drums are cheap, loops are expensive.</strong> A kick costs a fraction of a second; a two-bar loop can cost a fifth of your entire memory.</p>
+                            <p><strong class="text-cyan-300">One loop, many slices</strong> is the efficient move: a single drum slot holding a two-second break gives you sixteen playable slices for the price of one sample.</p>
+                            <p><strong class="text-cyan-300">Leave headroom.</strong> Fill 30 of the 40 seconds and keep the rest for the idea you have at hour two — that is when the good sample usually arrives.</p>
+                            <p><strong class="text-cyan-300">Same-source discipline:</strong> sampling everything from one record, one room or one instrument makes a coherent track almost automatically, and it is the standard workflow for this box.</p>
+                        </div>
+                        <div class="tab-content pattern-tab hidden">
+                            <div class="relative bg-furnace-900 rounded-lg p-3 border border-furnace-700 code-font text-xs text-green-400">
+                                <button onclick="copySnippet(this)" class="absolute top-2 right-2 px-2 py-1 bg-furnace-800 text-gray-400 hover:text-white rounded text-[10px]"><i class="fa-regular fa-copy"></i> Copy</button>
+                                <pre>
+A workable 40-second allocation
+
+MELODIC (keys 1-8)
+  1  bass note / low tone        1.5 s
+  2  chord stab                  1.5 s
+  3  vocal or lead phrase        3.0 s
+  4  texture / pad               2.0 s
+  5-8 free                       8.0 s reserved
+
+DRUM (keys 9-16)
+  9  break loop (16 slices)      2.5 s
+  10 kick                        0.4 s
+  11 snare                       0.5 s
+  12 hat                         0.2 s
+  13 perc / foley                0.6 s
+  14-16 free                     ~6 s reserved
+
+used ~22 s   free ~18 s</pre>
+                            </div>
+                        </div>
+                        <div class="tab-content recipe-tab hidden text-xs text-gray-300 space-y-2">
+                            <p><strong class="text-cyan-300">Write the plan down</strong> before sampling. The machine gives you no view of memory remaining, so your notes are the only map.</p>
+                        </div>
+                    </div>
+
+                    <div class="pattern-card bg-furnace-800 border border-furnace-700 rounded-xl p-5 hover:border-cyan-500/50 transition duration-200" data-tags="sampling trim start length knob po33 editing">
+                        <div class="flex items-start justify-between mb-3">
+                            <div>
+                                <span class="text-xs font-mono text-cyan-400 bg-cyan-950/60 px-2 py-0.5 rounded border border-cyan-800">SAMPLING / EDIT</span>
+                                <h3 class="text-lg font-bold text-white mt-1">Trimming: Knob A Start, Knob B Length</h3>
+                            </div>
+                            <button onclick="playPattern('po33Trim')" class="px-3 py-1.5 bg-cyan-500/20 text-cyan-300 hover:bg-cyan-500 hover:text-black rounded-lg text-xs font-semibold flex items-center gap-1.5 transition">
+                                <i class="fa-solid fa-play"></i> Play Sound
+                            </button>
+                        </div>
+                        <p class="text-sm text-gray-300 mb-4">
+                            Trim mode is where a recording becomes an instrument. Knob A sets where the sound starts, knob B sets how long it runs. Tightening the start onto the transient is the single change that makes a sloppy hold-to-record capture feel like a designed sample.
+                        </p>
+                        <div class="border-b border-furnace-700 flex space-x-4 text-xs font-mono mb-3 overflow-x-auto whitespace-nowrap">
+                            <button onclick="switchCardTab(this, 'concept')" class="tab-btn active text-cyan-400 border-b-2 border-cyan-400 pb-1 font-semibold flex-shrink-0">Concept &amp; Practice</button>
+                            <button onclick="switchCardTab(this, 'pattern')" class="tab-btn text-gray-400 hover:text-white pb-1 flex-shrink-0">Key Combo</button>
+                            <button onclick="switchCardTab(this, 'recipe')" class="tab-btn text-gray-400 hover:text-white pb-1 flex-shrink-0">Settings</button>
+                        </div>
+                        <div class="tab-content concept-tab text-xs text-gray-300 space-y-2">
+                            <p><strong class="text-cyan-300">Kill the pre-roll.</strong> Silence or breath before the transient makes every hit feel late, and no amount of pattern nudging fixes it.</p>
+                            <p><strong class="text-cyan-300">Trim for the grid:</strong> on a loop destined for a drum slot, the trim length decides where all sixteen slices fall. Get the loop length right and the slices land on beats for free.</p>
+                            <p><strong class="text-cyan-300">Short is punchy:</strong> cutting a drum sample just after its body — before the room tail — is how you get a tight kit out of a muddy recording.</p>
+                            <p><strong class="text-cyan-300">Trim is non-destructive to memory:</strong> it changes what plays, not what is stored, so a tighter trim does not buy back seconds. Re-record if you need the memory.</p>
+                        </div>
+                        <div class="tab-content pattern-tab hidden">
+                            <div class="relative bg-furnace-900 rounded-lg p-3 border border-furnace-700 code-font text-xs text-green-400">
+                                <button onclick="copySnippet(this)" class="absolute top-2 right-2 px-2 py-1 bg-furnace-800 text-gray-400 hover:text-white rounded text-[10px]"><i class="fa-regular fa-copy"></i> Copy</button>
+                                <pre>
+TRIM   knob A  -> start point of the sound
+       knob B  -> length of the sound
+
+Workflow
+  1. record generously (hold a little long)
+  2. trim start onto the transient with A
+  3. shorten with B until the tail is gone
+  4. audition on the key before moving on</pre>
+                            </div>
+                        </div>
+                        <div class="tab-content recipe-tab hidden text-xs text-gray-300 space-y-2">
+                            <p><strong class="text-cyan-300">For melodic slots:</strong> a shorter trim raises the perceived attack density when you play fast passages — long trims blur into each other.</p>
+                        </div>
+                    </div>
+
+                    <div class="pattern-card bg-furnace-800 border border-furnace-700 rounded-xl p-5 hover:border-cyan-500/50 transition duration-200" data-tags="sampling source selection lofi material po33 sound design">
+                        <div class="flex items-start justify-between mb-3">
+                            <div>
+                                <span class="text-xs font-mono text-cyan-400 bg-cyan-950/60 px-2 py-0.5 rounded border border-cyan-800">SAMPLING / SOURCE</span>
+                                <h3 class="text-lg font-bold text-white mt-1">What Samples Well on a Lo-Fi Box</h3>
+                            </div>
+                        </div>
+                        <p class="text-sm text-gray-300 mb-4">
+                            The PO-33's character is narrow-band and gritty, and it flatters some material while destroying other material. Choosing sources that survive the conversion is faster than fighting it afterwards — there is no EQ to rescue anything.
+                        </p>
+                        <div class="border-b border-furnace-700 flex space-x-4 text-xs font-mono mb-3 overflow-x-auto whitespace-nowrap">
+                            <button onclick="switchCardTab(this, 'concept')" class="tab-btn active text-cyan-400 border-b-2 border-cyan-400 pb-1 font-semibold flex-shrink-0">Concept &amp; Practice</button>
+                            <button onclick="switchCardTab(this, 'pattern')" class="tab-btn text-gray-400 hover:text-white pb-1 flex-shrink-0">Source List</button>
+                            <button onclick="switchCardTab(this, 'recipe')" class="tab-btn text-gray-400 hover:text-white pb-1 flex-shrink-0">Settings</button>
+                        </div>
+                        <div class="tab-content concept-tab text-xs text-gray-300 space-y-2">
+                            <p><strong class="text-cyan-300">Transients survive; air does not.</strong> Percussive, mid-forward sources come through with character. Delicate high-frequency detail and wide stereo reverb do not.</p>
+                            <p><strong class="text-cyan-300">Mono-compatible only.</strong> Anything whose interest lives in the stereo field arrives flattened, so sample the mono core of the sound.</p>
+                            <p><strong class="text-cyan-300">Busy loops fight the slicer.</strong> A dense mixed loop chops into sixteen slices that all sound the same; a sparse loop chops into sixteen usable, distinct hits.</p>
+                            <p><strong class="text-cyan-300">Embrace the grain.</strong> Pitching a sample down adds weight and grit — many of the best PO-33 sounds are ordinary recordings played well below their original pitch.</p>
+                        </div>
+                        <div class="tab-content pattern-tab hidden">
+                            <div class="relative bg-furnace-900 rounded-lg p-3 border border-furnace-700 code-font text-xs text-green-400">
+                                <button onclick="copySnippet(this)" class="absolute top-2 right-2 px-2 py-1 bg-furnace-800 text-gray-400 hover:text-white rounded text-[10px]"><i class="fa-regular fa-copy"></i> Copy</button>
+                                <pre>
+WORKS WELL              STRUGGLES
+  spoken word             lush pads
+  single drum hits        wide stereo reverb
+  sparse breaks           dense full mixes
+  bass notes              delicate cymbals
+  guitar / piano stabs    quiet ambience
+  foley, keys, coins      anything needing air
+
+TRICK  sample a source an octave high, then
+       play it back low - grit plus weight</pre>
+                            </div>
+                        </div>
+                        <div class="tab-content recipe-tab hidden text-xs text-gray-300 space-y-2">
+                            <p><strong class="text-cyan-300">Audition before committing:</strong> play the source through the machine's own speaker mentally — if it depends on subtlety, it will not survive.</p>
+                        </div>
+                    </div>
+
+                </div>
+            </section>
+
+            <!-- PO-33: SLOTS -->
+            <section id="po-slots" class="category-section space-y-6 pt-4">
+                <div class="border-b border-furnace-700 pb-3 flex flex-wrap items-center justify-between gap-3">
+                    <div class="flex items-center space-x-3">
+                        <div class="p-2 bg-purple-500/10 rounded-lg text-purple-400">
+                            <i class="fa-solid fa-scissors text-xl"></i>
+                        </div>
+                        <div>
+                            <h2 class="text-xl font-bold text-white">2. Slots: Drum Slicing vs Melodic Keys</h2>
+                            <p class="text-xs text-gray-400">The two halves of the keyboard behave differently — keys 1–8 play a whole sound chromatically, keys 9–16 slice one sound across the pads.</p>
+                        </div>
+                    </div>
+                    <span class="text-xs font-mono px-2.5 py-1 bg-purple-500/10 text-purple-300 rounded border border-purple-500/30">3 Techniques</span>
+                </div>
+
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+
+                    <div class="pattern-card bg-furnace-800 border border-furnace-700 rounded-xl p-5 hover:border-purple-500/50 transition duration-200" data-tags="chopping drum slice break loop po33 sampling rhythm">
+                        <div class="flex items-start justify-between mb-3">
+                            <div>
+                                <span class="text-xs font-mono text-purple-400 bg-purple-950/60 px-2 py-0.5 rounded border border-purple-800">SLOTS / DRUM</span>
+                                <h3 class="text-lg font-bold text-white mt-1">Drum Slots: One Loop, Sixteen Slices</h3>
+                            </div>
+                            <button onclick="playPattern('po33Slice')" class="px-3 py-1.5 bg-purple-500/20 text-purple-300 hover:bg-purple-500 hover:text-black rounded-lg text-xs font-semibold flex items-center gap-1.5 transition">
+                                <i class="fa-solid fa-play"></i> Play Sound
+                            </button>
+                        </div>
+                        <p class="text-sm text-gray-300 mb-4">
+                            In a drum slot, each of the sixteen keys plays a consecutive slice of the same recording. Sample a two-bar break into one slot and you have a sixteen-pad chopping instrument — the classic sampler workflow, in a box the size of a calculator.
+                        </p>
+                        <div class="border-b border-furnace-700 flex space-x-4 text-xs font-mono mb-3 overflow-x-auto whitespace-nowrap">
+                            <button onclick="switchCardTab(this, 'concept')" class="tab-btn active text-cyan-400 border-b-2 border-cyan-400 pb-1 font-semibold flex-shrink-0">Concept &amp; Practice</button>
+                            <button onclick="switchCardTab(this, 'pattern')" class="tab-btn text-gray-400 hover:text-white pb-1 flex-shrink-0">Slice Map</button>
+                            <button onclick="switchCardTab(this, 'recipe')" class="tab-btn text-gray-400 hover:text-white pb-1 flex-shrink-0">Settings</button>
+                        </div>
+                        <div class="tab-content concept-tab text-xs text-gray-300 space-y-2">
+                            <p><strong class="text-purple-300">Slices are even, not smart.</strong> The machine divides by length, not by transient detection — so the musical work is making the recording's length line up with its own beats.</p>
+                            <p><strong class="text-purple-300">Trim first, chop second.</strong> If the trimmed loop is exactly one or two bars, slice 1 lands on beat 1 and every fourth slice lands on a beat.</p>
+                            <p><strong class="text-purple-300">Re-order, do not replay.</strong> Playing slices back in their original order just reproduces the loop. Playing 1, 5, 3, 5, 9, 5 is where a new groove comes from.</p>
+                            <p><strong class="text-purple-300">Off-grid slices are a feature</strong> — a slice starting mid-hit gives you the stuttered, clipped attacks that define chopped hip-hop production.</p>
+                        </div>
+                        <div class="tab-content pattern-tab hidden">
+                            <div class="relative bg-furnace-900 rounded-lg p-3 border border-furnace-700 code-font text-xs text-green-400">
+                                <button onclick="copySnippet(this)" class="absolute top-2 right-2 px-2 py-1 bg-furnace-800 text-gray-400 hover:text-white rounded text-[10px]"><i class="fa-regular fa-copy"></i> Copy</button>
+                                <pre>
+A 2-bar break trimmed to length, in a drum slot
+
+key   1   2   3   4   5   6   7   8
+      |kick   |hat    |snare  |hat
+key   9  10  11  12  13  14  15  16
+      |kick   |kick   |snare  |fill
+
+Original order   1 2 3 4 5 6 7 8 ...
+New groove       1 1 5 3 1 5 8 3
+                 ^ same material, different beat</pre>
+                            </div>
+                        </div>
+                        <div class="tab-content recipe-tab hidden text-xs text-gray-300 space-y-2">
+                            <p><strong class="text-purple-300">Best sources:</strong> sparse breaks with clear space between hits. Dense loops give sixteen slices of mush.</p>
+                            <p><strong class="text-purple-300">Keep one clean kick</strong> in a separate slot — chopped slices rarely give you a usable isolated low end.</p>
+                        </div>
+                    </div>
+
+                    <div class="pattern-card bg-furnace-800 border border-furnace-700 rounded-xl p-5 hover:border-purple-500/50 transition duration-200" data-tags="melodic chromatic pitch varispeed po33 sampling scale">
+                        <div class="flex items-start justify-between mb-3">
+                            <div>
+                                <span class="text-xs font-mono text-purple-400 bg-purple-950/60 px-2 py-0.5 rounded border border-purple-800">SLOTS / MELODIC</span>
+                                <h3 class="text-lg font-bold text-white mt-1">Melodic Slots: Playing a Sample as a Scale</h3>
+                            </div>
+                            <button onclick="playPattern('po33Melodic')" class="px-3 py-1.5 bg-purple-500/20 text-purple-300 hover:bg-purple-500 hover:text-black rounded-lg text-xs font-semibold flex items-center gap-1.5 transition">
+                                <i class="fa-solid fa-play"></i> Play Sound
+                            </button>
+                        </div>
+                        <p class="text-sm text-gray-300 mb-4">
+                            In a melodic slot the sixteen keys are a scale and every key triggers the whole sound. Pitch is varispeed: higher keys play the sample faster and shorter, lower keys slower and longer. That coupling is the instrument's defining behaviour and the source of most of its charm.
+                        </p>
+                        <div class="border-b border-furnace-700 flex space-x-4 text-xs font-mono mb-3 overflow-x-auto whitespace-nowrap">
+                            <button onclick="switchCardTab(this, 'concept')" class="tab-btn active text-cyan-400 border-b-2 border-cyan-400 pb-1 font-semibold flex-shrink-0">Concept &amp; Practice</button>
+                            <button onclick="switchCardTab(this, 'pattern')" class="tab-btn text-gray-400 hover:text-white pb-1 flex-shrink-0">Playing Map</button>
+                            <button onclick="switchCardTab(this, 'recipe')" class="tab-btn text-gray-400 hover:text-white pb-1 flex-shrink-0">Settings</button>
+                        </div>
+                        <div class="tab-content concept-tab text-xs text-gray-300 space-y-2">
+                            <p><strong class="text-purple-300">Pitch and duration move together.</strong> A bass line two octaves down runs four times as long — write parts that want that, rather than fighting it.</p>
+                            <p><strong class="text-purple-300">Sample the note you want in the middle.</strong> Extreme transposition is where artefacts live; keep the useful range within about an octave either side of the recorded pitch.</p>
+                            <p><strong class="text-purple-300">Short samples make better instruments.</strong> A trimmed 200 ms stab is playable as a keyboard; a three-second phrase overlaps itself into mud.</p>
+                            <p><strong class="text-purple-300">Tune to your track:</strong> record the source at the pitch of your key centre, so the middle of the keyboard sits in tune with everything else.</p>
+                        </div>
+                        <div class="tab-content pattern-tab hidden">
+                            <div class="relative bg-furnace-900 rounded-lg p-3 border border-furnace-700 code-font text-xs text-green-400">
+                                <button onclick="copySnippet(this)" class="absolute top-2 right-2 px-2 py-1 bg-furnace-800 text-gray-400 hover:text-white rounded text-[10px]"><i class="fa-regular fa-copy"></i> Copy</button>
+                                <pre>
+Melodic slot: whole sound per key, pitched
+
+key   1    2    3    4    5    6    7    8
+      low  ......... original ......... high
+      long                            short
+
+Bass line   play keys 1-4 (slow, long, heavy)
+Lead        play keys 9-16 (fast, short, thin)
+Chord stab  one key, short trim, punched in
+            on the offbeats</pre>
+                            </div>
+                        </div>
+                        <div class="tab-content recipe-tab hidden text-xs text-gray-300 space-y-2">
+                            <p><strong class="text-purple-300">For bass:</strong> sample a clean low note, trim tight, and play the bottom of the keyboard. Pitched-down grit is the sound.</p>
+                            <p><strong class="text-purple-300">For leads:</strong> keep the trim under half a second so fast phrases stay articulate.</p>
+                        </div>
+                    </div>
+
+                    <div class="pattern-card bg-furnace-800 border border-furnace-700 rounded-xl p-5 hover:border-purple-500/50 transition duration-200" data-tags="chopping hybrid melodic drum slot phrase po33 technique">
+                        <div class="flex items-start justify-between mb-3">
+                            <div>
+                                <span class="text-xs font-mono text-purple-400 bg-purple-950/60 px-2 py-0.5 rounded border border-purple-800">SLOTS / HYBRID</span>
+                                <h3 class="text-lg font-bold text-white mt-1">Put a Melody in a Drum Slot</h3>
+                            </div>
+                            <button onclick="playPattern('po33Hybrid')" class="px-3 py-1.5 bg-purple-500/20 text-purple-300 hover:bg-purple-500 hover:text-black rounded-lg text-xs font-semibold flex items-center gap-1.5 transition">
+                                <i class="fa-solid fa-play"></i> Play Sound
+                            </button>
+                        </div>
+                        <p class="text-sm text-gray-300 mb-4">
+                            Nothing forces a drum slot to hold drums. Sample a sung phrase or a chord progression into one and the sixteen keys become sixteen fragments of that phrase, playable in any order — the fastest route on this machine to a hook that sounds nothing like its source.
+                        </p>
+                        <div class="border-b border-furnace-700 flex space-x-4 text-xs font-mono mb-3 overflow-x-auto whitespace-nowrap">
+                            <button onclick="switchCardTab(this, 'concept')" class="tab-btn active text-cyan-400 border-b-2 border-cyan-400 pb-1 font-semibold flex-shrink-0">Concept &amp; Practice</button>
+                            <button onclick="switchCardTab(this, 'pattern')" class="tab-btn text-gray-400 hover:text-white pb-1 flex-shrink-0">Technique</button>
+                            <button onclick="switchCardTab(this, 'recipe')" class="tab-btn text-gray-400 hover:text-white pb-1 flex-shrink-0">Settings</button>
+                        </div>
+                        <div class="tab-content concept-tab text-xs text-gray-300 space-y-2">
+                            <p><strong class="text-purple-300">Words become rhythm.</strong> Slicing speech across sixteen keys turns syllables into a percussion kit that still carries the original's cadence.</p>
+                            <p><strong class="text-purple-300">Chord progressions chop well:</strong> four chords in a two-second loop gives four keys per chord and instant re-ordering of the progression.</p>
+                            <p><strong class="text-purple-300">The inverse also works:</strong> a single drum hit in a <em>melodic</em> slot becomes a tuned tom kit across the keyboard.</p>
+                            <p><strong class="text-purple-300">Stutter it:</strong> repeating one slice on consecutive steps is the cheapest hook generator on the machine.</p>
+                        </div>
+                        <div class="tab-content pattern-tab hidden">
+                            <div class="relative bg-furnace-900 rounded-lg p-3 border border-furnace-700 code-font text-xs text-green-400">
+                                <button onclick="copySnippet(this)" class="absolute top-2 right-2 px-2 py-1 bg-furnace-800 text-gray-400 hover:text-white rounded text-[10px]"><i class="fa-regular fa-copy"></i> Copy</button>
+                                <pre>
+Sample: 2 s of sung phrase into a DRUM slot
+
+slices  1..16 = consecutive fragments
+
+Hook pattern (16 steps)
+step  1  2  3  4  5  6  7  8
+slice 1  1  5  -  9  -  5  5
+step  9 10 11 12 13 14 15 16
+slice 1  -  12 12 9  -  5  -
+
+  same phrase, re-cut into a riff</pre>
+                            </div>
+                        </div>
+                        <div class="tab-content recipe-tab hidden text-xs text-gray-300 space-y-2">
+                            <p><strong class="text-purple-300">Trim matters more here:</strong> the phrase's length sets where syllables fall across the keys. Nudge knob B until slices start on consonants.</p>
+                        </div>
+                    </div>
+
+                </div>
+            </section>
+            <!-- PO-33: SEQUENCING -->
+            <section id="po-sequencing" class="category-section space-y-6 pt-4">
+                <div class="border-b border-furnace-700 pb-3 flex flex-wrap items-center justify-between gap-3">
+                    <div class="flex items-center space-x-3">
+                        <div class="p-2 bg-emerald-500/10 rounded-lg text-emerald-400">
+                            <i class="fa-solid fa-grip text-xl"></i>
+                        </div>
+                        <div>
+                            <h2 class="text-xl font-bold text-white">3. Step Patterns, Chaining &amp; Swing</h2>
+                            <p class="text-xs text-gray-400">Sixteen steps, sixteen patterns, chains up to 128 — building a whole track out of a very small grid.</p>
+                        </div>
+                    </div>
+                    <span class="text-xs font-mono px-2.5 py-1 bg-emerald-500/10 text-emerald-300 rounded border border-emerald-500/30">3 Techniques</span>
+                </div>
+
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+
+                    <div class="pattern-card bg-furnace-800 border border-furnace-700 rounded-xl p-5 hover:border-emerald-500/50 transition duration-200" data-tags="sequencing pattern write step punch in po33 quantize">
+                        <div class="flex items-start justify-between mb-3">
+                            <div>
+                                <span class="text-xs font-mono text-emerald-400 bg-emerald-950/60 px-2 py-0.5 rounded border border-emerald-800">SEQ / WRITING</span>
+                                <h3 class="text-lg font-bold text-white mt-1">Step Write vs Live Punch-In</h3>
+                            </div>
+                            <button onclick="playPattern('po33Steps')" class="px-3 py-1.5 bg-emerald-500/20 text-emerald-300 hover:bg-emerald-500 hover:text-black rounded-lg text-xs font-semibold flex items-center gap-1.5 transition">
+                                <i class="fa-solid fa-play"></i> Play Sound
+                            </button>
+                        </div>
+                        <p class="text-sm text-gray-300 mb-4">
+                            Two ways in, and they produce different music. Step writing — <strong>write</strong> mode, then keys 1–16 — gives you exact placement and a lit display of the pattern. Live punch-in — <strong>hold write while playing</strong> — quantizes what you play to the grid and keeps the feel of a performance.
+                        </p>
+                        <div class="border-b border-furnace-700 flex space-x-4 text-xs font-mono mb-3 overflow-x-auto whitespace-nowrap">
+                            <button onclick="switchCardTab(this, 'concept')" class="tab-btn active text-cyan-400 border-b-2 border-cyan-400 pb-1 font-semibold flex-shrink-0">Concept &amp; Practice</button>
+                            <button onclick="switchCardTab(this, 'pattern')" class="tab-btn text-gray-400 hover:text-white pb-1 flex-shrink-0">Key Combo</button>
+                            <button onclick="switchCardTab(this, 'recipe')" class="tab-btn text-gray-400 hover:text-white pb-1 flex-shrink-0">Settings</button>
+                        </div>
+                        <div class="tab-content concept-tab text-xs text-gray-300 space-y-2">
+                            <p><strong class="text-emerald-300">Sixteen steps is one bar of 16ths.</strong> Everything you write is a one-bar idea; variety comes from chaining patterns, not from longer ones.</p>
+                            <p><strong class="text-emerald-300">Build in layers:</strong> kick pattern first, then snare, then the chopped melodic slices last. Each pass is a separate punch-in, and mistakes only cost one layer.</p>
+                            <p><strong class="text-emerald-300">Leave steps empty.</strong> A pattern with eight of sixteen steps filled grooves; one with fifteen filled is a wall.</p>
+                            <p><strong class="text-emerald-300">Clearing:</strong> <code class="bg-furnace-900 px-1.5 py-0.5 rounded text-amber-300 code-font">record + pattern</code> wipes the active pattern — quick to start over, and easy to trigger by accident.</p>
+                        </div>
+                        <div class="tab-content pattern-tab hidden">
+                            <div class="relative bg-furnace-900 rounded-lg p-3 border border-furnace-700 code-font text-xs text-green-400">
+                                <button onclick="copySnippet(this)" class="absolute top-2 right-2 px-2 py-1 bg-furnace-800 text-gray-400 hover:text-white rounded text-[10px]"><i class="fa-regular fa-copy"></i> Copy</button>
+                                <pre>
+STEP WRITE     press [write], then keys 1-16
+               lit keys = active steps
+
+LIVE PUNCH     while playing, hold [write]
+               + keys 1-16 (quantized to grid)
+
+COPY PATTERN   hold [write] + [pattern],
+               press 1-16 to paste into that slot
+
+CLEAR PATTERN  [record] + [pattern]</pre>
+                            </div>
+                        </div>
+                        <div class="tab-content recipe-tab hidden text-xs text-gray-300 space-y-2">
+                            <p><strong class="text-emerald-300">Copy before you vary:</strong> paste the pattern to the next slot, then edit the copy. That is how you get an A/A' pair without risking the original.</p>
+                        </div>
+                    </div>
+
+                    <div class="pattern-card bg-furnace-800 border border-furnace-700 rounded-xl p-5 hover:border-emerald-500/50 transition duration-200" data-tags="sequencing chain song structure arrangement po33 pattern form">
+                        <div class="flex items-start justify-between mb-3">
+                            <div>
+                                <span class="text-xs font-mono text-emerald-400 bg-emerald-950/60 px-2 py-0.5 rounded border border-emerald-800">SEQ / FORM</span>
+                                <h3 class="text-lg font-bold text-white mt-1">Chaining 16 Patterns Into a Track</h3>
+                            </div>
+                            <button onclick="playPattern('po33Chain')" class="px-3 py-1.5 bg-emerald-500/20 text-emerald-300 hover:bg-emerald-500 hover:text-black rounded-lg text-xs font-semibold flex items-center gap-1.5 transition">
+                                <i class="fa-solid fa-play"></i> Play Sound
+                            </button>
+                        </div>
+                        <p class="text-sm text-gray-300 mb-4">
+                            Hold <strong>pattern</strong> and press keys to build a chain — up to 128 entries, and a pattern may repeat as often as you like. This is the arrangement view: sixteen one-bar ideas, sequenced into a three-minute track by repetition and ordering alone.
+                        </p>
+                        <div class="border-b border-furnace-700 flex space-x-4 text-xs font-mono mb-3 overflow-x-auto whitespace-nowrap">
+                            <button onclick="switchCardTab(this, 'concept')" class="tab-btn active text-cyan-400 border-b-2 border-cyan-400 pb-1 font-semibold flex-shrink-0">Concept &amp; Practice</button>
+                            <button onclick="switchCardTab(this, 'pattern')" class="tab-btn text-gray-400 hover:text-white pb-1 flex-shrink-0">Chain Plan</button>
+                            <button onclick="switchCardTab(this, 'recipe')" class="tab-btn text-gray-400 hover:text-white pb-1 flex-shrink-0">Settings</button>
+                        </div>
+                        <div class="tab-content concept-tab text-xs text-gray-300 space-y-2">
+                            <p><strong class="text-emerald-300">Allocate the bank like sections:</strong> 1–4 verse, 5–8 chorus, 9–12 breakdown, 13–16 fills and transitions. Navigating live gets much easier when the layout is predictable.</p>
+                            <p><strong class="text-emerald-300">Every fourth bar wants a variation.</strong> Chain <code class="bg-furnace-900 px-1.5 py-0.5 rounded text-amber-300 code-font">1 1 1 2</code> rather than <code class="bg-furnace-900 px-1.5 py-0.5 rounded text-amber-300 code-font">1 1 1 1</code>, where pattern 2 is a copy with one changed step.</p>
+                            <p><strong class="text-emerald-300">Fills are their own patterns.</strong> A single fill pattern reused at every section boundary costs one slot and does most of the arranging work.</p>
+                            <p><strong class="text-emerald-300">Chains are the composition.</strong> With one-bar patterns, ordering and repetition <em>are</em> your song form — there is no other structural tool on the box.</p>
+                        </div>
+                        <div class="tab-content pattern-tab hidden">
+                            <div class="relative bg-furnace-900 rounded-lg p-3 border border-furnace-700 code-font text-xs text-green-400">
+                                <button onclick="copySnippet(this)" class="absolute top-2 right-2 px-2 py-1 bg-furnace-800 text-gray-400 hover:text-white rounded text-[10px]"><i class="fa-regular fa-copy"></i> Copy</button>
+                                <pre>
+CHAIN   hold [pattern] + press keys 1-16
+        up to 128 entries, repeats allowed
+
+Bank layout
+  1-4    verse    (2 = variation of 1)
+  5-8    chorus
+  9-12   breakdown
+  13     fill     14 riser   15-16 spare
+
+Chain
+  1 1 1 2  1 1 1 13   verse + fill
+  5 5 5 6  5 5 5 13   chorus + fill
+  9 9 10 10  14       breakdown + riser
+  5 5 5 6  5 5 5 5    final chorus</pre>
+                            </div>
+                        </div>
+                        <div class="tab-content recipe-tab hidden text-xs text-gray-300 space-y-2">
+                            <p><strong class="text-emerald-300">Rehearse the chain</strong> before recording the take — chain entry is a live gesture, and a mis-pressed key is audible.</p>
+                        </div>
+                    </div>
+
+                    <div class="pattern-card bg-furnace-800 border border-furnace-700 rounded-xl p-5 hover:border-emerald-500/50 transition duration-200" data-tags="sequencing swing bpm tempo groove po33 timing">
+                        <div class="flex items-start justify-between mb-3">
+                            <div>
+                                <span class="text-xs font-mono text-emerald-400 bg-emerald-950/60 px-2 py-0.5 rounded border border-emerald-800">SEQ / GROOVE</span>
+                                <h3 class="text-lg font-bold text-white mt-1">BPM, Presets &amp; the Swing Knob</h3>
+                            </div>
+                            <button onclick="playPattern('po33Swing')" class="px-3 py-1.5 bg-emerald-500/20 text-emerald-300 hover:bg-emerald-500 hover:text-black rounded-lg text-xs font-semibold flex items-center gap-1.5 transition">
+                                <i class="fa-solid fa-play"></i> Play Sound
+                            </button>
+                        </div>
+                        <p class="text-sm text-gray-300 mb-4">
+                            Tempo runs 60–240 BPM with three presets to jump between — hip hop at 80, disco at 120, tencho at 140. Holding <strong>bpm</strong> and turning knob A adds swing, which on a sixteen-step grid is the difference between a machine pattern and something that feels played.
+                        </p>
+                        <div class="border-b border-furnace-700 flex space-x-4 text-xs font-mono mb-3 overflow-x-auto whitespace-nowrap">
+                            <button onclick="switchCardTab(this, 'concept')" class="tab-btn active text-cyan-400 border-b-2 border-cyan-400 pb-1 font-semibold flex-shrink-0">Concept &amp; Practice</button>
+                            <button onclick="switchCardTab(this, 'pattern')" class="tab-btn text-gray-400 hover:text-white pb-1 flex-shrink-0">Key Combo</button>
+                            <button onclick="switchCardTab(this, 'recipe')" class="tab-btn text-gray-400 hover:text-white pb-1 flex-shrink-0">Settings</button>
+                        </div>
+                        <div class="tab-content concept-tab text-xs text-gray-300 space-y-2">
+                            <p><strong class="text-emerald-300">Swing delays the offbeat 16ths.</strong> A little makes a straight pattern breathe; a lot turns it into a shuffle. Both are useful, but pick before you write the hats.</p>
+                            <p><strong class="text-emerald-300">Sample tempo vs machine tempo:</strong> a looped sample only stays in time at the BPM it was recorded for, because pitch and speed are linked. Set the tempo first, then sample.</p>
+                            <p><strong class="text-emerald-300">Tempo changes the pitch of nothing</strong> — slots play at their own rate — so a slow track can still use fast, bright samples.</p>
+                            <p><strong class="text-emerald-300">Swing and chopped slices interact:</strong> heavy swing can push a slice into the next hit. Audition chopped patterns after changing swing, not before.</p>
+                        </div>
+                        <div class="tab-content pattern-tab hidden">
+                            <div class="relative bg-furnace-900 rounded-lg p-3 border border-furnace-700 code-font text-xs text-green-400">
+                                <button onclick="copySnippet(this)" class="absolute top-2 right-2 px-2 py-1 bg-furnace-800 text-gray-400 hover:text-white rounded text-[10px]"><i class="fa-regular fa-copy"></i> Copy</button>
+                                <pre>
+TEMPO    60 - 240 BPM
+PRESETS  hip hop 80  |  disco 120  |  tencho 140
+SWING    hold [bpm] + turn knob A
+
+Straight   x . x . x . x . x . x . x . x .
+Swung      x  . x. x  . x. x  . x. x  . x.
+           offbeat 16ths pushed later</pre>
+                            </div>
+                        </div>
+                        <div class="tab-content recipe-tab hidden text-xs text-gray-300 space-y-2">
+                            <p><strong class="text-emerald-300">Starting point:</strong> 80 BPM with moderate swing for chopped breaks; 120 straight for house-style patterns.</p>
+                        </div>
+                    </div>
+
+                </div>
+            </section>
+
+            <!-- PO-33: EFFECTS -->
+            <section id="po-fx" class="category-section space-y-6 pt-4">
+                <div class="border-b border-furnace-700 pb-3 flex flex-wrap items-center justify-between gap-3">
+                    <div class="flex items-center space-x-3">
+                        <div class="p-2 bg-red-500/10 rounded-lg text-red-400">
+                            <i class="fa-solid fa-bolt text-xl"></i>
+                        </div>
+                        <div>
+                            <h2 class="text-xl font-bold text-white">4. Punch-In Effects as Performance</h2>
+                            <p class="text-xs text-gray-400">Effects are held gestures, not settings — held on the FX key, released back to normal. They are how a one-bar loop becomes an arrangement.</p>
+                        </div>
+                    </div>
+                    <span class="text-xs font-mono px-2.5 py-1 bg-red-500/10 text-red-300 rounded border border-red-500/30">3 Techniques</span>
+                </div>
+
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+
+                    <div class="pattern-card bg-furnace-800 border border-furnace-700 rounded-xl p-5 hover:border-red-500/50 transition duration-200" data-tags="fx effects stutter retrigger loop rhythmic po33 punch in">
+                        <div class="flex items-start justify-between mb-3">
+                            <div>
+                                <span class="text-xs font-mono text-red-400 bg-red-950/60 px-2 py-0.5 rounded border border-red-800">FX / RHYTHMIC</span>
+                                <h3 class="text-lg font-bold text-white mt-1">Loop, Stutter &amp; Retrigger</h3>
+                            </div>
+                            <button onclick="playPattern('po33FxRhythm')" class="px-3 py-1.5 bg-red-500/20 text-red-300 hover:bg-red-500 hover:text-black rounded-lg text-xs font-semibold flex items-center gap-1.5 transition">
+                                <i class="fa-solid fa-play"></i> Play Sound
+                            </button>
+                        </div>
+                        <p class="text-sm text-gray-300 mb-4">
+                            The rhythmic effects shorten the loop you are hearing: hold one and the sequencer repeats a smaller and smaller slice of the bar. Used on the last beat before a section change, they are the fill, the riser and the transition all at once.
+                        </p>
+                        <div class="border-b border-furnace-700 flex space-x-4 text-xs font-mono mb-3 overflow-x-auto whitespace-nowrap">
+                            <button onclick="switchCardTab(this, 'concept')" class="tab-btn active text-cyan-400 border-b-2 border-cyan-400 pb-1 font-semibold flex-shrink-0">Concept &amp; Practice</button>
+                            <button onclick="switchCardTab(this, 'pattern')" class="tab-btn text-gray-400 hover:text-white pb-1 flex-shrink-0">Key Combo</button>
+                            <button onclick="switchCardTab(this, 'recipe')" class="tab-btn text-gray-400 hover:text-white pb-1 flex-shrink-0">Settings</button>
+                        </div>
+                        <div class="tab-content concept-tab text-xs text-gray-300 space-y-2">
+                            <p><strong class="text-red-300">Hold to apply, release to return.</strong> Punch-ins are momentary by design — you play them like an instrument rather than setting them.</p>
+                            <p><strong class="text-red-300">Land on the downbeat.</strong> Release the effect exactly as the next section starts; a stutter that trails past the bar line sounds like a mistake instead of a fill.</p>
+                            <p><strong class="text-red-300">Shorter loop = more tension.</strong> Stepping from a half-bar loop to a quarter to a sixteenth over four beats is a complete riser built from the material already playing.</p>
+                            <p><strong class="text-red-300">Use sparingly.</strong> These effects are extremely recognisable; two or three punches per section is plenty.</p>
+                        </div>
+                        <div class="tab-content pattern-tab hidden">
+                            <div class="relative bg-furnace-900 rounded-lg p-3 border border-furnace-700 code-font text-xs text-green-400">
+                                <button onclick="copySnippet(this)" class="absolute top-2 right-2 px-2 py-1 bg-furnace-800 text-gray-400 hover:text-white rounded text-[10px]"><i class="fa-regular fa-copy"></i> Copy</button>
+                                <pre>
+PUNCH IN   hold [fx] + a key
+           effect applies while held
+
+Transition into a chorus (last bar)
+  beat 1-2   no effect
+  beat 3     hold a loop effect (half bar)
+  beat 4     hold a shorter loop / stutter
+  downbeat   release -> chorus pattern</pre>
+                            </div>
+                        </div>
+                        <div class="tab-content recipe-tab hidden text-xs text-gray-300 space-y-2">
+                            <p><strong class="text-red-300">Learn two keys by feel.</strong> In performance you will not be reading the panel — pick a long-loop key and a short-stutter key and practise the pair.</p>
+                        </div>
+                    </div>
+
+                    <div class="pattern-card bg-furnace-800 border border-furnace-700 rounded-xl p-5 hover:border-red-500/50 transition duration-200" data-tags="fx effects reverse scratch gesture po33 punch in performance">
+                        <div class="flex items-start justify-between mb-3">
+                            <div>
+                                <span class="text-xs font-mono text-red-400 bg-red-950/60 px-2 py-0.5 rounded border border-red-800">FX / GESTURAL</span>
+                                <h3 class="text-lg font-bold text-white mt-1">Reverse, Scratch &amp; Pitch Punches</h3>
+                            </div>
+                            <button onclick="playPattern('po33FxGesture')" class="px-3 py-1.5 bg-red-500/20 text-red-300 hover:bg-red-500 hover:text-black rounded-lg text-xs font-semibold flex items-center gap-1.5 transition">
+                                <i class="fa-solid fa-play"></i> Play Sound
+                            </button>
+                        </div>
+                        <p class="text-sm text-gray-300 mb-4">
+                            The other families are gestural rather than rhythmic: reverse and scratch manipulate playback direction and speed, while unison and octave punches shift pitch. They read as a hand on the record — a human interruption of an otherwise exact loop.
+                        </p>
+                        <div class="border-b border-furnace-700 flex space-x-4 text-xs font-mono mb-3 overflow-x-auto whitespace-nowrap">
+                            <button onclick="switchCardTab(this, 'concept')" class="tab-btn active text-cyan-400 border-b-2 border-cyan-400 pb-1 font-semibold flex-shrink-0">Concept &amp; Practice</button>
+                            <button onclick="switchCardTab(this, 'pattern')" class="tab-btn text-gray-400 hover:text-white pb-1 flex-shrink-0">FX Families</button>
+                            <button onclick="switchCardTab(this, 'recipe')" class="tab-btn text-gray-400 hover:text-white pb-1 flex-shrink-0">Settings</button>
+                        </div>
+                        <div class="tab-content concept-tab text-xs text-gray-300 space-y-2">
+                            <p><strong class="text-red-300">Reverse on a vocal slice</strong> is the classic pre-chorus lift — one beat is enough.</p>
+                            <p><strong class="text-red-300">Octave punches</strong> take a bass part up for a bar without touching the pattern, which is a whole arrangement variation for one held key.</p>
+                            <p><strong class="text-red-300">Quantize-style punches</strong> tighten a loose punched-in pattern; useful as a corrective, not a colour.</p>
+                            <p><strong class="text-red-300">Combine with mutes:</strong> a gestural effect over a stripped-back pattern reads much more clearly than one over a full arrangement.</p>
+                        </div>
+                        <div class="tab-content pattern-tab hidden">
+                            <div class="relative bg-furnace-900 rounded-lg p-3 border border-furnace-700 code-font text-xs text-green-400">
+                                <button onclick="copySnippet(this)" class="absolute top-2 right-2 px-2 py-1 bg-furnace-800 text-gray-400 hover:text-white rounded text-[10px]"><i class="fa-regular fa-copy"></i> Copy</button>
+                                <pre>
+FX FAMILIES on the PO-33
+
+RHYTHMIC   loop lengths, stutter, retrigger
+GESTURAL   reverse, scratch
+PITCH      unison, octave shifts
+TIMING     quantize
+
+Held on [fx] + a key, 1-15.
+Check your unit's panel for the exact key
+mapping - it is printed on the case.</pre>
+                            </div>
+                        </div>
+                        <div class="tab-content recipe-tab hidden text-xs text-gray-300 space-y-2">
+                            <p><strong class="text-red-300">Record your performance:</strong> punch-ins are not stored in the pattern, so capture the line out if a take is good.</p>
+                        </div>
+                    </div>
+
+                    <div class="pattern-card bg-furnace-800 border border-furnace-700 rounded-xl p-5 hover:border-red-500/50 transition duration-200" data-tags="fx performance arrangement live set mute po33 transitions">
+                        <div class="flex items-start justify-between mb-3">
+                            <div>
+                                <span class="text-xs font-mono text-red-400 bg-red-950/60 px-2 py-0.5 rounded border border-red-800">FX / ARRANGEMENT</span>
+                                <h3 class="text-lg font-bold text-white mt-1">Effects Instead of Extra Patterns</h3>
+                            </div>
+                            <button onclick="playPattern('po33Live')" class="px-3 py-1.5 bg-red-500/20 text-red-300 hover:bg-red-500 hover:text-black rounded-lg text-xs font-semibold flex items-center gap-1.5 transition">
+                                <i class="fa-solid fa-play"></i> Play Sound
+                            </button>
+                        </div>
+                        <p class="text-sm text-gray-300 mb-4">
+                            Sixteen pattern slots go quickly. Rather than spending three of them on fills and breakdowns, keep the patterns plain and generate the variation live with punch-ins — the same bar sounds like four different sections depending on what you hold over it.
+                        </p>
+                        <div class="border-b border-furnace-700 flex space-x-4 text-xs font-mono mb-3 overflow-x-auto whitespace-nowrap">
+                            <button onclick="switchCardTab(this, 'concept')" class="tab-btn active text-cyan-400 border-b-2 border-cyan-400 pb-1 font-semibold flex-shrink-0">Concept &amp; Practice</button>
+                            <button onclick="switchCardTab(this, 'pattern')" class="tab-btn text-gray-400 hover:text-white pb-1 flex-shrink-0">Set Plan</button>
+                            <button onclick="switchCardTab(this, 'recipe')" class="tab-btn text-gray-400 hover:text-white pb-1 flex-shrink-0">Settings</button>
+                        </div>
+                        <div class="tab-content concept-tab text-xs text-gray-300 space-y-2">
+                            <p><strong class="text-red-300">Plain patterns perform better.</strong> A busy pattern leaves no room for a punch-in to be heard; write flat, decorate live.</p>
+                            <p><strong class="text-red-300">One gesture per four bars</strong> keeps a long set from becoming an effects demo.</p>
+                            <p><strong class="text-red-300">Save pattern slots for real material</strong> — new samples, new chord moves — and let the effects handle intensity.</p>
+                        </div>
+                        <div class="tab-content pattern-tab hidden">
+                            <div class="relative bg-furnace-900 rounded-lg p-3 border border-furnace-700 code-font text-xs text-green-400">
+                                <button onclick="copySnippet(this)" class="absolute top-2 right-2 px-2 py-1 bg-furnace-800 text-gray-400 hover:text-white rounded text-[10px]"><i class="fa-regular fa-copy"></i> Copy</button>
+                                <pre>
+One pattern, four sections
+
+bars 1-4   plain                  = verse
+bars 5-8   octave punch on bass   = lift
+bars 9-12  loop effect on beat 4  = tension
+bars 13-16 stutter -> release     = drop
+
+no extra pattern slots used</pre>
+                            </div>
+                        </div>
+                        <div class="tab-content recipe-tab hidden text-xs text-gray-300 space-y-2">
+                            <p><strong class="text-red-300">Practise the set</strong> as a physical routine — which finger holds fx, which hand changes patterns.</p>
+                        </div>
+                    </div>
+
+                </div>
+            </section>
+
+            <!-- PO-33: WORKFLOW -->
+            <section id="po-workflow" class="category-section space-y-6 pt-4 pb-12">
+                <div class="border-b border-furnace-700 pb-3 flex flex-wrap items-center justify-between gap-3">
+                    <div class="flex items-center space-x-3">
+                        <div class="p-2 bg-teal-500/10 rounded-lg text-teal-400">
+                            <i class="fa-solid fa-plug text-xl"></i>
+                        </div>
+                        <div>
+                            <h2 class="text-xl font-bold text-white">5. Sync, Backup &amp; Workflow</h2>
+                            <p class="text-xs text-gray-400">Playing with other gear, getting audio out, and the data-transfer caveat that can cost you a whole project.</p>
+                        </div>
+                    </div>
+                    <span class="text-xs font-mono px-2.5 py-1 bg-teal-500/10 text-teal-300 rounded border border-teal-500/30">2 Techniques</span>
+                </div>
+
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+
+                    <div class="pattern-card bg-furnace-800 border border-furnace-700 rounded-xl p-5 hover:border-teal-500/50 transition duration-200" data-tags="workflow sync jam gear pocket operator po33 recording live">
+                        <div class="flex items-start justify-between mb-3">
+                            <div>
+                                <span class="text-xs font-mono text-teal-400 bg-teal-950/60 px-2 py-0.5 rounded border border-teal-800">WORKFLOW / SYNC</span>
+                                <h3 class="text-lg font-bold text-white mt-1">Jam Sync and Getting Audio Out</h3>
+                            </div>
+                        </div>
+                        <p class="text-sm text-gray-300 mb-4">
+                            The 3.5&nbsp;mm jacks do double duty: audio and sync. Chain the PO-33 to other Pocket Operators and they share a clock, which turns several tiny boxes into one instrument — and the same line out is how you record a take.
+                        </p>
+                        <div class="border-b border-furnace-700 flex space-x-4 text-xs font-mono mb-3 overflow-x-auto whitespace-nowrap">
+                            <button onclick="switchCardTab(this, 'concept')" class="tab-btn active text-cyan-400 border-b-2 border-cyan-400 pb-1 font-semibold flex-shrink-0">Concept &amp; Practice</button>
+                            <button onclick="switchCardTab(this, 'pattern')" class="tab-btn text-gray-400 hover:text-white pb-1 flex-shrink-0">Signal Path</button>
+                            <button onclick="switchCardTab(this, 'recipe')" class="tab-btn text-gray-400 hover:text-white pb-1 flex-shrink-0">Settings</button>
+                        </div>
+                        <div class="tab-content concept-tab text-xs text-gray-300 space-y-2">
+                            <p><strong class="text-teal-300">Division of labour:</strong> in a multi-PO setup, let the PO-33 own drums and vocal chops while a synth unit takes bass and lead — its sampling memory is better spent on the parts only it can make.</p>
+                            <p><strong class="text-teal-300">Record the performance, not the pattern.</strong> Punch-in effects and live pattern changes exist only in the moment, so capture the line out on a phone or interface.</p>
+                            <p><strong class="text-teal-300">Sample your own set-up:</strong> the line in accepts anything, so another unit's output can be sampled and chopped, then played back against it.</p>
+                        </div>
+                        <div class="tab-content pattern-tab hidden">
+                            <div class="relative bg-furnace-900 rounded-lg p-3 border border-furnace-700 code-font text-xs text-green-400">
+                                <button onclick="copySnippet(this)" class="absolute top-2 right-2 px-2 py-1 bg-furnace-800 text-gray-400 hover:text-white rounded text-[10px]"><i class="fa-regular fa-copy"></i> Copy</button>
+                                <pre>
+SYNC / AUDIO over 3.5 mm
+
+  [PO synth] --line out--> [PO-33 line in]
+  [PO-33 line out] --> recorder / speaker
+
+  same cable carries sync between units
+
+RECORD A TAKE
+  line out -> phone / interface
+  play the chain, perform the punch-ins</pre>
+                            </div>
+                        </div>
+                        <div class="tab-content recipe-tab hidden text-xs text-gray-300 space-y-2">
+                            <p><strong class="text-teal-300">Battery note:</strong> two AAAs. Weak batteries change behaviour before they die — swap them before a set.</p>
+                        </div>
+                    </div>
+
+                    <div class="pattern-card bg-furnace-800 border border-furnace-700 rounded-xl p-5 hover:border-teal-500/50 transition duration-200" data-tags="workflow backup transfer data loss warning po33 project">
+                        <div class="flex items-start justify-between mb-3">
+                            <div>
+                                <span class="text-xs font-mono text-teal-400 bg-teal-950/60 px-2 py-0.5 rounded border border-teal-800">WORKFLOW / BACKUP</span>
+                                <h3 class="text-lg font-bold text-white mt-1">Backup, Transfer &amp; the Erase Trap</h3>
+                            </div>
+                        </div>
+                        <p class="text-sm text-gray-300 mb-4">
+                            Sounds and patterns can be transferred between two PO-33s over the line jacks, and backed up by recording the transfer as audio. There is one sharp edge worth knowing before you try it: <strong>starting a transfer erases everything on the receiving unit.</strong>
+                        </p>
+                        <div class="border-b border-furnace-700 flex space-x-4 text-xs font-mono mb-3 overflow-x-auto whitespace-nowrap">
+                            <button onclick="switchCardTab(this, 'concept')" class="tab-btn active text-cyan-400 border-b-2 border-cyan-400 pb-1 font-semibold flex-shrink-0">Concept &amp; Practice</button>
+                            <button onclick="switchCardTab(this, 'pattern')" class="tab-btn text-gray-400 hover:text-white pb-1 flex-shrink-0">Procedure</button>
+                            <button onclick="switchCardTab(this, 'recipe')" class="tab-btn text-gray-400 hover:text-white pb-1 flex-shrink-0">Settings</button>
+                        </div>
+                        <div class="tab-content concept-tab text-xs text-gray-300 space-y-2">
+                            <p><strong class="text-teal-300">One project at a time.</strong> There is no save slot — the machine holds exactly one set of sounds and patterns. Finishing a track means recording it out before you start the next one.</p>
+                            <p><strong class="text-teal-300">Back up as audio:</strong> record the data transfer from the line out and you have a file that can be played back in to restore.</p>
+                            <p><strong class="text-teal-300">Verify before overwriting:</strong> confirm the backup restores before you record over the sounds that made it.</p>
+                            <p><strong class="text-teal-300">Also record the stems:</strong> a plain audio recording of each pattern is a more useful archive than a data dump you may never restore.</p>
+                        </div>
+                        <div class="tab-content pattern-tab hidden">
+                            <div class="relative bg-furnace-900 rounded-lg p-3 border border-furnace-700 code-font text-xs text-green-400">
+                                <button onclick="copySnippet(this)" class="absolute top-2 right-2 px-2 py-1 bg-furnace-800 text-gray-400 hover:text-white rounded text-[10px]"><i class="fa-regular fa-copy"></i> Copy</button>
+                                <pre>
+TRANSFER  unit A line out -> unit B line in
+
+  WARNING: all samples and patterns on the
+  RECEIVING unit are erased when the
+  transfer starts.
+
+BACKUP    unit A line out -> recorder
+RESTORE   recorder out -> unit line in
+
+Before any transfer: record your track out
+as plain audio first.</pre>
+                            </div>
+                        </div>
+                        <div class="tab-content recipe-tab hidden text-xs text-gray-300 space-y-2">
+                            <p><strong class="text-teal-300">Habit worth forming:</strong> finish, record, then wipe. Treating the machine as a sketchpad with one page keeps you shipping.</p>
+                        </div>
+                    </div>
+
+                </div>
+            </section>
+            </div>
+
 
 
         </div>
@@ -4095,6 +4922,7 @@ VICTORY   first 3 notes as a rising fanfare, FF00</pre>
 
             const now = audioCtx.currentTime;
 
+            if (PO33_PATTERNS[type]) { PO33_PATTERNS[type](now); return; }
             if (EXTRA_PATTERNS[type]) { EXTRA_PATTERNS[type](now); return; }
 
             if (type === 'octavePump') {
@@ -5630,6 +6458,238 @@ VICTORY   first 3 notes as a rising fanfare, FF00</pre>
         };
 
         /* ------------------------------------------------------------------
+           PO-33 demos. The machine is a sampler, so the demos synthesise a
+           stand-in "recording" once and then treat it exactly as the hardware
+           does: sliced across keys, played back varispeed, punched with
+           momentary effects.
+           ------------------------------------------------------------------ */
+
+        let poBreakBuffer = null, poToneBuffer = null, poBreakReversed = null;
+
+        function poWriteHit(data, rate, at, kind) {
+            const start = Math.floor(at * rate);
+            const len = Math.floor((kind === 'kick' ? 0.22 : kind === 'snare' ? 0.18 : kind === 'vox' ? 0.30 : 0.05) * rate);
+            for (let i = 0; i < len && start + i < data.length; i++) {
+                const t = i / rate;
+                const env = Math.exp(-t * (kind === 'hat' ? 90 : kind === 'vox' ? 9 : 22));
+                let s = 0;
+                if (kind === 'kick') {
+                    s = Math.sin(2 * Math.PI * (48 + 90 * Math.exp(-t * 30)) * t);
+                } else if (kind === 'snare') {
+                    s = (Math.random() * 2 - 1) * 0.7 + Math.sin(2 * Math.PI * 190 * t) * 0.5;
+                } else if (kind === 'hat') {
+                    s = (Math.random() * 2 - 1);
+                } else if (kind === 'vox') {
+                    // crude formant stack so the slice sounds like a voice, not a beep
+                    s = Math.sin(2 * Math.PI * 220 * t) * 0.5
+                      + Math.sin(2 * Math.PI * 660 * t) * 0.25 * Math.exp(-t * 4)
+                      + Math.sin(2 * Math.PI * 1180 * t) * 0.15 * Math.exp(-t * 6);
+                }
+                data[start + i] += s * env * 0.7;
+            }
+        }
+
+        /* A two-second, one-bar "break" standing in for a recorded sample. */
+        function poBreak() {
+            if (poBreakBuffer) return poBreakBuffer;
+            const rate = audioCtx.sampleRate;
+            const buf = audioCtx.createBuffer(1, Math.floor(2.0 * rate), rate);
+            const d = buf.getChannelData(0);
+            [0, 1.0].forEach(t => poWriteHit(d, rate, t, 'kick'));
+            [0.5, 1.5].forEach(t => poWriteHit(d, rate, t, 'snare'));
+            for (let t = 0; t < 2.0; t += 0.25) poWriteHit(d, rate, t, 'hat');
+            [0.75, 1.75].forEach(t => poWriteHit(d, rate, t, 'vox'));
+            poBreakBuffer = buf;
+            return buf;
+        }
+
+        /* A short melodic "recording" for the chromatic-playback demos. */
+        function poTone() {
+            if (poToneBuffer) return poToneBuffer;
+            const rate = audioCtx.sampleRate;
+            const buf = audioCtx.createBuffer(1, Math.floor(0.45 * rate), rate);
+            const d = buf.getChannelData(0);
+            for (let i = 0; i < d.length; i++) {
+                const t = i / rate;
+                const env = Math.min(1, t * 60) * Math.exp(-t * 3.2);
+                d[i] = (Math.sin(2 * Math.PI * 220 * t) * 0.55
+                      + Math.sin(2 * Math.PI * 440 * t) * 0.22
+                      + Math.sin(2 * Math.PI * 658 * t) * 0.12) * env * 0.8;
+            }
+            poToneBuffer = buf;
+            return buf;
+        }
+
+        function poReversedBreak() {
+            if (poBreakReversed) return poBreakReversed;
+            const src = poBreak();
+            const buf = audioCtx.createBuffer(1, src.length, src.sampleRate);
+            const a = src.getChannelData(0), b = buf.getChannelData(0);
+            for (let i = 0; i < a.length; i++) b[i] = a[a.length - 1 - i];
+            poBreakReversed = buf;
+            return buf;
+        }
+
+        /* Play part of a buffer: the sampler primitive everything else uses. */
+        function poPlay(buf, when, offset, dur, rate, vol) {
+            const src = audioCtx.createBufferSource();
+            const g = audioCtx.createGain();
+            src.buffer = buf;
+            src.playbackRate.value = rate === undefined ? 1 : rate;
+            g.gain.setValueAtTime(vol === undefined ? 0.5 : vol, when);
+            g.gain.setValueAtTime(vol === undefined ? 0.5 : vol, when + Math.max(0.01, dur - 0.012));
+            g.gain.exponentialRampToValueAtTime(0.0001, when + dur);   // avoid slice clicks
+            src.connect(g); g.connect(masterOut());
+            src.start(when, offset, dur * (src.playbackRate.value));
+            src.stop(when + dur + 0.02);
+            return src;
+        }
+
+        const PO33_PATTERNS = {
+            po33Record: function (now) {
+                // the raw capture, as recorded
+                poPlay(poBreak(), now, 0, 2.0, 1, 0.5);
+            },
+
+            po33Trim: function (now) {
+                // untrimmed: dead air before the transient, so the hit feels late
+                poPlay(poBreak(), now, 0.42, 0.6, 1, 0.45);
+                // trimmed onto the transient, tail cut
+                poPlay(poBreak(), now + 0.9, 0.5, 0.22, 1, 0.5);
+                poPlay(poBreak(), now + 1.25, 0.5, 0.22, 1, 0.5);
+                poPlay(poBreak(), now + 1.6, 0.5, 0.22, 1, 0.5);
+            },
+
+            po33Slice: function (now) {
+                const buf = poBreak(), slice = 2.0 / 16;
+                // original order
+                for (let i = 0; i < 16; i++) poPlay(buf, now + i * 0.125, i * slice, 0.12, 1, 0.42);
+                // re-ordered: same material, new groove
+                const order = [0, 0, 4, 2, 0, 4, 7, 2, 0, 0, 12, 4, 6, 6, 2, 14];
+                order.forEach((s, i) => poPlay(buf, now + 2.2 + i * 0.125, s * slice, 0.12, 1, 0.45));
+            },
+
+            po33Melodic: function (now) {
+                // whole sound per key; pitch and length move together (varispeed)
+                [-12, -7, -5, 0, 4, 7, 12].forEach((semi, i) => {
+                    const rate = Math.pow(2, semi / 12);
+                    poPlay(poTone(), now + i * 0.28, 0, 0.42 / rate, rate, 0.42);
+                });
+                // low keys: slow, long, heavy
+                poPlay(poTone(), now + 2.1, 0, 0.42 / Math.pow(2, -24/12), Math.pow(2, -24/12), 0.5);
+            },
+
+            po33Hybrid: function (now) {
+                // a melodic phrase living in a drum slot, re-cut as a riff
+                const buf = poBreak(), slice = 2.0 / 16;
+                const riff = [6, 6, 14, null, 6, null, 14, 14, 6, null, 14, 6, 6, null, 14, null];
+                riff.forEach((s, i) => {
+                    if (s === null) return;
+                    poPlay(buf, now + i * 0.125, s * slice, 0.11, 1, 0.45);
+                });
+            },
+
+            po33Steps: function (now) {
+                const buf = poBreak(), slice = 2.0 / 16, step = 0.125;
+                // layered exactly how you would punch it in: kick, then snare, then chops
+                for (let bar = 0; bar < 2; bar++) {
+                    const t0 = now + bar * 16 * step;
+                    [0, 6, 10].forEach(s => poPlay(buf, t0 + s * step, 0, 0.16, 1, 0.5));           // kick slice
+                    [4, 12].forEach(s => poPlay(buf, t0 + s * step, 0.5, 0.16, 1, 0.42));            // snare slice
+                    for (let s = 2; s < 16; s += 4) poPlay(buf, t0 + s * step, 0.25, 0.05, 1, 0.2);  // hat slice
+                    if (bar === 1) [7, 14].forEach(s => poPlay(buf, t0 + s * step, 0.75, 0.12, 1, 0.4));
+                }
+            },
+
+            po33Chain: function (now) {
+                // 1 1 1 2 - the fourth bar is the same pattern with one step changed
+                const buf = poBreak(), slice = 2.0 / 16, step = 0.11;
+                for (let bar = 0; bar < 4; bar++) {
+                    const t0 = now + bar * 16 * step;
+                    const variation = (bar === 3);
+                    [0, 6, 10].forEach(s => poPlay(buf, t0 + s * step, 0, 0.15, 1, 0.48));
+                    [4, 12].forEach(s => poPlay(buf, t0 + s * step, 0.5, 0.15, 1, 0.4));
+                    for (let s = 2; s < 16; s += 4) poPlay(buf, t0 + s * step, 0.25, 0.05, 1, 0.18);
+                    if (variation) {
+                        [13, 14, 15].forEach((s, k) => poPlay(buf, t0 + s * step, 0.5, 0.09, 1, 0.3 + k * 0.06));
+                    }
+                }
+            },
+
+            po33Swing: function (now) {
+                const buf = poBreak(), step = 0.115;
+                const bar = (t0, swing) => {
+                    for (let s = 0; s < 16; s++) {
+                        const at = t0 + s * step + (s % 2 ? swing : 0);
+                        if (s % 4 === 0) poPlay(buf, at, 0, 0.15, 1, 0.48);
+                        else if (s % 8 === 4) poPlay(buf, at, 0.5, 0.15, 1, 0.4);
+                        else poPlay(buf, at, 0.25, 0.05, 1, 0.16);
+                    }
+                };
+                bar(now, 0);                       // straight
+                bar(now + 16 * step + 0.1, 0.035); // swung: offbeat 16ths pushed later
+            },
+
+            po33FxRhythm: function (now) {
+                const buf = poBreak(), slice = 2.0 / 16, step = 0.115;
+                // two plain beats
+                for (let s = 0; s < 8; s++) {
+                    const at = now + s * step;
+                    if (s % 4 === 0) poPlay(buf, at, 0, 0.15, 1, 0.48);
+                    else if (s === 4) poPlay(buf, at, 0.5, 0.15, 1, 0.4);
+                    else poPlay(buf, at, 0.25, 0.05, 1, 0.16);
+                }
+                // beat 3: half-bar loop  |  beat 4: stutter, shortening
+                for (let i = 0; i < 4; i++) poPlay(buf, now + (8 + i) * step, 0, 0.12, 1, 0.44);
+                for (let i = 0; i < 8; i++) poPlay(buf, now + (12 * step) + i * (step / 2), 0.5, 0.05, 1, 0.3 + i * 0.02);
+                // release onto the downbeat
+                poPlay(buf, now + 16 * step, 0, 0.3, 1, 0.55);
+            },
+
+            po33FxGesture: function (now) {
+                const buf = poBreak(), rev = poReversedBreak();
+                // plain bar
+                for (let s = 0; s < 8; s++) poPlay(buf, now + s * 0.115, (s % 4 === 0) ? 0 : 0.25, s % 4 === 0 ? 0.15 : 0.05, 1, s % 4 === 0 ? 0.48 : 0.16);
+                // reverse punch
+                poPlay(rev, now + 0.92, 0.6, 0.45, 1, 0.45);
+                // scratch: playback rate swept by hand
+                const src = audioCtx.createBufferSource();
+                const g = audioCtx.createGain();
+                src.buffer = buf;
+                const t = now + 1.5;
+                src.playbackRate.setValueAtTime(1.6, t);
+                src.playbackRate.linearRampToValueAtTime(0.4, t + 0.18);
+                src.playbackRate.linearRampToValueAtTime(1.8, t + 0.36);
+                g.gain.setValueAtTime(0.4, t);
+                g.gain.exponentialRampToValueAtTime(0.0001, t + 0.42);
+                src.connect(g); g.connect(masterOut());
+                src.start(t, 0.5); src.stop(t + 0.45);
+                // octave punch
+                poPlay(buf, now + 2.05, 0, 0.4, 2, 0.35);
+            },
+
+            po33Live: function (now) {
+                // one plain pattern, four different sections made with punches
+                const buf = poBreak(), step = 0.11;
+                const plain = (t0, rate) => {
+                    for (let s = 0; s < 16; s++) {
+                        const at = t0 + s * step;
+                        if (s % 4 === 0) poPlay(buf, at, 0, 0.15, rate || 1, 0.46);
+                        else if (s % 8 === 4) poPlay(buf, at, 0.5, 0.15, 1, 0.38);
+                        else if (s % 2 === 0) poPlay(buf, at, 0.25, 0.05, 1, 0.15);
+                    }
+                };
+                plain(now);                                    // verse
+                plain(now + 16 * step, 0.5);                    // octave-down punch = lift
+                plain(now + 32 * step);                         // back to plain
+                const t3 = now + 48 * step;                     // tension: loop, then stutter out
+                for (let i = 0; i < 8; i++) poPlay(buf, t3 + i * step, 0, 0.12, 1, 0.42);
+                for (let i = 0; i < 12; i++) poPlay(buf, t3 + 8 * step + i * (step / 2), 0.5, 0.05, 1, 0.24 + i * 0.015);
+                poPlay(buf, t3 + 16 * step, 0, 0.4, 1, 0.55);
+            }
+        };
+
+        /* ------------------------------------------------------------------
            Tempo / groove calculator
            ------------------------------------------------------------------ */
 
@@ -5721,6 +6781,42 @@ VICTORY   first 3 notes as a rising fanfare, FF00</pre>
             }
         }
 
+
+        /* Device books: Furnace and PO-33 are two separate manuals sharing one
+           shell, so switching swaps the nav, the filter chips and the content. */
+        let currentDevice = 'furnace';
+
+        function switchDevice(dev) {
+            if (dev === currentDevice) return;
+            currentDevice = dev;
+            ['furnace', 'po33'].forEach(d => {
+                const on = d === dev;
+                document.getElementById('book-' + d).classList.toggle('hidden', !on);
+                document.getElementById('navbook-' + d).classList.toggle('hidden', !on);
+                const chips = document.getElementById('chips-' + d);
+                chips.classList.toggle('hidden', !on);
+                chips.classList.toggle('flex', on);
+                document.getElementById('tab-' + d).className = on
+                    ? 'device-tab flex-1 px-3 py-2 rounded-lg text-xs font-semibold border transition bg-furnace-700/60 text-cyan-300 border-cyan-500/40'
+                    : 'device-tab flex-1 px-3 py-2 rounded-lg text-xs font-semibold border transition bg-furnace-800 text-gray-400 border-furnace-600 hover:text-white';
+            });
+            // a filter from the other device would hide everything here
+            currentTag = 'all';
+            document.getElementById('search-input').value = '';
+            document.querySelectorAll('#chips-' + dev + ' .filter-btn').forEach((b, i) => {
+                b.className = (i === 0)
+                    ? 'filter-btn active whitespace-nowrap px-3 py-1.5 rounded-full bg-cyan-500/20 text-cyan-300 border border-cyan-500/40 font-medium hover:bg-cyan-500/30 transition'
+                    : 'filter-btn whitespace-nowrap px-3 py-1.5 rounded-full bg-furnace-700 text-gray-300 border border-furnace-600 hover:bg-furnace-600 transition';
+            });
+            applyFilters();
+            document.getElementById('content-area').scrollTop = 0;
+            if (isMobileLayout()) toggleNav(true);
+        }
+
+        function activeBook() {
+            return document.getElementById('book-' + currentDevice);
+        }
+
         function isMobileLayout() {
             return window.matchMedia('(max-width: 767px)').matches;
         }
@@ -5767,7 +6863,7 @@ VICTORY   first 3 notes as a rising fanfare, FF00</pre>
         function applyFilters() {
             const query = (document.getElementById('search-input').value || '').toLowerCase().trim();
 
-            document.querySelectorAll('.pattern-card, .tip-card').forEach(card => {
+            activeBook().querySelectorAll('.pattern-card, .tip-card').forEach(card => {
                 const tags = (card.getAttribute('data-tags') || '').toLowerCase();
                 const text = card.innerText.toLowerCase();
                 const matchesTag = currentTag === 'all' || tags.includes(currentTag);
@@ -5775,7 +6871,7 @@ VICTORY   first 3 notes as a rising fanfare, FF00</pre>
                 card.style.display = (matchesTag && matchesQuery) ? '' : 'none';
             });
 
-            document.querySelectorAll('.category-section').forEach(section => {
+            activeBook().querySelectorAll('.category-section').forEach(section => {
                 const cards = section.querySelectorAll('.pattern-card, .tip-card');
                 if (cards.length === 0) {
                     // reference tables and tools have no cards: match on their own text
