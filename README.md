@@ -76,7 +76,7 @@ python3 -m http.server 8000
 
 | Section | Contents |
 |---|---|
-| 1. Controls & Key Combos | Every button's press and hold behaviour, the full combo table (sampling, patterns, tempo, performance, system), the fx knob pages, and step-hold editing |
+| 1. Controls & Key Combos | An interactive panel map (tap a control to filter the combos), every button's press and hold behaviour, the full combo table (sampling, patterns, tempo, performance, system), the fx knob pages, and step-hold editing |
 | 2. Sampling & the 40-Second Budget | Hold-to-record via mic or line in, allocating the shared 40 seconds, trimming with knobs A/B, what material survives a lo-fi sampler |
 | 3. Slots: Drum Slicing vs Melodic Keys | Keys 1–8 play a whole sound chromatically; keys 9–16 slice one sound across the pads — plus putting a melody in a drum slot |
 | 4. Step Patterns, Chaining & Swing | Step write vs quantized live punch-in, chaining up to 128 patterns into a track, BPM presets and the swing knob |
