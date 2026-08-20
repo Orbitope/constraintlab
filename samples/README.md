@@ -113,6 +113,18 @@ Those roots cover a key properly. In C major: **C**(1) **Dm**(10) **Em**(11)
 |---|---|---|---|---|---|---|---|---|
 |  | select | error | warp | impact | bubble | teleport | fall | chime |
 
+## Two things worth knowing before you load these
+
+- **Melodic slots lay out a scale, not a chromatic run.** Manual transcriptions
+  describe it as minor with the root around key 5, so the intervals under your
+  fingers are not evenly spaced semitones. The chords and long tones still
+  transpose fine — just do not assume chromatic movement.
+- **The banks work under either slicing behaviour.** Teenage Engineering's guide
+  describes drum keys as slices of the sound; some transcriptions say the machine
+  detects transients. Every bank here has 16 sounds with a clear attack on an even
+  boundary, so it lines up either way.
+- **Check remaining memory on the unit** with `sound + bpm`, paging to `rEC`.
+
 ## Recording into the PO-33
 
 1. **Cable:** 3.5 mm male-to-male from your phone or laptop headphone out into the

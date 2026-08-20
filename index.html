@@ -251,7 +251,12 @@
             <div id="navbook-po33" class="nav-book hidden">
             <div class="text-xs font-semibold text-gray-500 uppercase tracking-wider px-3 mb-2">PO-33 K.O!</div>
 
-            <a href="#po-sampling" onclick="setActiveNav(this)" class="nav-link flex items-center space-x-3 px-3 py-2.5 rounded-lg text-sm font-medium transition text-cyan-400 bg-furnace-700/60 border-l-4 border-cyan-400">
+            <a href="#po-controls" onclick="setActiveNav(this)" class="nav-link flex items-center space-x-3 px-3 py-2.5 rounded-lg text-sm font-medium transition text-cyan-400 bg-furnace-700/60 border-l-4 border-cyan-400">
+                <i class="fa-solid fa-keyboard text-base w-5 text-center text-amber-400"></i>
+                <span>Controls &amp; Combos</span>
+            </a>
+
+            <a href="#po-sampling" onclick="setActiveNav(this)" class="nav-link flex items-center space-x-3 px-3 py-2.5 rounded-lg text-sm font-medium transition text-gray-400 hover:text-white hover:bg-furnace-700/40">
                 <i class="fa-solid fa-microphone text-base w-5 text-center text-cyan-400"></i>
                 <span>Sampling &amp; Budget</span>
             </a>
@@ -324,6 +329,7 @@
             </span>
                 <span id="chips-po33" class="hidden items-center space-x-2">
                 <button onclick="setFilter('all', this)" class="filter-btn active whitespace-nowrap px-3 py-1.5 rounded-full bg-cyan-500/20 text-cyan-300 border border-cyan-500/40 font-medium hover:bg-cyan-500/30 transition">All</button>
+                <button onclick="setFilter('controls', this)" class="filter-btn whitespace-nowrap px-3 py-1.5 rounded-full bg-furnace-700 text-gray-300 border border-furnace-600 hover:bg-furnace-600 transition">Controls</button>
                 <button onclick="setFilter('sampling', this)" class="filter-btn whitespace-nowrap px-3 py-1.5 rounded-full bg-furnace-700 text-gray-300 border border-furnace-600 hover:bg-furnace-600 transition">Sampling</button>
                 <button onclick="setFilter('chopping', this)" class="filter-btn whitespace-nowrap px-3 py-1.5 rounded-full bg-furnace-700 text-gray-300 border border-furnace-600 hover:bg-furnace-600 transition">Chopping</button>
                 <button onclick="setFilter('melodic', this)" class="filter-btn whitespace-nowrap px-3 py-1.5 rounded-full bg-furnace-700 text-gray-300 border border-furnace-600 hover:bg-furnace-600 transition">Melodic</button>
@@ -4097,6 +4103,145 @@ VICTORY   first 3 notes as a rising fanfare, FF00</pre>
             </div>
 
             <div id="book-po33" class="device-book space-y-10 hidden">
+            <!-- PO-33: CONTROLS -->
+            <section id="po-controls" class="category-section space-y-6 pt-4">
+                <div class="border-b border-furnace-700 pb-3 flex flex-wrap items-center justify-between gap-3">
+                    <div class="flex items-center space-x-3">
+                        <div class="p-2 bg-amber-500/10 rounded-lg text-amber-400">
+                            <i class="fa-solid fa-keyboard text-xl"></i>
+                        </div>
+                        <div>
+                            <h2 class="text-xl font-bold text-white">1. Controls &amp; Key Combos</h2>
+                            <p class="text-xs text-gray-400">Seven buttons, two knobs and sixteen keys. Everything else is a combination — this is the page to keep open while the machine is in your hands.</p>
+                        </div>
+                    </div>
+                    <span class="text-xs font-mono px-2.5 py-1 bg-amber-500/10 text-amber-300 rounded border border-amber-500/30">Quick Reference</span>
+                </div>
+
+                <div class="tip-card bg-furnace-800 border border-furnace-700 rounded-xl p-5" data-tags="controls reference combos po33 buttons knobs quick">
+                    <div class="flex items-center gap-3 mb-3">
+                        <i class="fa-solid fa-circle-info text-amber-400"></i>
+                        <h3 class="text-base font-bold text-white">The mental model</h3>
+                    </div>
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-4 text-xs text-gray-300">
+                        <div class="bg-furnace-900 rounded-lg p-3 border border-furnace-700">
+                            <div class="text-amber-300 font-semibold mb-1">Press vs hold</div>
+                            <p>A <strong>press</strong> selects or toggles a mode. A <strong>hold</strong> turns that button into a modifier for the keys and knobs. Almost every function on the machine is "hold X, press a key".</p>
+                        </div>
+                        <div class="bg-furnace-900 rounded-lg p-3 border border-furnace-700">
+                            <div class="text-amber-300 font-semibold mb-1">The knobs are contextual</div>
+                            <p>A and B do nothing fixed. Pressing <code class="text-amber-300">fx</code> cycles the parameter page — <em>tone</em>, <em>filter</em>, <em>trim</em> — and the knobs edit whatever page you are on.</p>
+                        </div>
+                        <div class="bg-furnace-900 rounded-lg p-3 border border-furnace-700">
+                            <div class="text-amber-300 font-semibold mb-1">Two halves of the keyboard</div>
+                            <p>Keys <strong>1–8</strong> are melodic slots, keys <strong>9–16</strong> are drum slots. Which half a sound lives in decides how it plays back.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="overflow-x-auto bg-furnace-800 border border-furnace-700 rounded-xl">
+                    <table class="w-full text-left text-xs text-gray-300">
+                        <thead class="bg-furnace-900/80 text-amber-300 border-b border-furnace-700 uppercase font-mono">
+                            <tr><th class="p-3">Button</th><th class="p-3">Press</th><th class="p-3">Hold (as a modifier)</th></tr>
+                        </thead>
+                        <tbody class="divide-y divide-furnace-700">
+                            <tr class="hover:bg-furnace-700/30"><td class="p-3 text-amber-400 font-bold code-font">play</td><td class="p-3">Start / stop the pattern</td><td class="p-3 text-gray-500">—</td></tr>
+                            <tr class="hover:bg-furnace-700/30"><td class="p-3 text-amber-400 font-bold code-font">write</td><td class="p-3">Toggle write (step edit) mode</td><td class="p-3">Punch in notes, copy sounds and patterns, lock parameters</td></tr>
+                            <tr class="hover:bg-furnace-700/30"><td class="p-3 text-amber-400 font-bold code-font">sound</td><td class="p-3">Show / select sounds 1–16</td><td class="p-3">Choose a slot; combines with write and record for copy and delete</td></tr>
+                            <tr class="hover:bg-furnace-700/30"><td class="p-3 text-amber-400 font-bold code-font">pattern</td><td class="p-3">Show / select patterns 1–16</td><td class="p-3">Chain patterns; combines for copy and clear</td></tr>
+                            <tr class="hover:bg-furnace-700/30"><td class="p-3 text-amber-400 font-bold code-font">bpm</td><td class="p-3">Cycle tempo presets — 80 / 120 / 140</td><td class="p-3">Swing (knob A), fine tempo (knob B), volume (keys)</td></tr>
+                            <tr class="hover:bg-furnace-700/30"><td class="p-3 text-amber-400 font-bold code-font">fx</td><td class="p-3">Cycle the parameter page: tone → filter → trim</td><td class="p-3">Punch-in effects on keys 1–15; key 16 clears</td></tr>
+                            <tr class="hover:bg-furnace-700/30"><td class="p-3 text-amber-400 font-bold code-font">record</td><td class="p-3 text-gray-500">—</td><td class="p-3">Sample into a slot; also deletes sounds and clears patterns</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <div class="overflow-x-auto bg-furnace-800 border border-furnace-700 rounded-xl">
+                    <table class="w-full text-left text-xs text-gray-300">
+                        <thead class="bg-furnace-900/80 text-amber-300 border-b border-furnace-700 uppercase font-mono">
+                            <tr><th class="p-3">Combination</th><th class="p-3">Does</th><th class="p-3">Notes</th></tr>
+                        </thead>
+                        <tbody class="divide-y divide-furnace-700">
+                            <tr class="bg-furnace-900/40"><td class="p-3 font-sans font-semibold text-white" colspan="3">Sampling &amp; sounds</td></tr>
+                            <tr class="hover:bg-furnace-700/30"><td class="p-3 text-amber-400 font-bold code-font">record + key 1–16</td><td class="p-3">Sample into that slot</td><td class="p-3">Records while held. Line in if a cable is plugged, otherwise the mic.</td></tr>
+                            <tr class="hover:bg-furnace-700/30"><td class="p-3 text-amber-400 font-bold code-font">sound + key 1–16</td><td class="p-3">Select the sound slot</td><td class="p-3">Hold and press the same key again to step through a drum slot's slices.</td></tr>
+                            <tr class="hover:bg-furnace-700/30"><td class="p-3 text-amber-400 font-bold code-font">record + sound</td><td class="p-3">Delete the selected sound</td><td class="p-3">The only way to reclaim memory.</td></tr>
+                            <tr class="hover:bg-furnace-700/30"><td class="p-3 text-amber-400 font-bold code-font">write + sound + key</td><td class="p-3">Copy the sound to another slot</td><td class="p-3">Copying a melodic sound into a drum slot slices it into 16.</td></tr>
+                            <tr class="bg-furnace-900/40"><td class="p-3 font-sans font-semibold text-white" colspan="3">Patterns</td></tr>
+                            <tr class="hover:bg-furnace-700/30"><td class="p-3 text-amber-400 font-bold code-font">write</td><td class="p-3">Enter step-write mode</td><td class="p-3">Then keys 1–16 toggle steps; lit keys are active.</td></tr>
+                            <tr class="hover:bg-furnace-700/30"><td class="p-3 text-amber-400 font-bold code-font">write + key (playing)</td><td class="p-3">Punch in notes live</td><td class="p-3">Quantized to the step grid.</td></tr>
+                            <tr class="hover:bg-furnace-700/30"><td class="p-3 text-amber-400 font-bold code-font">pattern + key 1–16</td><td class="p-3">Select, or chain, patterns</td><td class="p-3">Up to 128 entries; a pattern can repeat.</td></tr>
+                            <tr class="hover:bg-furnace-700/30"><td class="p-3 text-amber-400 font-bold code-font">write + pattern + key</td><td class="p-3">Copy the active pattern to that slot</td><td class="p-3">Copy first, then edit the copy — that is how you make an A/A' pair.</td></tr>
+                            <tr class="hover:bg-furnace-700/30"><td class="p-3 text-amber-400 font-bold code-font">record + pattern</td><td class="p-3">Clear the active pattern</td><td class="p-3">Easy to hit by accident.</td></tr>
+                            <tr class="bg-furnace-900/40"><td class="p-3 font-sans font-semibold text-white" colspan="3">Tempo, feel &amp; level</td></tr>
+                            <tr class="hover:bg-furnace-700/30"><td class="p-3 text-amber-400 font-bold code-font">bpm + knob A</td><td class="p-3">Swing</td><td class="p-3">The single most useful knob move on the machine.</td></tr>
+                            <tr class="hover:bg-furnace-700/30"><td class="p-3 text-amber-400 font-bold code-font">bpm + knob B</td><td class="p-3">Fine tempo, 60–240 BPM</td><td class="p-3">Presets on the button: 80 hip hop, 120 disco, 140 tencho.</td></tr>
+                            <tr class="hover:bg-furnace-700/30"><td class="p-3 text-amber-400 font-bold code-font">bpm + key 1–16</td><td class="p-3">Master volume</td><td class="p-3">Keep it lower on headphones.</td></tr>
+                            <tr class="bg-furnace-900/40"><td class="p-3 font-sans font-semibold text-white" colspan="3">Performance</td></tr>
+                            <tr class="hover:bg-furnace-700/30"><td class="p-3 text-amber-400 font-bold code-font">fx + key 1–15</td><td class="p-3">Punch-in effect while held</td><td class="p-3">With write mode on, the effect is <em>saved into the pattern</em>.</td></tr>
+                            <tr class="hover:bg-furnace-700/30"><td class="p-3 text-amber-400 font-bold code-font">fx + 16</td><td class="p-3">No effect / clear effects</td><td class="p-3">In write mode this wipes effects stored in the pattern.</td></tr>
+                            <tr class="hover:bg-furnace-700/30"><td class="p-3 text-amber-400 font-bold code-font">write + knob A / B</td><td class="p-3">Lock the parameter into the pattern</td><td class="p-3">How a filter or tone setting becomes part of the pattern rather than a live tweak.</td></tr>
+                            <tr class="hover:bg-furnace-700/30"><td class="p-3 text-amber-400 font-bold code-font">record + knob A / B</td><td class="p-3">Reset that parameter</td><td class="p-3">Display shows <span class="code-font text-cyan-300">rSt</span>.</td></tr>
+                            <tr class="bg-furnace-900/40"><td class="p-3 font-sans font-semibold text-white" colspan="3">System</td></tr>
+                            <tr class="hover:bg-furnace-700/30"><td class="p-3 text-amber-400 font-bold code-font">sound + bpm</td><td class="p-3">Diagnostics pages</td><td class="p-3"><span class="code-font text-cyan-300">bAt</span> battery · <span class="code-font text-cyan-300">rEC</span> recording time left · <span class="code-font text-cyan-300">CPU</span> · <span class="code-font text-cyan-300">rEl</span> firmware</td></tr>
+                            <tr class="hover:bg-furnace-700/30"><td class="p-3 text-amber-400 font-bold code-font">record + bpm</td><td class="p-3">Sync mode, SY0–SY5</td><td class="p-3">Sets how audio and clock share the 3.5 mm jacks.</td></tr>
+                            <tr class="hover:bg-furnace-700/30"><td class="p-3 text-amber-400 font-bold code-font">write + sound + play</td><td class="p-3">Transmit backup data</td><td class="p-3">Record the line out to keep the backup as a file.</td></tr>
+                            <tr class="hover:bg-furnace-700/30"><td class="p-3 text-amber-400 font-bold code-font">write + sound + record</td><td class="p-3">Receive backup data</td><td class="p-3 text-red-300">Erases everything on the receiving unit first.</td></tr>
+                            <tr class="hover:bg-furnace-700/30"><td class="p-3 text-amber-400 font-bold code-font">sound + pattern</td><td class="p-3">Alarm clock</td><td class="p-3">Yes, really.</td></tr>
+                            <tr class="hover:bg-furnace-700/30"><td class="p-3 text-amber-400 font-bold code-font">pattern + write, on battery insert</td><td class="p-3">Factory reset</td><td class="p-3 text-red-300">Wipes all sounds and patterns.</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+
+                    <div class="tip-card bg-furnace-800 border border-furnace-700 rounded-xl p-5" data-tags="controls knobs tone filter trim parameters po33 reference">
+                        <div class="flex items-center gap-3 mb-3">
+                            <i class="fa-solid fa-sliders text-amber-400"></i>
+                            <h3 class="text-base font-bold text-white">Knob pages — press <code class="text-amber-300">fx</code> to cycle</h3>
+                        </div>
+                        <div class="overflow-x-auto rounded-lg border border-furnace-700">
+                            <table class="w-full text-left text-xs">
+                                <thead class="bg-furnace-900/80 text-amber-300 uppercase font-mono">
+                                    <tr><th class="p-3">Page</th><th class="p-3">Knob A</th><th class="p-3">Knob B</th></tr>
+                                </thead>
+                                <tbody class="divide-y divide-furnace-700 text-gray-300">
+                                    <tr class="hover:bg-furnace-700/30"><td class="p-3 code-font text-cyan-300">ton</td><td class="p-3">Pitch</td><td class="p-3">Volume</td></tr>
+                                    <tr class="hover:bg-furnace-700/30"><td class="p-3 code-font text-cyan-300">FLt</td><td class="p-3">High / low-pass filter</td><td class="p-3">Resonance</td></tr>
+                                    <tr class="hover:bg-furnace-700/30"><td class="p-3 code-font text-cyan-300">tri</td><td class="p-3">Sample start point</td><td class="p-3">Sample length</td></tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        <p class="text-xs text-gray-400 mt-3">These act on the <strong>selected sound</strong>, so pick the slot first. <span class="text-amber-300">write + knob</span> locks the setting into the pattern; <span class="text-amber-300">record + knob</span> resets it.</p>
+                    </div>
+
+                    <div class="tip-card bg-furnace-800 border border-furnace-700 rounded-xl p-5" data-tags="controls step edit hold retrigger length po33 sequencing reference">
+                        <div class="flex items-center gap-3 mb-3">
+                            <i class="fa-solid fa-hand-pointer text-amber-400"></i>
+                            <h3 class="text-base font-bold text-white">Holding a step (in write mode)</h3>
+                        </div>
+                        <div class="overflow-x-auto rounded-lg border border-furnace-700">
+                            <table class="w-full text-left text-xs">
+                                <thead class="bg-furnace-900/80 text-amber-300 uppercase font-mono">
+                                    <tr><th class="p-3">Hold a step key and…</th><th class="p-3">Result</th></tr>
+                                </thead>
+                                <tbody class="divide-y divide-furnace-700 text-gray-300">
+                                    <tr class="hover:bg-furnace-700/30"><td class="p-3">hold ~1 second</td><td class="p-3">Copy the step — display shows <span class="code-font text-cyan-300">CPy</span></td></tr>
+                                    <tr class="hover:bg-furnace-700/30"><td class="p-3">turn knob A</td><td class="p-3">Change the note (melodic) or slice (drum) on that step</td></tr>
+                                    <tr class="hover:bg-furnace-700/30"><td class="p-3">turn knob B</td><td class="p-3">Change the step's length</td></tr>
+                                    <tr class="hover:bg-furnace-700/30"><td class="p-3">press <span class="code-font">bpm</span></td><td class="p-3">Retrigger that step 1, 2, 3, 4, 6 or 8 times</td></tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        <p class="text-xs text-gray-400 mt-3">Per-step retrigger is the cheapest fill on the machine — no punch-in performance needed, and it stays in the pattern.</p>
+                    </div>
+
+                </div>
+
+                <div class="bg-furnace-800 border border-furnace-700 rounded-xl p-5 text-xs text-gray-300 space-y-2">
+                    <p><strong class="text-amber-300">Sourcing:</strong> single-button behaviour and the core combos are in Teenage Engineering's <a href="https://teenage.engineering/guides/po-33/en" class="text-cyan-400 hover:text-cyan-300 underline" target="_blank" rel="noopener">online guide</a>. The fuller list — diagnostics pages, sync modes, step-hold functions, factory reset — comes from the printed manual via two independent transcriptions (<a href="https://github.com/lode/PO-33" class="text-cyan-400 hover:text-cyan-300 underline" target="_blank" rel="noopener">lode/PO-33</a>, <a href="https://brianhilmers.com/gear/po/ko.php" class="text-cyan-400 hover:text-cyan-300 underline" target="_blank" rel="noopener">brianhilmers.com</a>) that agree with each other. Where a combo could destroy work — factory reset, backup receive, delete — confirm on your own unit before trusting this page.</p>
+                </div>
+            </section>
             <!-- PO-33: SAMPLING -->
             <section id="po-sampling" class="category-section space-y-6 pt-4">
                 <div class="border-b border-furnace-700 pb-3 flex flex-wrap items-center justify-between gap-3">
@@ -4105,7 +4250,7 @@ VICTORY   first 3 notes as a rising fanfare, FF00</pre>
                             <i class="fa-solid fa-microphone text-xl"></i>
                         </div>
                         <div>
-                            <h2 class="text-xl font-bold text-white">1. Sampling &amp; the 40-Second Budget</h2>
+                            <h2 class="text-xl font-bold text-white">2. Sampling &amp; the 40-Second Budget</h2>
                             <p class="text-xs text-gray-400">Getting sound in: mic versus line, how the 40 seconds is spent, and why trimming is the highest-value habit on this machine.</p>
                         </div>
                     </div>
@@ -4207,7 +4352,7 @@ used ~22 s   free ~18 s</pre>
                             </div>
                         </div>
                         <div class="tab-content recipe-tab hidden text-xs text-gray-300 space-y-2">
-                            <p><strong class="text-cyan-300">Write the plan down</strong> before sampling. The machine gives you no view of memory remaining, so your notes are the only map.</p>
+                            <p><strong class="text-cyan-300">Check what is left:</strong> hold <code class="bg-furnace-900 px-1.5 py-0.5 rounded text-amber-300 code-font">sound + bpm</code> and page to <span class="code-font text-cyan-300">rEC</span> for remaining recording time. Still worth writing the plan down first — the display tells you what is left, not what you meant to do with it.</p>
                         </div>
                     </div>
 
@@ -4307,7 +4452,7 @@ TRICK  sample a source an octave high, then
                             <i class="fa-solid fa-scissors text-xl"></i>
                         </div>
                         <div>
-                            <h2 class="text-xl font-bold text-white">2. Slots: Drum Slicing vs Melodic Keys</h2>
+                            <h2 class="text-xl font-bold text-white">3. Slots: Drum Slicing vs Melodic Keys</h2>
                             <p class="text-xs text-gray-400">The two halves of the keyboard behave differently — keys 1–8 play a whole sound chromatically, keys 9–16 slice one sound across the pads.</p>
                         </div>
                     </div>
@@ -4335,7 +4480,7 @@ TRICK  sample a source an octave high, then
                             <button onclick="switchCardTab(this, 'recipe')" class="tab-btn text-gray-400 hover:text-white pb-1 flex-shrink-0">Settings</button>
                         </div>
                         <div class="tab-content concept-tab text-xs text-gray-300 space-y-2">
-                            <p><strong class="text-purple-300">Slices are even, not smart.</strong> The machine divides by length, not by transient detection — so the musical work is making the recording's length line up with its own beats.</p>
+                            <p><strong class="text-purple-300">Get the length right and slicing takes care of itself.</strong> Teenage Engineering's guide describes each key as a slice of the sound; some manual transcriptions say the machine hunts transients. Either way the fix is the same — trim so the loop's length matches its own bars, and give every hit a clear attack.</p>
                             <p><strong class="text-purple-300">Trim first, chop second.</strong> If the trimmed loop is exactly one or two bars, slice 1 lands on beat 1 and every fourth slice lands on a beat.</p>
                             <p><strong class="text-purple-300">Re-order, do not replay.</strong> Playing slices back in their original order just reproduces the loop. Playing 1, 5, 3, 5, 9, 5 is where a new groove comes from.</p>
                             <p><strong class="text-purple-300">Off-grid slices are a feature</strong> — a slice starting mid-hit gives you the stuttered, clipped attacks that define chopped hip-hop production.</p>
@@ -4383,6 +4528,7 @@ New groove       1 1 5 3 1 5 8 3
                         <div class="tab-content concept-tab text-xs text-gray-300 space-y-2">
                             <p><strong class="text-purple-300">Pitch and duration move together.</strong> A bass line two octaves down runs four times as long — write parts that want that, rather than fighting it.</p>
                             <p><strong class="text-purple-300">Sample the note you want in the middle.</strong> Extreme transposition is where artefacts live; keep the useful range within about an octave either side of the recorded pitch.</p>
+                            <p><strong class="text-purple-300">It is a scale, not a chromatic run.</strong> The sixteen keys lay out a scale — transcriptions describe it as minor with the root around key 5 — so the intervals under your fingers are not evenly spaced semitones. Check yours before writing a part that assumes chromatic movement.</p>
                             <p><strong class="text-purple-300">Short samples make better instruments.</strong> A trimmed 200 ms stab is playable as a keyboard; a three-second phrase overlaps itself into mud.</p>
                             <p><strong class="text-purple-300">Tune to your track:</strong> record the source at the pitch of your key centre, so the middle of the keyboard sits in tune with everything else.</p>
                         </div>
@@ -4430,6 +4576,7 @@ Chord stab  one key, short trim, punched in
                             <p><strong class="text-purple-300">Words become rhythm.</strong> Slicing speech across sixteen keys turns syllables into a percussion kit that still carries the original's cadence.</p>
                             <p><strong class="text-purple-300">Chord progressions chop well:</strong> four chords in a two-second loop gives four keys per chord and instant re-ordering of the progression.</p>
                             <p><strong class="text-purple-300">The inverse also works:</strong> a single drum hit in a <em>melodic</em> slot becomes a tuned tom kit across the keyboard.</p>
+                            <p><strong class="text-purple-300">No re-recording needed:</strong> <code class="bg-furnace-900 px-1.5 py-0.5 rounded text-amber-300 code-font">write + sound + key</code> copies a sound between slots, and copying a melodic sound into a drum slot slices it into 16 automatically.</p>
                             <p><strong class="text-purple-300">Stutter it:</strong> repeating one slice on consecutive steps is the cheapest hook generator on the machine.</p>
                         </div>
                         <div class="tab-content pattern-tab hidden">
@@ -4464,7 +4611,7 @@ slice 1  -  12 12 9  -  5  -
                             <i class="fa-solid fa-grip text-xl"></i>
                         </div>
                         <div>
-                            <h2 class="text-xl font-bold text-white">3. Step Patterns, Chaining &amp; Swing</h2>
+                            <h2 class="text-xl font-bold text-white">4. Step Patterns, Chaining &amp; Swing</h2>
                             <p class="text-xs text-gray-400">Sixteen steps, sixteen patterns, chains up to 128 — building a whole track out of a very small grid.</p>
                         </div>
                     </div>
@@ -4620,7 +4767,7 @@ Swung      x  . x. x  . x. x  . x. x  . x.
                             <i class="fa-solid fa-bolt text-xl"></i>
                         </div>
                         <div>
-                            <h2 class="text-xl font-bold text-white">4. Punch-In Effects as Performance</h2>
+                            <h2 class="text-xl font-bold text-white">5. Punch-In Effects as Performance</h2>
                             <p class="text-xs text-gray-400">Effects are held gestures, not settings — held on the FX key, released back to normal. They are how a one-bar loop becomes an arrangement.</p>
                         </div>
                     </div>
@@ -4816,7 +4963,7 @@ no extra pattern slots used</pre>
                             <i class="fa-solid fa-plug text-xl"></i>
                         </div>
                         <div>
-                            <h2 class="text-xl font-bold text-white">5. Sync, Backup &amp; Workflow</h2>
+                            <h2 class="text-xl font-bold text-white">6. Sync, Backup &amp; Workflow</h2>
                             <p class="text-xs text-gray-400">Playing with other gear, getting audio out, and the data-transfer caveat that can cost you a whole project.</p>
                         </div>
                     </div>

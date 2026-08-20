@@ -76,11 +76,12 @@ python3 -m http.server 8000
 
 | Section | Contents |
 |---|---|
-| 1. Sampling & the 40-Second Budget | Hold-to-record via mic or line in, allocating the shared 40 seconds, trimming with knobs A/B, what material survives a lo-fi sampler |
-| 2. Slots: Drum Slicing vs Melodic Keys | Keys 1–8 play a whole sound chromatically; keys 9–16 slice one sound across the pads — plus putting a melody in a drum slot |
-| 3. Step Patterns, Chaining & Swing | Step write vs quantized live punch-in, chaining up to 128 patterns into a track, BPM presets and the swing knob |
-| 4. Punch-In Effects as Performance | Loop/stutter/retrigger as transitions, reverse and scratch gestures, using effects instead of spending pattern slots |
-| 5. Sync, Backup & Workflow | Jam sync and recording takes, and the data-transfer trap that erases the receiving unit |
+| 1. Controls & Key Combos | Every button's press and hold behaviour, the full combo table (sampling, patterns, tempo, performance, system), the fx knob pages, and step-hold editing |
+| 2. Sampling & the 40-Second Budget | Hold-to-record via mic or line in, allocating the shared 40 seconds, trimming with knobs A/B, what material survives a lo-fi sampler |
+| 3. Slots: Drum Slicing vs Melodic Keys | Keys 1–8 play a whole sound chromatically; keys 9–16 slice one sound across the pads — plus putting a melody in a drum slot |
+| 4. Step Patterns, Chaining & Swing | Step write vs quantized live punch-in, chaining up to 128 patterns into a track, BPM presets and the swing knob |
+| 5. Punch-In Effects as Performance | Loop/stutter/retrigger as transitions, reverse and scratch gestures, using effects instead of spending pattern slots |
+| 6. Sync, Backup & Workflow | Jam sync and recording takes, and the data-transfer trap that erases the receiving unit |
 
 Operating details are taken from [Teenage Engineering's own PO-33 guide](https://teenage.engineering/guides/po-33/en),
 which differs from some retailer copy (TE: keys 1–8 melodic, 9–16 drum). The
