@@ -7,7 +7,7 @@ explains the idea, shows a copyable pattern snippet, lists the instrument macro
 settings, and plays an in-browser Web Audio demo so you can hear it before you
 open the tracker.
 
-**Live site:** https://mwburke.github.io/constraint-lab/
+**Live site:** https://orbitope.com/constraint-lab/
 
 ## What's inside
 
@@ -43,16 +43,18 @@ The site is a single static `index.html` with no build step.
 1. Create a repository (`constraint-lab`) and push this folder:
 
 ```bash
-git remote add origin https://github.com/mwburke/constraint-lab.git
+git remote add origin https://github.com/Orbitope/constraint-lab.git
 git branch -M main
 git push -u origin main
 ```
 
 2. In the repository, open **Settings → Pages**.
 3. Under **Build and deployment**, set **Source** to *Deploy from a branch*,
-   then choose branch `main` and folder `/ (root)`. Save.
+   then choose branch `main` and folder `/docs`. Save. (This matches the other
+   Orbitope project sites, which all serve from `/docs` and inherit the
+   `orbitope.com` domain from the `orbitope.github.io` repo.)
 4. Wait a minute; the site appears at
-   `https://mwburke.github.io/constraint-lab/`.
+   `https://orbitope.com/constraint-lab/`.
 
 `.nojekyll` is included so GitHub serves the files as-is.
 
