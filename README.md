@@ -83,4 +83,8 @@ python3 -m http.server 8000
 | 5. Sync, Backup & Workflow | Jam sync and recording takes, and the data-transfer trap that erases the receiving unit |
 
 Operating details are taken from [Teenage Engineering's own PO-33 guide](https://teenage.engineering/guides/po-33/en),
-which differs from some retailer copy (TE: keys 1–8 melodic, 9–16 drum).
+which differs from some retailer copy (TE: keys 1–8 melodic, 9–16 drum). The
+per-key punch-in effect mapping is not in the online guide — it comes from the
+printed manual, cross-checked against two independent transcriptions
+([lode/PO-33](https://github.com/lode/PO-33) and
+[brianhilmers.com](https://brianhilmers.com/gear/po/ko.php)) which agree.

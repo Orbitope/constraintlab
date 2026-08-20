@@ -4157,6 +4157,7 @@ MEMORY        40 seconds total, shared by all slots</pre>
                         <div class="tab-content recipe-tab hidden text-xs text-gray-300 space-y-2">
                             <p><strong class="text-cyan-300">Before recording:</strong> know which slot you are aiming at — keys 1–8 are melodic, 9–16 are drum, and the two behave completely differently on playback.</p>
                             <p><strong class="text-cyan-300">Full memory:</strong> there is no compaction. If the 40 seconds are spent, delete a sound or record over one.</p>
+                            <p><strong class="text-cyan-300">Official docs:</strong> Teenage Engineering's <a href="https://teenage.engineering/guides/po-33/en" class="text-cyan-400 hover:text-cyan-300 underline" target="_blank" rel="noopener">PO-33 guide</a> covers the key combinations; note it says keys 1–8 are melodic and 9–16 drum, which contradicts a lot of retailer copy.</p>
                         </div>
                     </div>
 
@@ -4657,13 +4658,17 @@ Swung      x  . x. x  . x. x  . x. x  . x.
                                 <button onclick="copySnippet(this)" class="absolute top-2 right-2 px-2 py-1 bg-furnace-800 text-gray-400 hover:text-white rounded text-[10px]"><i class="fa-regular fa-copy"></i> Copy</button>
                                 <pre>
 PUNCH IN   hold [fx] + a key
-           effect applies while held
+           momentary, unless write mode is on
 
 Transition into a chorus (last bar)
   beat 1-2   no effect
-  beat 3     hold a loop effect (half bar)
-  beat 4     hold a shorter loop / stutter
-  downbeat   release -> chorus pattern</pre>
+  beat 3     key 1  loop 16      (long loop)
+  beat 4     key 3  loop short   (tighter)
+  beat 4.5   key 9  stutter 4
+  downbeat   release -> chorus pattern
+
+Shortening the loop across the bar
+  1 -> 2 -> 3 -> 4  is a built-in riser</pre>
                             </div>
                         </div>
                         <div class="tab-content recipe-tab hidden text-xs text-gray-300 space-y-2">
@@ -4699,20 +4704,26 @@ Transition into a chorus (last bar)
                             <div class="relative bg-furnace-900 rounded-lg p-3 border border-furnace-700 code-font text-xs text-green-400">
                                 <button onclick="copySnippet(this)" class="absolute top-2 right-2 px-2 py-1 bg-furnace-800 text-gray-400 hover:text-white rounded text-[10px]"><i class="fa-regular fa-copy"></i> Copy</button>
                                 <pre>
-FX FAMILIES on the PO-33
+PUNCH-IN EFFECTS, hold [fx] + key
 
-RHYTHMIC   loop lengths, stutter, retrigger
-GESTURAL   reverse, scratch
-PITCH      unison, octave shifts
-TIMING     quantize
+ 1  loop 16          9  stutter 4
+ 2  loop 12         10  stutter 3
+ 3  loop short      11  scratch
+ 4  loop shorter    12  scratch fast
+ 5  unison          13  6 / 8 quantize
+ 6  unison low      14  retrigger pattern
+ 7  octave up       15  reverse
+ 8  octave down     16  no effect / clear
 
-Held on [fx] + a key, 1-15.
-Check your unit's panel for the exact key
-mapping - it is printed on the case.</pre>
+RHYTHMIC  1-4, 9-10, 14
+GESTURAL  11-12, 15
+PITCH     5-8
+TIMING    13</pre>
                             </div>
                         </div>
                         <div class="tab-content recipe-tab hidden text-xs text-gray-300 space-y-2">
-                            <p><strong class="text-red-300">Record your performance:</strong> punch-ins are not stored in the pattern, so capture the line out if a take is good.</p>
+                            <p><strong class="text-red-300">Effects can be committed:</strong> hold <code class="bg-furnace-900 px-1.5 py-0.5 rounded text-amber-300 code-font">fx</code> + a key <em>with write mode enabled</em> and the effect is saved into the pattern rather than being momentary. Hold <code class="bg-furnace-900 px-1.5 py-0.5 rounded text-amber-300 code-font">fx + 16</code> in write mode to clear saved effects.</p>
+                            <p><strong class="text-red-300">Still record the take:</strong> live pattern changes and chain moves are not stored, so capture the line out when a performance is good.</p>
                         </div>
                     </div>
 
@@ -4758,6 +4769,42 @@ no extra pattern slots used</pre>
                         </div>
                     </div>
 
+                </div>
+
+                <div class="overflow-x-auto bg-furnace-800 border border-furnace-700 rounded-xl">
+                    <table class="w-full text-left text-xs text-gray-300">
+                        <thead class="bg-furnace-900/80 text-red-300 border-b border-furnace-700 uppercase font-mono">
+                            <tr>
+                                <th class="p-3">Key</th>
+                                <th class="p-3">Effect</th>
+                                <th class="p-3">Family</th>
+                                <th class="p-3">What it is good for</th>
+                            </tr>
+                        </thead>
+                        <tbody class="divide-y divide-furnace-700 code-font">
+                            <tr class="hover:bg-furnace-700/30"><td class="p-3 text-amber-400 font-bold">1</td><td class="p-3 text-white font-sans font-semibold">loop 16</td><td class="p-3">rhythmic</td><td class="p-3 font-sans">Longest loop. The gentle one — hold it for a bar to suspend the groove without breaking it.</td></tr>
+                            <tr class="hover:bg-furnace-700/30"><td class="p-3 text-amber-400 font-bold">2</td><td class="p-3 text-white font-sans font-semibold">loop 12</td><td class="p-3">rhythmic</td><td class="p-3 font-sans">Slightly shorter, and not a power of two — pushes the loop against the bar for a lurching feel.</td></tr>
+                            <tr class="hover:bg-furnace-700/30"><td class="p-3 text-amber-400 font-bold">3</td><td class="p-3 text-white font-sans font-semibold">loop short</td><td class="p-3">rhythmic</td><td class="p-3 font-sans">Beat-level loop. The standard fill: hold on beat 4 of the bar before a change.</td></tr>
+                            <tr class="hover:bg-furnace-700/30"><td class="p-3 text-amber-400 font-bold">4</td><td class="p-3 text-white font-sans font-semibold">loop shorter</td><td class="p-3">rhythmic</td><td class="p-3 font-sans">Tightest loop, close to a pitchy buzz. Step 1→2→3→4 across a bar and you have a riser.</td></tr>
+                            <tr class="hover:bg-furnace-700/30"><td class="p-3 text-amber-400 font-bold">5</td><td class="p-3 text-white font-sans font-semibold">unison</td><td class="p-3">pitch</td><td class="p-3 font-sans">Thickens the sound by doubling it. Good on thin chopped material that needs weight.</td></tr>
+                            <tr class="hover:bg-furnace-700/30"><td class="p-3 text-amber-400 font-bold">6</td><td class="p-3 text-white font-sans font-semibold">unison low</td><td class="p-3">pitch</td><td class="p-3 font-sans">Doubling with a lower voice — instant sub weight under a bar without touching the pattern.</td></tr>
+                            <tr class="hover:bg-furnace-700/30"><td class="p-3 text-amber-400 font-bold">7</td><td class="p-3 text-white font-sans font-semibold">octave up</td><td class="p-3">pitch</td><td class="p-3 font-sans">Lifts a section an octave. A whole arrangement variation from one held key.</td></tr>
+                            <tr class="hover:bg-furnace-700/30"><td class="p-3 text-amber-400 font-bold">8</td><td class="p-3 text-white font-sans font-semibold">octave down</td><td class="p-3">pitch</td><td class="p-3 font-sans">Drops an octave — heavier and slower-sounding on sliced material. Pairs well with a breakdown.</td></tr>
+                            <tr class="hover:bg-furnace-700/30"><td class="p-3 text-amber-400 font-bold">9</td><td class="p-3 text-white font-sans font-semibold">stutter 4</td><td class="p-3">rhythmic</td><td class="p-3 font-sans">Four-way repeat of the current step. The classic hard fill on the last beat.</td></tr>
+                            <tr class="hover:bg-furnace-700/30"><td class="p-3 text-amber-400 font-bold">10</td><td class="p-3 text-white font-sans font-semibold">stutter 3</td><td class="p-3">rhythmic</td><td class="p-3 font-sans">Triplet repeat against a straight pattern — the 3-against-4 trick, one key.</td></tr>
+                            <tr class="hover:bg-furnace-700/30"><td class="p-3 text-amber-400 font-bold">11</td><td class="p-3 text-white font-sans font-semibold">scratch</td><td class="p-3">gestural</td><td class="p-3 font-sans">Turntable-style playback manipulation. Best over a stripped-back pattern where it reads clearly.</td></tr>
+                            <tr class="hover:bg-furnace-700/30"><td class="p-3 text-amber-400 font-bold">12</td><td class="p-3 text-white font-sans font-semibold">scratch fast</td><td class="p-3">gestural</td><td class="p-3 font-sans">The aggressive version. One beat is plenty; a whole bar sounds like a fault.</td></tr>
+                            <tr class="hover:bg-furnace-700/30"><td class="p-3 text-amber-400 font-bold">13</td><td class="p-3 text-white font-sans font-semibold">6 / 8 quantize</td><td class="p-3">timing</td><td class="p-3 font-sans">Re-grids playback into a 6/8 feel — turns a straight pattern into a shuffle without rewriting it.</td></tr>
+                            <tr class="hover:bg-furnace-700/30"><td class="p-3 text-amber-400 font-bold">14</td><td class="p-3 text-white font-sans font-semibold">retrigger pattern</td><td class="p-3">rhythmic</td><td class="p-3 font-sans">Restarts the pattern repeatedly. Chaotic and very recognisable — use it once per track.</td></tr>
+                            <tr class="hover:bg-furnace-700/30"><td class="p-3 text-amber-400 font-bold">15</td><td class="p-3 text-white font-sans font-semibold">reverse</td><td class="p-3">gestural</td><td class="p-3 font-sans">Plays material backwards. One beat before a chorus is the classic pre-chorus lift.</td></tr>
+                            <tr class="hover:bg-furnace-700/30"><td class="p-3 text-amber-400 font-bold">16</td><td class="p-3 text-white font-sans font-semibold">no effect / clear</td><td class="p-3">—</td><td class="p-3 font-sans">Bypass. In <strong>write mode</strong>, this is how you clear effects already saved into a pattern.</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <div class="bg-furnace-800 border border-furnace-700 rounded-xl p-5 text-xs text-gray-300 space-y-2">
+                    <p><strong class="text-red-300">Momentary or committed:</strong> held on their own, effects last only while the key is down. Held <em>with write mode enabled</em>, they are saved into the pattern — which is how you keep a stutter fill without having to perform it every time round.</p>
+                    <p><strong class="text-red-300">Source:</strong> the per-key mapping is not in Teenage Engineering's <a href="https://teenage.engineering/guides/po-33/en" class="text-cyan-400 hover:text-cyan-300 underline" target="_blank" rel="noopener">online guide</a> — it comes from the printed manual, cross-checked here against two independent transcriptions (<a href="https://github.com/lode/PO-33" class="text-cyan-400 hover:text-cyan-300 underline" target="_blank" rel="noopener">lode/PO-33</a>, <a href="https://brianhilmers.com/gear/po/ko.php" class="text-cyan-400 hover:text-cyan-300 underline" target="_blank" rel="noopener">brianhilmers.com</a>) which agree. Your unit's panel is the final authority.</p>
                 </div>
             </section>
 
